@@ -1,6 +1,7 @@
 def index():
     if auth.user: redirect(URL('home'))
     return locals()
+# Testing git
 
 def user():
     return dict(form=auth())
