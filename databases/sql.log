@@ -94,3 +94,14 @@ CREATE TABLE post_comment(
     image_id INTEGER REFERENCES image (id) ON DELETE CASCADE  
 );
 success!
+timestamp: 2016-10-17T22:06:09.092217
+CREATE TABLE web2py_session_li(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    locked CHAR(1),
+    client_ip CHAR(64),
+    created_datetime TIMESTAMP,
+    modified_datetime TIMESTAMP,
+    unique_key CHAR(64),
+    session_data BLOB
+);
+success!

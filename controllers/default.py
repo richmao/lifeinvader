@@ -17,8 +17,7 @@ def index():
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
     """
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+    return dict(get_username_from_email = get_username_from_email, get_firstname_from_email = get_firstname_from_email)
 
 
 def user():
@@ -39,6 +38,20 @@ def user():
     """
     return dict(form=auth())
 
+def get_username_from_email(email):
+    u = db(db.auth_user.email == email).select().first()
+    if u is None:
+        return 'None'
+    else:
+        return ' '.join([u.first_name, u.last_name])
+
+def get_firstname_from_email(email):
+    u = db(db.auth_user.email == email).select().first()
+    if u is None:
+        return 'None'
+    else:
+        return u.first_name
+
 
 @cache.action()
 def download():
@@ -57,5 +70,6 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
+
 
 

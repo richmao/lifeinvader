@@ -1,4 +1,18 @@
-/* line 1, ../sass/_main.scss */
+/*
+ * Changing the background of the whole "body", I figure we can make the background of the container
+ * to give some nice contrast
+ */
+
+body {
+    background: url(../images/bg.jpg);
+}
+
+.main {
+    background-color: #fff;
+    padding-bottom: 20px;
+}
+
 .colorful {
   color: #bb8833;
 }
+
