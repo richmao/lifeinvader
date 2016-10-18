@@ -2,17 +2,26 @@
  * Changing the background of the whole "body", I figure we can make the background of the container
  * to give some nice contrast
  */
-
+/* line 6, ../sass/_main.scss */
 body {
-    background: url(../images/bg.jpg);
+  background: url(../images/bg.jpg);
 }
 
+/* line 10, ../sass/_main.scss */
 .main {
-    background-color: #fff;
-    padding-bottom: 20px;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
+  background-color: #fff;
+  padding-bottom: 20px;
 }
 
+/* line 16, ../sass/_main.scss */
 .colorful {
   color: #bb8833;
 }
 
+/* line 20, ../sass/_main.scss */
+#logout {
+  padding-top: 20px;
+}

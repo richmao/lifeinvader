@@ -1,17 +1,23 @@
 {{extend 'layout.html'}}
 
 <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 main">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 main">
         {{if auth.user_id:}}
 
-            <h1>Welcome {{=get_firstname_from_email(auth.user.email)}}</h1>
+            <div class="row">
+                <div class="col-xs-10">
+                    <h1>Welcome {{=get_firstname_from_email(auth.user.email)}}</h1>
+                </div>
+                <div class="col-xs-2"id="logout"><a href="{{=URL('default','user', args=['logout'])}}" class="btn btn-danger">Logout</a></div>
+            </div>
 
         {{else:}}
             <h1>Hey there, I noticed you're not logged in!</h1>
             <a href="{{=URL('default','user', args=['login'])}}" class="btn btn-success">Login</a>
+            <a href="{{=URL('default','user', args=['register'])}}" class="btn btn-success">Sign Up</a>
         {{pass}}
     </div>
 
-    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
 </div>

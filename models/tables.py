@@ -23,7 +23,7 @@ db.define_table('image',
                 Field('comment_list', 'list:reference post_comment'),
                 Field('caption', 'text')
                 )
-ls
+
 db.define_table('post_comment',
                 Field('comment_content', 'text'),
                 Field('commenter_id', 'reference lifeinvader_user'),

@@ -1,3 +1,22 @@
+/*
+ * Changing the background of the whole "body", I figure we can make the background of the container
+ * to give some nice contrast
+ */
+
+body {
+    background: url(../images/bg.jpg);
+}
+
+.main {
+    @include border-radius(16px);
+    background-color: #fff;
+    padding-bottom: 20px;
+}
+
 .colorful {
-  color: $clrHilight;
+  color: #bb8833;
+}
+
+#logout {
+  padding-top: 20px;
 }
