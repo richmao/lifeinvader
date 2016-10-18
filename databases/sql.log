@@ -1,0 +1,96 @@
+timestamp: 2016-10-17T21:52:04.677087
+CREATE TABLE web2py_session_lifeinvader(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    locked CHAR(1),
+    client_ip CHAR(64),
+    created_datetime TIMESTAMP,
+    modified_datetime TIMESTAMP,
+    unique_key CHAR(64),
+    session_data BLOB
+);
+success!
+timestamp: 2016-10-17T21:52:04.681806
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2016-10-17T21:52:04.683924
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2016-10-17T21:52:04.686372
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2016-10-17T21:52:04.688285
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2016-10-17T21:52:04.689945
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2016-10-17T21:52:04.691825
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2016-10-17T21:58:52.704780
+CREATE TABLE lifeinvader_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email CHAR(512),
+    first_name TEXT,
+    last_name TEXT,
+    follow_list TEXT,
+    audience_list TEXT,
+    image_list TEXT
+);
+success!
+timestamp: 2016-10-17T21:58:52.706829
+CREATE TABLE image(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    poster_id INTEGER REFERENCES lifeinvader_user (id) ON DELETE CASCADE  ,
+    image_content CHAR(512),
+    like_list TEXT,
+    comment_list TEXT,
+    caption TEXT
+);
+success!
+success!
+timestamp: 2016-10-17T21:59:49.763777
+CREATE TABLE post_comment(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    comment_content TEXT,
+    commenter_id INTEGER REFERENCES lifeinvader_user (id) ON DELETE CASCADE  ,
+    image_id INTEGER REFERENCES image (id) ON DELETE CASCADE  
+);
+success!
