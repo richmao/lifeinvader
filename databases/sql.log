@@ -136,3 +136,59 @@ CREATE TABLE web2py_session_life(
     session_data BLOB
 );
 success!
+timestamp: 2016-10-18T15:40:18.298736
+ALTER TABLE lifeinvader_user ADD li_id TEXT;
+timestamp: 2016-10-18T15:40:18.313892
+ALTER TABLE lifeinvader_user ADD user_name TEXT;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2016-10-18T16:05:11.238920
+ALTER TABLE auth_user ADD username CHAR(128);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2016-10-18T16:30:49.142110
+ALTER TABLE auth_user ADD image_list TEXT;
+timestamp: 2016-10-18T16:30:49.156550
+ALTER TABLE auth_user ADD follow_list TEXT;
+timestamp: 2016-10-18T16:30:49.171402
+ALTER TABLE auth_user ADD audience_list TEXT;
+success!
+timestamp: 2016-10-18T16:30:49.212191
+ALTER TABLE lifeinvader_user ADD username CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!

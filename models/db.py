@@ -65,8 +65,49 @@ auth = Auth(db, host_names=myconf.get('host.names'))
 service = Service()
 plugins = PluginManager()
 
+# Define custom auth here?
+
+db.define_table(
+    auth.settings.table_user_name,
+    Field('first_name', length=128, default=''),
+    Field('last_name', length=128, default=''),
+    Field('username', length=128, default=''),
+    Field('email', length=128, default='', unique=True), # required
+    Field('password', 'password', length=512,            # required
+          readable=False, label='Password'),
+    Field('registration_key', length=512,                # required
+          writable=False, readable=False, default=''),
+    Field('reset_password_key', length=512,              # required
+          writable=False, readable=False, default=''),
+    Field('registration_id', length=512,                 # required
+          writable=False, readable=False, default=''),
+    # We follow
+    Field('follow_list', 'list:reference lifeinvader_user', readable=True),
+    # They follow us
+    Field('audience_list', 'list:reference lifeinvader_user'),
+    Field('image_list', 'list:reference image')
+)
+
+
+## do not forget validators
+custom_auth_table = db[auth.settings.table_user_name] # get the custom_auth_table
+custom_auth_table.first_name.requires =   IS_NOT_EMPTY(error_message=auth.messages.is_empty)
+custom_auth_table.last_name.requires =   IS_NOT_EMPTY(error_message=auth.messages.is_empty)
+#custom_auth_table.password.requires = [IS_STRONG(), CRYPT()]
+custom_auth_table.email.requires = [
+  IS_EMAIL(error_message=auth.messages.invalid_email),
+  IS_NOT_IN_DB(db, custom_auth_table.email)]
+
+auth.settings.table_user = custom_auth_table # tell auth to use custom_auth_table
+custom_auth_table.username.requires = IS_NOT_IN_DB(db, custom_auth_table.username)
+
 # create all tables needed by auth if not custom tables
-auth.define_tables(username=False, signature=False)
+auth.define_tables(signature=False)
+
+# Hiding audience, follow and image list.
+db.auth_user.follow_list.writable = False
+db.auth_user.audience_list.writable = False
+db.auth_user.image_list.writable = False
 
 # configure email
 mail = auth.settings.mailer

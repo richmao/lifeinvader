@@ -71,5 +71,9 @@ def call():
     """
     return service()
 
+def profile():
+
+    return dict(page_name="My Profile")
+
 
 

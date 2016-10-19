@@ -32,12 +32,12 @@ I00
 sg6
 I2
 sg7
-S'INTEGER REFERENCES lifeinvader_user (id) ON DELETE CASCADE  '
+S'INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  '
 p14
 sg9
 I00
 sg10
-S'reference lifeinvader_user'
+S'reference auth_user'
 p15
 ssS'comment_list'
 p16
@@ -87,7 +87,7 @@ g18
 sg9
 I00
 sg10
-S'list:reference lifeinvader_user'
+S'list:reference auth_user'
 p26
 ssS'id'
 p27

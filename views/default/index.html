@@ -9,7 +9,11 @@
                 <div class="col-xs-10">
                     <h1>Welcome {{=get_firstname_from_email(auth.user.email)}}</h1>
                 </div>
-                <div class="col-xs-2"id="logout"><a href="{{=URL('default','user', args=['logout'])}}" class="btn btn-danger">Logout</a></div>
+
+                <div class="col-xs-2"id="logout">
+                    <a href="{{=URL('default','profile')}}" class="btn btn-primary">Profile</a>
+                    <a href="{{=URL('default','user', args=['logout'])}}" class="btn btn-danger">Logout</a>
+                </div>
             </div>
 
         {{else:}}
