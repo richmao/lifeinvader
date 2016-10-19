@@ -18,13 +18,16 @@
 #                 Field('audience_list', 'list:reference lifeinvader_user'),
 #                 Field('image_list', 'list:reference image')
 #                 )
+import datetime
+
 
 db.define_table('image',
                 Field('poster_id', 'reference auth_user'),
                 Field('image_content', 'upload'),
                 Field('like_list', 'list:reference auth_user'),
                 Field('comment_list', 'list:reference post_comment'),
-                Field('caption', 'text')
+                Field('caption', 'text'),
+                Field('posted_on','datetime', update=datetime.datetime.utcnow()),
                 )
 
 db.define_table('post_comment',

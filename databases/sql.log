@@ -192,3 +192,17 @@ success!
 success!
 success!
 success!
+timestamp: 2016-10-18T20:06:20.456774
+CREATE TABLE web2py_session_final_project(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    locked CHAR(1),
+    client_ip CHAR(64),
+    created_datetime TIMESTAMP,
+    modified_datetime TIMESTAMP,
+    unique_key CHAR(64),
+    session_data BLOB
+);
+success!
+timestamp: 2016-10-18T20:22:09.125014
+ALTER TABLE image ADD posted_on TIMESTAMP;
+success!
