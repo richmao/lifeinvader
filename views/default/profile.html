@@ -1,9 +1,31 @@
 {{extend 'layout.html'}}
 
-<h1>Your Posts: </h1>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 main">
 
-{{for image in images:}}
-        {{if auth.user.email == image.author:}}
-            <img src="{{=URL('default', 'download', args=image.image_content)}}" />
+        <div class="row">
+            <div class="col-xs-8">
+                <h1>{{=auth.user.username}}'s Profile</h1>
+            </div>
+            {{if auth.user_id:}}
+                <div class="col-xs-4"id="logout">
+                    <a href="{{=URL('default','profile')}}" class="btn btn-primary">Profile</a>
+                    <a href="{{=URL('default','user', args=['logout'])}}" class="btn btn-danger">Logout</a>
+                    <a href="{{=URL('default','upload')}}" class="btn btn-info">Upload</a>
+                    <a href="{{=URL('default','index')}}" class="btn btn-success">Home</a>
+                </div>
+            {{pass}}
+        </div>
+
+        {{for image in images:}}
+            <div>
+                <img src="{{=URL('default', 'download', args=image.image_content)}}" />
+                <br />
+                <b>{{=get_screenname(image.author)}}</b>: {{=image.caption}}
+            </div>
         {{pass}}
-{{pass}}
+    </div>
+
+    <div class="col-md-2"></div>
+</div>

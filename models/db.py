@@ -80,7 +80,7 @@ db.define_table(
     Field('reset_password_key', length=512,              # required
           writable=False, readable=False, default=''),
     Field('registration_id', length=512,                 # required
-          writable=False, readable=False, default=''),
+          writable=False, readable=False, default='')
     # We follow
     #Field('follow_list', 'list:string', readable=True),
     # They follow us
