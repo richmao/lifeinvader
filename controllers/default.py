@@ -86,5 +86,25 @@ def upload():
         redirect(URL('default','index'))
     return dict(form=form)
 
+@auth.requires_login()
+def search():
+    form = SQLFORM.factory(Field('name',requires=IS_NOT_EMPTY()))
+    if form.accepts(request):
+        tokens = form.vars.name.split()
+        query = reduce(lambda a,b:a&b,
+                       [db.auth_user.username.contains(k)|db.auth_user.last_name.contains(k)|db.auth_user.first_name.contains(k) \
+                            for k in tokens])
+        people = db(query).select(orderby=db.auth_user.first_name)
+    else:
+        people = []
+    q = db.follow.follower == auth.user.email
+    followlist = db(q).select()
+    return locals()
 
+def follow():
+    if request.env.request_method!='POST': raise HTTP(400)
+    if request.args(0) == 'follow' and not db.follow(follower=auth.user.email, followee = request.args(1)):
+        db.follow.insert(follower = auth.user.email, followee=request.args(1))
+    elif request.args(0)=='unfollow':
+        db(db.follow.follower==auth.user.email)(db.follow.followee==request.args(1)).delete()
 

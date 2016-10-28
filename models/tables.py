@@ -36,6 +36,10 @@ db.define_table('post_comment',
                 Field('image_id', 'reference image')
                 )
 
+db.define_table('follow',
+                Field('follower', 'text'),
+                Field('followee', 'text'))
+
 db.image.posted_on.readable = db.image.posted_on.writable = False
 # I don't want to display the user email by default in all forms.
 #db.lifeinvader_user.email.readable = db.lifeinvader_user.email.writable = False

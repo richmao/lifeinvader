@@ -82,9 +82,9 @@ db.define_table(
     Field('registration_id', length=512,                 # required
           writable=False, readable=False, default=''),
     # We follow
-    #Field('follow_list', 'list:reference lifeinvader_user', readable=True),
+    #Field('follow_list', 'list:string', readable=True),
     # They follow us
-    #Field('audience_list', 'list:reference lifeinvader_user'),
+    #Field('audience_list', 'list:string'),
     #Field('image_list', 'list:reference image'),
 )
 
