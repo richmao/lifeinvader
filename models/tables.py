@@ -42,10 +42,6 @@ db.define_table('follow',
 
 db.image.posted_on.readable = db.image.posted_on.writable = False
 db.image.author.readable = db.image.author.writable = False
-# I don't want to display the user email by default in all forms.
-#db.lifeinvader_user.email.readable = db.lifeinvader_user.email.writable = False
-#db.lifeinvader_user.id.readable = db.lifeinvader_user.id.writable = False
-
 
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)

@@ -105,10 +105,9 @@ def search():
         people = db(query).select(orderby=db.auth_user.first_name)
     else:
         people = []
-    q = db.follow.follower == auth.user.email
-    followlist = db(q).select()
     return locals()
 
+@auth.requires_login()
 def follow():
     if request.env.request_method!='POST': raise HTTP(400)
     if request.args(0) == 'follow' and not db.follow(follower=auth.user.email, followee = request.args(1)):
