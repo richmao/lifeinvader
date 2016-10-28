@@ -6,18 +6,22 @@
         {{if auth.user_id:}}
 
             <div class="row">
-                <div class="col-xs-10">
-                    <h1>{{=get_firstname_from_email(auth.user.email)}}'s Profile</h1>
+                <div class="col-xs-8">
+                    <h1>{{=get_firstname_from_email(auth.user.email)}}'s Feed</h1>
                 </div>
 
-                <div class="col-xs-2"id="logout">
+                <div class="col-xs-4"id="logout">
                     <a href="{{=URL('default','profile')}}" class="btn btn-primary">Profile</a>
                     <a href="{{=URL('default','user', args=['logout'])}}" class="btn btn-danger">Logout</a>
                     <a href="{{=URL('default','upload')}}" class="btn btn-info">Upload</a>
                 </div>
             </div>
-            {{for i in images:}}
-                <img src="{{=URL('default', 'download', args=i.image_content)}}" />
+            {{for image in images:}}
+                <div>
+                    <img src="{{=URL('default', 'download', args=image.image_content)}}" />
+                    <br />
+                    <b>{{=get_screenname(image.author)}}</b>: {{=image.caption}}
+                </div>
             {{pass}}
 
         {{else:}}

@@ -18,7 +18,8 @@ def index():
     return auth.wiki()
     """
     images = db().select(db.image.ALL, orderby=~db.image.posted_on, limitby=(0, 20))
-    return dict(get_username_from_email = get_username_from_email, get_firstname_from_email = get_firstname_from_email, images = images)
+    return dict(get_username_from_email = get_username_from_email, get_firstname_from_email = get_firstname_from_email,
+                get_screenname=get_screenname, images = images)
 
 
 def user():
@@ -53,6 +54,13 @@ def get_firstname_from_email(email):
     else:
         return u.first_name
 
+def get_screenname(email):
+    u = db(db.auth_user.email == email).select().first()
+    if u is None:
+        return 'None'
+    else:
+        return u.username
+
 
 @cache.action()
 def download():
@@ -73,9 +81,9 @@ def call():
     return service()
 
 def profile():
-
-    images = db().select(db.image.ALL, orderby=~db.image.posted_on, limitby=(0, 20))
-    return dict(get_username_from_email=get_username_from_email, get_firstname_from_email=get_firstname_from_email,
+    query = db.image.author == auth.user.email
+    images = db(query).select(orderby=~db.image.posted_on, limitby=(0, 20))
+    return dict(get_screenname=get_screenname, get_firstname_from_email=get_firstname_from_email,
                 images=images)
 
 @auth.requires_login()
