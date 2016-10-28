@@ -74,7 +74,9 @@ def call():
 
 def profile():
 
-    return dict(page_name="My Profile")
+    images = db().select(db.image.ALL, orderby=~db.image.posted_on, limitby=(0, 20))
+    return dict(get_username_from_email=get_username_from_email, get_firstname_from_email=get_firstname_from_email,
+                images=images)
 
 @auth.requires_login()
 def upload():

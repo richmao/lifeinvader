@@ -1,3 +1,9 @@
 {{extend 'layout.html'}}
 
-{{=page_name}}
+<h1>Your Posts: </h1>
+
+{{for image in images:}}
+        {{if auth.user.email == image.author:}}
+            <img src="{{=URL('default', 'download', args=image.image_content)}}" />
+        {{pass}}
+{{pass}}
