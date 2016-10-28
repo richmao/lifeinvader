@@ -22,10 +22,10 @@ import datetime
 
 
 db.define_table('image',
-                Field('poster_id', 'reference auth_user'),
+                #Field('poster_id', default=auth.user.id if auth.user_id else None),
                 Field('image_content', 'upload'),
-                Field('like_list', 'list:reference auth_user'),
-                Field('comment_list', 'list:reference post_comment'),
+                #Field('like_list', 'list:reference auth_user'),
+                #Field('comment_list', 'list:reference post_comment'),
                 Field('caption', 'text'),
                 Field('posted_on','datetime', update=datetime.datetime.utcnow()),
                 )
@@ -35,6 +35,10 @@ db.define_table('post_comment',
                 Field('commenter_id', 'reference auth_user'),
                 Field('image_id', 'reference image')
                 )
+
+#db.image.poster_id.readable = db.image.poster_id.writable = False
+db.image.posted_on.readable = db.image.posted_on.writable = False
+#db.image.poster_id.requires = IS_IN_DB(db, 'auth_user.id', '%(username)s')
 # I don't want to display the user email by default in all forms.
 #db.lifeinvader_user.email.readable = db.lifeinvader_user.email.writable = False
 #db.lifeinvader_user.id.readable = db.lifeinvader_user.id.writable = False

@@ -82,10 +82,10 @@ db.define_table(
     Field('registration_id', length=512,                 # required
           writable=False, readable=False, default=''),
     # We follow
-    Field('follow_list', 'list:reference lifeinvader_user', readable=True),
+    #Field('follow_list', 'list:reference lifeinvader_user', readable=True),
     # They follow us
-    Field('audience_list', 'list:reference lifeinvader_user'),
-    Field('image_list', 'list:reference image')
+    #Field('audience_list', 'list:reference lifeinvader_user'),
+    #Field('image_list', 'list:reference image'),
 )
 
 
@@ -105,9 +105,9 @@ custom_auth_table.username.requires = IS_NOT_IN_DB(db, custom_auth_table.usernam
 auth.define_tables(signature=False)
 
 # Hiding audience, follow and image list.
-db.auth_user.follow_list.writable = False
-db.auth_user.audience_list.writable = False
-db.auth_user.image_list.writable = False
+#db.auth_user.follow_list.writable = False
+#db.auth_user.audience_list.writable = False
+#db.auth_user.image_list.writable = False
 
 # configure email
 mail = auth.settings.mailer

@@ -17,7 +17,8 @@ def index():
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
     """
-    return dict(get_username_from_email = get_username_from_email, get_firstname_from_email = get_firstname_from_email)
+    images = db().select(db.image.ALL, orderby=~db.image.posted_on, limitby=(0, 20))
+    return dict(get_username_from_email = get_username_from_email, get_firstname_from_email = get_firstname_from_email, images = images)
 
 
 def user():
@@ -74,6 +75,14 @@ def call():
 def profile():
 
     return dict(page_name="My Profile")
+
+@auth.requires_login()
+def upload():
+    form = SQLFORM(db.image)
+    if form.process().accepted:
+        session.flash = T('Image Posted.')
+        redirect(URL('default','index'))
+    return dict(form=form)
 
 
 

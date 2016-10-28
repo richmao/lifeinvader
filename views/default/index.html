@@ -13,8 +13,12 @@
                 <div class="col-xs-2"id="logout">
                     <a href="{{=URL('default','profile')}}" class="btn btn-primary">Profile</a>
                     <a href="{{=URL('default','user', args=['logout'])}}" class="btn btn-danger">Logout</a>
+                    <a href="{{=URL('default','upload')}}" class="btn btn-info">Upload</a>
                 </div>
             </div>
+            {{for i in images:}}
+                <img src="{{=URL('default', 'download', args=i.image_content)}}" />
+            {{pass}}
 
         {{else:}}
             <h1>Hey there, I noticed you're not logged in!</h1>
