@@ -5,6 +5,17 @@
 /* line 6, ../sass/_main.scss */
 body {
   background: url(../images/bg.jpg);
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+}
+
+
+img{
+    height: 500px;
+    margin-top: 50px;
+	vertical-align: top;
+    text-align: center;
+	width: 700px;
 }
 
 /* line 10, ../sass/_main.scss */

@@ -149,3 +149,4 @@ if DEVELOPMENT_MENU:
 
 if "auth" in locals():
     auth.wikimenu()
+

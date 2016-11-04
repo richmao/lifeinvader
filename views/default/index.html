@@ -18,8 +18,8 @@
                 </div>
             </div>
             {{for image in images:}}
-                <div>
-                    <img src="{{=URL('default', 'download', args=image.image_content)}}" />
+                <div class = "instagram_feed text-center" >
+                    <img width="500" height="500" src="{{=URL('default', 'download', args=image.image_content)}}" />
                     <br />
                     <b>{{=get_screenname(image.author)}}</b>: {{=image.caption}}
                 </div>
