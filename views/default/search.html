@@ -6,10 +6,10 @@
 <table>
    {{for user in people:}}
    <td>{{=A(user.username, _href=URL('profile',args=user.username))}}</td>
-            {{if db(db.follow.followee == user.email).count():}}
-                 <td><button onclick="ajax('{{=URL('follow',args=('unfollow',user.email))}}',[],null);$(this).parent().html('Unfollowed')">Unfollow</button></td>
+            {{if db(db.follow.followee == user.username).count():}}
+                 <td><button onclick="ajax('{{=URL('follow',args=('unfollow',user.username))}}',[],null);$(this).parent().html('Unfollowed')">Followed</button></td>
             {{else:}}
-                 <td><button onclick="ajax('{{=URL('follow',args=('follow',user.email))}}',[],null);$(this).parent().html('Followed')">Follow</button></td>
+                 <td><button onclick="ajax('{{=URL('follow',args=('follow',user.username))}}',[],null);$(this).parent().html('Followed')">Follow</button></td>
             {{pass}}
    {{pass}}
 </table>

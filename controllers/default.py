@@ -19,7 +19,7 @@ def index():
     """
     images = db().select(db.image.ALL, orderby=~db.image.posted_on, limitby=(0, 20))
     return dict(get_username_from_email = get_username_from_email, get_firstname_from_email = get_firstname_from_email,
-                get_screenname=get_screenname, images = images)
+                 images = images)
 
 
 def user():
@@ -54,13 +54,6 @@ def get_firstname_from_email(email):
     else:
         return u.first_name
 
-def get_screenname(email):
-    u = db(db.auth_user.email == email).select().first()
-    if u is None:
-        return 'None'
-    else:
-        return u.username
-
 
 @cache.action()
 def download():
@@ -80,11 +73,28 @@ def call():
     """
     return service()
 
+@auth.requires_login()
 def profile():
-    query = db.image.author == auth.user.email
+    if request.args(0) is not None:
+        query = db.image.author == request.args(0)
+        user = request.args(0)
+        bio_query = db.auth_user.username == request.args(0)
+        bio = db(bio_query).select(db.auth_user.bio).first().bio
+    else:
+        query = db.image.author == auth.user.username
+        user = auth.user.username
+        bio = auth.user.bio
+    # This is kinda broken.
+    does_follow = db.follow.followee == auth.user.username and db.follow.follower == user
+
     images = db(query).select(orderby=~db.image.posted_on, limitby=(0, 20))
-    return dict(get_screenname=get_screenname, get_firstname_from_email=get_firstname_from_email,
-                images=images)
+
+    follower_count_q = db.follow.followee == user
+    follower_count = db(follower_count_q).count()
+
+    return dict(get_firstname_from_email=get_firstname_from_email,
+                images=images, user=user, bio=bio, does_follow=does_follow,
+                follower_count=follower_count)
 
 @auth.requires_login()
 def upload():
@@ -110,8 +120,8 @@ def search():
 @auth.requires_login()
 def follow():
     if request.env.request_method!='POST': raise HTTP(400)
-    if request.args(0) == 'follow' and not db.follow(follower=auth.user.email, followee = request.args(1)):
-        db.follow.insert(follower = auth.user.email, followee=request.args(1))
+    if request.args(0) == 'follow' and not db.follow(follower=auth.user.username, followee = request.args(1)):
+        db.follow.insert(follower = auth.user.username, followee=request.args(1))
     elif request.args(0)=='unfollow':
-        db(db.follow.follower==auth.user.email)(db.follow.followee==request.args(1)).delete()
+        db(db.follow.follower==auth.user.username)(db.follow.followee==request.args(1)).delete()
 

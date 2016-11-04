@@ -22,7 +22,7 @@ import datetime
 
 
 db.define_table('image',
-                Field('author', default=auth.user.email if auth.user_id else None),
+                Field('author', default=auth.user.username if auth.user_id else None),
                 Field('image_content', 'upload'),
                 #Field('like_list', 'list:reference auth_user'),
                 #Field('comment_list', 'list:reference post_comment'),

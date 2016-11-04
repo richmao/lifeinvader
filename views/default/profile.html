@@ -6,7 +6,17 @@
 
         <div class="row">
             <div class="col-xs-8">
-                <h1>{{=auth.user.username}}'s Profile</h1>
+                <h1>{{=user}}'s Profile</h1>
+
+                <h2>Followers: {{=follower_count}}</h2>
+                {{if user != auth.user.username:}}
+                    {{if does_follow:}}
+                        <button class="btn btn-success" onclick="ajax('{{=URL('follow',args=('unfollow',user))}}',[],null);$(this).parent().html('Unfollowed')">Following</button>
+                    {{else:}}
+                        <button onclick="ajax('{{=URL('follow',args=('follow',user))}}',[],null);$(this).parent().html('Followed')">Follow</button>
+                    {{pass}}
+                {{pass}}
+
             </div>
             {{if auth.user_id:}}
                 <div class="col-xs-4"id="logout">
@@ -18,11 +28,15 @@
             {{pass}}
         </div>
 
+        <div>
+            {{=bio}}
+        </div>
+
         {{for image in images:}}
             <div>
                 <img src="{{=URL('default', 'download', args=image.image_content)}}" />
                 <br />
-                <b>{{=get_screenname(image.author)}}</b>: {{=image.caption}}
+                <b>{{=user}}</b>: {{=image.caption}}
             </div>
         {{pass}}
     </div>
