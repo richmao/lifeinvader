@@ -54,6 +54,11 @@ def get_firstname_from_email(email):
     else:
         return u.first_name
 
+def serve_file():
+    filename = request.args(0)
+    path = os.path.join(request.folder, 'static', 'images', filename)
+    return response.stream(path)
+
 
 @cache.action()
 def download():

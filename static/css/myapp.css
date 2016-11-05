@@ -4,21 +4,19 @@
  */
 /* line 6, ../sass/_main.scss */
 body {
-  background: url(../images/bg.jpg);
-  background-repeat:no-repeat;
+  background: url(../images/background.jpg);
+  background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: Verdana, Geneva, sans-serif;
 }
 
-
-img{
-    height: 500px;
-    margin-top: 50px;
-	vertical-align: top;
-    text-align: center;
-	width: 700px;
+/* line 13, ../sass/_main.scss */
+.heading {
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
-/* line 10, ../sass/_main.scss */
+/* line 18, ../sass/_main.scss */
 .main {
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
@@ -27,12 +25,21 @@ img{
   padding-bottom: 20px;
 }
 
-/* line 16, ../sass/_main.scss */
+/* line 24, ../sass/_main.scss */
 .colorful {
   color: #bb8833;
 }
 
-/* line 20, ../sass/_main.scss */
+/* line 28, ../sass/_main.scss */
 #logout {
   padding-top: 20px;
+}
+
+/* line 32, ../sass/_main.scss */
+.image {
+  height: 500px;
+  margin-top: 50px;
+  vertical-align: top;
+  text-align: center;
+  width: 700px;
 }
