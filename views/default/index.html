@@ -44,7 +44,7 @@
                 <div class = "instagram_feed text-center" >
                     <img class="image" width="500" height="500" src="{{=URL('default', 'download', args=image.image_content)}}" />
                     <br />
-                    <b>{{=image.author}}</b>: {{=image.caption}}
+                    <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
                 </div>
             {{pass}}
 
