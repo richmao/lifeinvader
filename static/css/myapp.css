@@ -43,3 +43,24 @@ body {
   text-align: center;
   width: 700px;
 }
+
+
+table.search_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.search_table th {
+    text-align: left;
+    padding: 8px;
+}
+
+table.search_table td {
+    text-align: left;
+    padding: 8px;
+}
+
+
+
+table.search_table th {
+background-color: rgba(255,255,255,0.3);}

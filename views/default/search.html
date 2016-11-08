@@ -6,25 +6,31 @@
 {{=form}}
 {{if people:}}
 <h3>Results</h3>
-<div class="result_table">
-<table>
+
+<table class="search_table">
+   <div class="tbl-header">
    {{for user in people:}}
+
    <thead>
    <tr>
    <th>Username</th>
+   <th>Following?</th>
    </tr>
-   <tr>
    </thead>
+   </div>
    <tbody>
+
+   <tr>
    <td>{{=A(user.username, _href=URL('profile',args=user.username))}}</td>
+
             {{if db(db.follow.followee == user.username).count():}}
                  <td><button onclick="ajax('{{=URL('follow',args=('unfollow',user.username))}}',[],null);$(this).parent().html('Unfollowed')">Followed</button></td>
             {{else:}}
                  <td><button onclick="ajax('{{=URL('follow',args=('follow',user.username))}}',[],null);$(this).parent().html('Followed')">Follow</button></td>
             {{pass}}
+
    {{pass}}
     </tr>
     </tbody>
 </table>
-</div>
 {{pass}}
