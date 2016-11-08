@@ -9,7 +9,7 @@
 
 <table class="search_table">
    <div class="tbl-header">
-   {{for user in people:}}
+
 
    <thead>
    <tr>
@@ -19,8 +19,9 @@
    </thead>
    </div>
    <tbody>
-
+   {{for user in people:}}
    <tr>
+
    <td>{{=A(user.username, _href=URL('profile',args=user.username))}}</td>
 
             {{if db(db.follow.followee == user.username).count():}}
