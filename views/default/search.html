@@ -1,10 +1,21 @@
 {{extend 'layout.html'}}
 <h2>Search for friends</h2>
+<a href="{{=URL('default','index')}}" class="btn btn-primary">
+                                    <i class="fa fa-home" aria-hidden="true"></i> Home
+                                </a>
 {{=form}}
 {{if people:}}
 <h3>Results</h3>
+<div class="result_table">
 <table>
    {{for user in people:}}
+   <thead>
+   <tr>
+   <th>Username</th>
+   </tr>
+   <tr>
+   </thead>
+   <tbody>
    <td>{{=A(user.username, _href=URL('profile',args=user.username))}}</td>
             {{if db(db.follow.followee == user.username).count():}}
                  <td><button onclick="ajax('{{=URL('follow',args=('unfollow',user.username))}}',[],null);$(this).parent().html('Unfollowed')">Followed</button></td>
@@ -12,5 +23,8 @@
                  <td><button onclick="ajax('{{=URL('follow',args=('follow',user.username))}}',[],null);$(this).parent().html('Followed')">Follow</button></td>
             {{pass}}
    {{pass}}
+    </tr>
+    </tbody>
 </table>
+</div>
 {{pass}}
