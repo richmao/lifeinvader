@@ -24,7 +24,7 @@ import datetime
 db.define_table('image',
                 Field('author', default=auth.user.username if auth.user_id else None),
                 Field('image_content', 'upload'),
-                #Field('like_list', 'list:reference auth_user'),
+                Field('like_list', 'list: string'),
                 #Field('comment_list', 'list:reference post_comment'),
                 Field('caption', 'text'),
                 Field('posted_on','datetime', update=datetime.datetime.utcnow()),
