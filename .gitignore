@@ -1,2 +1,4 @@
 errors/
 databases/sql.log
+/databases/
+/.idea/
