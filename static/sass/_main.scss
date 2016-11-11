@@ -37,6 +37,36 @@ body {
 	width: 700px;
 }
 
-.main-container {
+#search-div {
+  .form-horizontal {
+    padding: 20px 40px 0 20px;
+  }
 
+  #submit_record__row {
+    padding: 5px 0px 0px 25px;
+
+    button {
+      padding: 5px 0px 5px 0;
+    }
+
+  }
+}
+
+table {
+  .search_table {
+    border-collapse: collapse;
+    width: 100%;
+
+    th {
+      text-align: left;
+      padding: 8px;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+
+  }
 }

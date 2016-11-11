@@ -44,23 +44,32 @@ body {
   width: 700px;
 }
 
-
-table.search_table {
-    border-collapse: collapse;
-    width: 100%;
+/* line 41, ../sass/_main.scss */
+#search-div .form-horizontal {
+  padding: 20px 40px 0 20px;
+}
+/* line 45, ../sass/_main.scss */
+#search-div #submit_record__row {
+  padding: 5px 0px 0px 25px;
+}
+/* line 48, ../sass/_main.scss */
+#search-div #submit_record__row button {
+  padding: 5px 0px 5px 0;
 }
 
-table.search_table th {
-    text-align: left;
-    padding: 8px;
+/* line 56, ../sass/_main.scss */
+table .search_table {
+  border-collapse: collapse;
+  width: 100%;
 }
-
-table.search_table td {
-    text-align: left;
-    padding: 8px;
+/* line 60, ../sass/_main.scss */
+table .search_table th {
+  text-align: left;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
-
-
-
-table.search_table th {
-background-color: rgba(255,255,255,0.3);}
+/* line 66, ../sass/_main.scss */
+table .search_table td {
+  text-align: left;
+  padding: 8px;
+}

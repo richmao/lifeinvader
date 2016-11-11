@@ -1,10 +1,23 @@
 {{extend 'layout.html'}}
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}" xmlns="http://www.w3.org/1999/html"></script>
+<script>
+    var posts_url = "{{=URL('api', 'get_posts')}}";
+    var add_post_url = "{{=URL('api', 'add_post', user_signature=True)}}";
+    var del_post_url = "{{=URL('api', 'del_post', user_signature=True)}}";
+    var edit_post_url = "{{=URL('api', 'edit_post')}}";
 
-<div class="row">
+    var people_url = "{{=URL('api', 'get_people')}}";
+    var do_search_url = "{{=URL('api', 'do_search')}}";
+    var current_user = "{{=auth.user.email if auth.user_id else None}}";
+    console.log("Current user is " + current_user);
+</script>
+{{end}}
+
+<div class="row display:none" id="vue-div">
     <div class="col-md-2"></div>
     <div class="col-md-8 main">
         {{if auth.user_id:}}
-
             <div class="row">
                 <div class="heading">
                     <a href="{{=URL('default','index')}}">
@@ -27,9 +40,9 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="{{=URL('default','search')}}" class="btn btn-warning">
+                                <button class="btn btn-warning" v-on:click="search_button()">
                                     <i class="fa fa-search" aria-hidden="true"></i> Search
-                                </a>
+                                </button>
                             </td>
                             <td>
                                 <a href="{{=URL('default','user', args=['logout'])}}" class="btn btn-danger">
@@ -39,18 +52,55 @@
                         </tr>
                     </table>
                 </div>
+                <div v-if="is_searching" id="search-div">
+                    <!-- do_search() effectively does nothing rn -->
+                    <form action="#" v-on:submit.prevent="do_search(form_search_content); results_button();" class="form-horizontal" enctype="multipart/form-data" method="post">
+
+                        <div class="form-group col-xs-10" id="table_post_content__row">
+                            <div>
+                                <input class="form-control string" id="table_search_content" name="search_content" v-model="form_search_content" placeholder="ayyy lmao"/>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-2" id="submit_record__row">
+                            <input class="btn btn-success" id="search_submit" type="submit" value="Go!" />
+                        </div>
+                    </form>
+                </div>
+
+            </div><!-- end "row" -->
+
+            <div v-if="search_results && valid_q(form_search_content)">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Username</th>
+                        <th>First Name</th>
+                    </tr>
+                    <tr v-for="person in people" v-if="person.username.indexOf(form_search_content)!=-1" class="post_list">
+                        <td>
+                            <a v-on:click="goto_profile(person.username)" href="#">${person.username}</a>
+                        </td>
+                        <td>
+                            ${person.first_name}
+                        </td>
+                    </tr>
+                </table>
             </div>
             {{for image in images:}}
-                <div class = "instagram_feed text-center" >
-                    <img class="image" width="500" height="500" src="{{=URL('default', 'download', args=image.image_content)}}" />
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class = "instagram_feed col-md-10">
+                    <img class="image img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
                     <br />
-                    <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
+                    <p class="text-center"><b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}</p>
                 </div>
+                <div class="col-md-1"></div>
+            </div>
             {{pass}}
 
         {{else:}}
             <div style="text-align: center">
-                <div><img width="470" height="160" src="lifeinvader/static/images/logo.png"/></div>
+                <div><img width="470" height="160" src="{{=URL('static', 'images/logo.png')}}"/></div>
                 <a href="{{=URL('default','user', args=['register'])}}" class="btn btn-danger btn-lg"><h2>Sign Up</h2></a>
                 <br><br>
                 <a href="{{=URL('default','user', args=['login'])}}" class="btn btn-warning btn-sm">Already have an account? Log in here</a>
