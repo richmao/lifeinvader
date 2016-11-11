@@ -49,6 +49,10 @@ var app = function() {
         self.vue.search_results = true;
     };
 
+    self.edit_bio_button = function() {
+        self.vue.is_editing_bio = !self.vue.is_editing_bio;
+    };
+
     // THIS IS SUPER BROKEN, clearly doesn't work.
     // Look at the do_search in api.py
     // Right now, the WHOLE user db is being dumped lmao.
@@ -85,22 +89,21 @@ var app = function() {
         self.vue.is_adding_post = !self.vue.is_adding_post;
     };
 
-    self.is_author = function(author) {
-        return current_user === author;
+    self.my_profile = function() {
+        return auth_username === current_profile;
     };
 
     self.editing_button = function() {
         self.vue.is_editing_post = !self.vue.is_editing_post;
     };
 
-    self.edit_post = function (post_id, content) {
+    self.edit_bio = function (auth_username) {
         $.post(edit_post_url,
             {
-                post_id: post_id,
-                post_content: content
+                auth_username: auth_username
             },
             function () {
-                $.web2py.enableElement($("#edit_post_submit"));
+                $.web2py.enableElement($("#edit_bio_submit"));
             }
         );
     };
@@ -147,7 +150,7 @@ var app = function() {
         unsafeDelimiters: ['!{', '}'],
         data: {
             is_searching: false,
-            is_editing_post: false,
+            is_editing_bio: false,
             posts: [],
             people: [],
             has_more: false,
@@ -159,10 +162,13 @@ var app = function() {
             get_people: self.get_people,
             search_button: self.search_button,
             results_button: self.results_button,
+            edit_bio_button: self.edit_bio_button,
             do_search: self.do_search,
             refresh_page: self.refresh_page,
             goto_profile: self.goto_profile,
-            valid_q: self.valid_q
+            valid_q: self.valid_q,
+            my_profile: self.my_profile,
+            edit_bio: self.edit_bio
         }
 
     });

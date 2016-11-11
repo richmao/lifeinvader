@@ -89,10 +89,12 @@
             {{for image in images:}}
             <div class="row">
                 <div class="col-md-1"></div>
-                <div class = "instagram_feed col-md-10">
-                    <img class="image img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
+                <div class = "col-md-10">
+                    <img class="image img-rounded img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
                     <br />
-                    <p class="text-center"><b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}</p>
+                    <div class="col-sm-1"></div>
+                    <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
+                    <div class="col-sm-1"></div>
                 </div>
                 <div class="col-md-1"></div>
             </div>
