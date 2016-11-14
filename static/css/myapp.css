@@ -12,11 +12,10 @@ body {
 
 /* line 13, ../sass/_main.scss */
 .heading {
-  padding-top: 20px;
-  padding-left: 20px;
+  padding: 20px 0px 20px 20px;
 }
 
-/* line 18, ../sass/_main.scss */
+/* line 17, ../sass/_main.scss */
 .main {
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
@@ -25,17 +24,17 @@ body {
   padding-bottom: 20px;
 }
 
-/* line 24, ../sass/_main.scss */
+/* line 23, ../sass/_main.scss */
 .colorful {
   color: #bb8833;
 }
 
-/* line 28, ../sass/_main.scss */
+/* line 27, ../sass/_main.scss */
 #logout {
   padding-top: 20px;
 }
 
-/* line 32, ../sass/_main.scss */
+/* line 31, ../sass/_main.scss */
 .image {
   height: 500px;
   margin-top: 50px;
@@ -44,31 +43,31 @@ body {
   width: 700px;
 }
 
-/* line 41, ../sass/_main.scss */
+/* line 40, ../sass/_main.scss */
 #search-div .form-horizontal {
   padding: 20px 40px 0 20px;
 }
-/* line 45, ../sass/_main.scss */
+/* line 44, ../sass/_main.scss */
 #search-div #submit_record__row {
   padding: 5px 0px 0px 25px;
 }
-/* line 48, ../sass/_main.scss */
+/* line 47, ../sass/_main.scss */
 #search-div #submit_record__row button {
   padding: 5px 0px 5px 0;
 }
 
-/* line 56, ../sass/_main.scss */
+/* line 55, ../sass/_main.scss */
 table .search_table {
   border-collapse: collapse;
   width: 100%;
 }
-/* line 60, ../sass/_main.scss */
+/* line 59, ../sass/_main.scss */
 table .search_table th {
   text-align: left;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.3);
 }
-/* line 66, ../sass/_main.scss */
+/* line 65, ../sass/_main.scss */
 table .search_table td {
   text-align: left;
   padding: 8px;

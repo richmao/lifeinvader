@@ -145,26 +145,6 @@ var app = function() {
         location.reload();
     };
 
-    // self.like_image = function(image_id)  {
-    //     $.post(like_image_url,
-    //         {
-    //             image_id: image_id,
-    //             username: current_user
-    //         },
-    //         function () {
-    //         });
-    // };
-    //
-    // self.unlike_image = function(image_id)  {
-    //     $.post(unlike_image_url,
-    //         {
-    //             image_id: image_id,
-    //             username: current_user
-    //         },
-    //         function () {
-    //         });
-    // };
-
     self.toggle_like = function (image_id) {
         $.post(toggle_like_url,
             {
