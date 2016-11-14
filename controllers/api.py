@@ -56,19 +56,13 @@ def get_people():
         has_more=has_more
     ))
 
-def unlike_image():
-    i = db(db.image.id == request.vars.image_id).select().first()
-    list = i.like_list
-    if request.vars.username in list: list.remove(request.vars.username)
-    i.update_record(
-        like_list=list,
-    )
-
-def like_image():
+def toggle_like():
     i = db(db.image.id == request.vars.image_id).select().first()
     list = i.like_list
     if request.vars.username not in list:
         list = i.like_list + [request.vars.username]
+    else:
+        list.remove(request.vars.username)
     i.update_record(
         like_list=list,
     )
