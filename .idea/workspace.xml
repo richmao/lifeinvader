@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09a4ab6a-64eb-4639-b9f9-3e638f886ccb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/47f52bfac835dd300c7fe18c7e2d4682bd61af2d/_main.scssc" afterPath="$PROJECT_DIR$/.sass-cache/47f52bfac835dd300c7fe18c7e2d4682bd61af2d/_main.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databases/storage.sqlite" afterPath="$PROJECT_DIR$/databases/storage.sqlite" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databases/sql.log" afterPath="$PROJECT_DIR$/databases/sql.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/myapp.css" afterPath="$PROJECT_DIR$/static/css/myapp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/default.js" afterPath="$PROJECT_DIR$/static/js/default.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sass/_main.scss" afterPath="$PROJECT_DIR$/static/sass/_main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/default/index.html" afterPath="$PROJECT_DIR$/views/default/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/default/profile.html" afterPath="$PROJECT_DIR$/views/default/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/default/upload.html" afterPath="$PROJECT_DIR$/views/default/upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.html" afterPath="$PROJECT_DIR$/views/layout.html" />
-    </list>
+    <list default="true" id="09a4ab6a-64eb-4639-b9f9-3e638f886ccb" name="Default" comment="" />
     <ignored path="lifeinvader.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -33,6 +21,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="default.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/default.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2034">
+              <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="tables.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/tables.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layout.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2250">
@@ -820,26 +818,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/default/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/default/upload.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/default.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2260">
-          <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -856,6 +838,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2250">
           <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/default/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/default.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2034">
+          <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
           <folding />
         </state>
       </provider>
