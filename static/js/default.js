@@ -156,6 +156,17 @@ var app = function() {
         );
     }
 
+    self.toggle_follow = function () {
+        $.post(toggle_follow_url,
+            {
+                add_user: auth_username,
+                username: current_profile
+            },
+            function () {
+            }
+        );
+    }
+
     // Complete as needed.
     self.vue = new Vue({
         el: "#vue-div",
@@ -181,7 +192,8 @@ var app = function() {
             valid_q: self.valid_q,
             my_profile: self.my_profile,
             edit_bio: self.edit_bio,
-            toggle_like: self.toggle_like
+            toggle_like: self.toggle_like,
+            toggle_follow: self.toggle_follow
 
         }
 

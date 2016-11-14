@@ -89,16 +89,14 @@ def profile():
         query = db.image.author == auth.user.username
         user = auth.user.username
         bio = auth.user.bio
-    # This is kinda broken.
-    does_follow = db.follow.followee == auth.user.username and db.follow.follower == user
 
     images = db(query).select(orderby=~db.image.posted_on, limitby=(0, 20))
+    user_profile = db(db.auth_user.username == user).select().first()
 
-    follower_count_q = db.follow.followee == user
-    follower_count = db(follower_count_q).count()
+    follower_count = len(db(db.auth_user.username == user).select().first().audience_list)
 
     return dict(get_firstname_from_email=get_firstname_from_email,
-                images=images, user=user, bio=bio, does_follow=does_follow,
+                images=images, user=user, bio=bio, user_profile = user_profile,
                 follower_count=follower_count)
 
 @auth.requires_login()
@@ -122,11 +120,11 @@ def search():
         people = []
     return locals()
 
-@auth.requires_login()
-def follow():
-    if request.env.request_method!='POST': raise HTTP(400)
-    if request.args(0) == 'follow' and not db.follow(follower=auth.user.username, followee = request.args(1)):
-        db.follow.insert(follower = auth.user.username, followee=request.args(1))
-    elif request.args(0)=='unfollow':
-        db(db.follow.follower==auth.user.username)(db.follow.followee==request.args(1)).delete()
-
+# @auth.requires_login()
+# def follow():
+#     if request.env.request_method!='POST': raise HTTP(400)
+#     if request.args(0) == 'follow' and not db.follow(follower=auth.user.username, followee = request.args(1)):
+#         db.follow.insert(follower = auth.user.username, followee=request.args(1))
+#     elif request.args(0)=='unfollow':
+#         db(db.follow.follower==auth.user.username)(db.follow.followee==request.args(1)).delete()
+#
