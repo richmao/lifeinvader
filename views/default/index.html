@@ -1,6 +1,15 @@
 {{extend 'layout.html'}}
 
-<div class="row">
+{{block head}}
+<script>
+    var like_image_url = "{{=URL('api', 'like_image', user_signature=False)}}";
+    var unlike_image_url = "{{=URL('api', 'unlike_image', user_signature=False)}}";
+    var current_user = "{{=auth.user.username if auth.user_id else None}}";
+
+</script>
+{{end}}
+
+<div class="row display:none" id="vue-div">
     <div class="col-md-2"></div>
     <div class="col-md-8 main">
         {{if auth.user_id:}}
@@ -41,9 +50,15 @@
                 </div>
             </div>
             {{for image in images:}}
-                <div class = "instagram_feed text-center" >
+                <div class = "instagram_feed text-center">
                     <img class="image" width="500" height="500" src="{{=URL('default', 'download', args=image.image_content)}}" />
-                    <br />
+                    <br>
+                    {{if not auth.user.username in image.like_list:}}
+                            <i id="like" class="fa fa-heart-o" onclick="toggleLike('unlike');" v-on:click="like_image({{=image.id}})"></i>
+
+                    {{else:}}
+                            <i id="unlike" class="fa fa-heart" onclick="toggleLike('like');" v-on:click="unlike_image({{=image.id}})"></i>
+                    {{pass}}
                     <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
                 </div>
             {{pass}}
