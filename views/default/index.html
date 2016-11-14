@@ -25,6 +25,24 @@
                 <i id="like" class="fa fa-heart-o" v-on:click="toggle_like({{=image.id}})"></i>
             {{else:}}
                 <i id="like" class="fa fa-heart" v-on:click="toggle_like({{=image.id}})"></i>
+
+            {{for image in images:}}
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class = "col-md-10">
+                        <img class="image img-rounded img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
+                        <br />
+                        <div class="col-sm-1"></div>
+                        {{if auth.user.username not in image.like_list:}}
+                            <i id="like" class="fa fa-heart-o" v-on:click="toggle_like({{=image.id}})"></i>
+                        {{else:}}
+                            <i id="like" class="fa fa-heart" v-on:click="toggle_like({{=image.id}})"></i>
+                        {{pass}}
+                        <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
+                        <div class="col-sm-1"></div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
             {{pass}}
             <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
             <div class="col-sm-1"></div>

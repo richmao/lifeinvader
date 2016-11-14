@@ -81,11 +81,11 @@ db.define_table(
           writable=False, readable=False, default=''),
     Field('registration_id', length=512,                 # required
           writable=False, readable=False, default=''),
-    Field('bio', 'text', default="I have not made a bio yet!")
+    Field('bio', 'text', default="I have not made a bio yet!"),
     # We follow
-    #Field('follow_list', 'list:string', readable=True),
+    Field('follow_list', 'list:string', readable=True),
     # They follow us
-    #Field('audience_list', 'list:string'),
+    Field('audience_list', 'list:string'),
     #Field('image_list', 'list:reference image'),
 )
 
