@@ -145,25 +145,36 @@ var app = function() {
         location.reload();
     };
 
-    self.like_image = function(image_id)  {
-        $.post(like_image_url,
-            {
-                image_id: image_id,
-                username: current_user
-            },
-            function () {
-            });
-    };
+    // self.like_image = function(image_id)  {
+    //     $.post(like_image_url,
+    //         {
+    //             image_id: image_id,
+    //             username: current_user
+    //         },
+    //         function () {
+    //         });
+    // };
+    //
+    // self.unlike_image = function(image_id)  {
+    //     $.post(unlike_image_url,
+    //         {
+    //             image_id: image_id,
+    //             username: current_user
+    //         },
+    //         function () {
+    //         });
+    // };
 
-    self.unlike_image = function(image_id)  {
-        $.post(unlike_image_url,
+    self.toggle_like = function (image_id) {
+        $.post(toggle_like_url,
             {
                 image_id: image_id,
                 username: current_user
             },
             function () {
-            });
-    };
+            }
+        );
+    }
 
     // Complete as needed.
     self.vue = new Vue({
@@ -190,11 +201,7 @@ var app = function() {
             valid_q: self.valid_q,
             my_profile: self.my_profile,
             edit_bio: self.edit_bio,
-            has_more: false,
-            logged_in: false,
-            like_image: self.like_image,
-            get_images: self.get_images,
-            unlike_image: self.unlike_image
+            toggle_like: self.toggle_like
 
         }
 

@@ -7,6 +7,7 @@
     console.log("Current user is " + current_user);
     var like_image_url = "{{=URL('api', 'like_image', user_signature=False)}}";
     var unlike_image_url = "{{=URL('api', 'unlike_image', user_signature=False)}}";
+    var toggle_like_url = "{{=URL('api', 'toggle_like', user_signature=False)}}";
     var current_user = "{{=auth.user.username if auth.user_id else None}}";
 
 </script>
@@ -92,10 +93,9 @@
                         <br />
                         <div class="col-sm-1"></div>
                         {{if not auth.user.username in image.like_list:}}
-                                <i id="like" class="fa fa-heart-o" v-on:click="like_image({{=image.id}})"></i>
-
+                            <i id="like" class="fa fa-heart-o" v-on:click="toggle_like({{=image.id}})"></i>
                         {{else:}}
-                                <i id="unlike" class="fa fa-heart" v-on:click="unlike_image({{=image.id}})"></i>
+                            <i id="like" class="fa fa-heart" v-on:click="toggle_like({{=image.id}})"></i>
                         {{pass}}
                         <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
                         <div class="col-sm-1"></div>
