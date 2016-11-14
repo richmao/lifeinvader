@@ -7,17 +7,6 @@
 # There is an implicit 'id integer autoincrement' field
 # Consult manual for more options, validators, etc.
 
-# db.define_table('lifeinvader_user',
-#                 Field('email', default=auth.user.email if auth.user_id else None),
-#                 Field('li_id', default=auth.user_id if auth.user_id else None),
-#                 Field('first_name', 'text'),
-#                 Field('username', default=auth.user.username if auth.user.username else None),
-#                 # We follow
-#                 Field('follow_list', 'list:reference lifeinvader_user'),
-#                 # They follow us
-#                 Field('audience_list', 'list:reference lifeinvader_user'),
-#                 Field('image_list', 'list:reference image')
-#                 )
 import datetime
 
 
@@ -36,12 +25,13 @@ db.define_table('post_comment',
                 Field('image_id', 'reference image')
                 )
 
-db.define_table('follow',
-                Field('follower', 'text'),
-                Field('followee', 'text'))
+#db.define_table('follow',
+#                Field('follower', 'text'),
+#                Field('followee', 'text'))
 
 db.image.posted_on.readable = db.image.posted_on.writable = False
 db.image.author.readable = db.image.author.writable = False
+db.image.like_list.readable = db.image.like_list.writable = False
 
 # after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)

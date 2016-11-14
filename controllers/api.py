@@ -66,3 +66,24 @@ def toggle_like():
     i.update_record(
         like_list=list,
     )
+
+def toggle_follow():
+    user = db(db.auth_user.username == request.vars.username).select().first()
+    add = db(db.auth_user.username == request.vars.add_user).select().first()
+
+    aud_list = user.audience_list
+    fol_list = add.follow_list
+
+    if request.vars.add_user not in aud_list:
+        aud_list = user.audience_list + [request.vars.add_user]
+        fol_list = add.follow_list + [request.vars.username]
+    else:
+        aud_list.remove(request.vars.add_user)
+        fol_list.remove(request.vars.username)
+    user.update_record(
+        audience_list=aud_list,
+    )
+
+    add.update_record(
+        follow_list=fol_list,
+    )

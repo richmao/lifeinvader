@@ -92,7 +92,7 @@
                         <img class="image img-rounded img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
                         <br />
                         <div class="col-sm-1"></div>
-                        {{if not auth.user.username in image.like_list:}}
+                        {{if auth.user.username not in image.like_list:}}
                             <i id="like" class="fa fa-heart-o" v-on:click="toggle_like({{=image.id}})"></i>
                         {{else:}}
                             <i id="like" class="fa fa-heart" v-on:click="toggle_like({{=image.id}})"></i>

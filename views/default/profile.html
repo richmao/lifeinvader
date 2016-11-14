@@ -14,6 +14,7 @@
     console.log("Current user is " + auth_username);
     console.log("Currently on " + current_profile + "\'s profile");
     var edit_bio_url = "{{=URL('api', 'edit_bio')}}";
+    var toggle_follow_url = "{{=URL('api', 'toggle_follow')}}";
 </script>
 {{end}}
 
@@ -93,11 +94,13 @@
         </div>
         <br />
         {{if user != auth.user.username:}}
-            {{if does_follow:}}
-                <button class="btn btn-success" onclick="ajax('{{=URL('follow',args=('unfollow',user))}}',[],null);$(this).parent().html('Unfollowed')">Following</button>
+
+            {{if auth.user.username not in user_profile.audience_list:}}
+                <button class="btn btn-success" v-on:click="toggle_follow()">Follow</button>
             {{else:}}
-                <button onclick="ajax('{{=URL('follow',args=('follow',user))}}',[],null);$(this).parent().html('Followed')">Follow</button>
+                <button class="btn btn-success" v-on:click="toggle_follow()">Following</button>
             {{pass}}
+
         {{pass}}
 
         <!-- This is about to get weird, I'm transitioning from web2py to vue so I can do an inline bio edit -->
