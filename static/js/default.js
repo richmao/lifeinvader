@@ -192,8 +192,6 @@ var app = function() {
             edit_bio: self.edit_bio,
             has_more: false,
             logged_in: false,
-        },
-        methods: {
             like_image: self.like_image,
             get_images: self.get_images,
             unlike_image: self.unlike_image
