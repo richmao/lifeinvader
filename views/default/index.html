@@ -2,15 +2,13 @@
 {{block head}}
 <script src="{{=URL('static', 'js/vue.js')}}" xmlns="http://www.w3.org/1999/html"></script>
 <script>
-    var posts_url = "{{=URL('api', 'get_posts')}}";
-    var add_post_url = "{{=URL('api', 'add_post', user_signature=True)}}";
-    var del_post_url = "{{=URL('api', 'del_post', user_signature=True)}}";
-    var edit_post_url = "{{=URL('api', 'edit_post')}}";
-
     var people_url = "{{=URL('api', 'get_people')}}";
     var do_search_url = "{{=URL('api', 'do_search')}}";
-    var current_user = "{{=auth.user.email if auth.user_id else None}}";
     console.log("Current user is " + current_user);
+    var like_image_url = "{{=URL('api', 'like_image', user_signature=False)}}";
+    var unlike_image_url = "{{=URL('api', 'unlike_image', user_signature=False)}}";
+    var current_user = "{{=auth.user.username if auth.user_id else None}}";
+
 </script>
 {{end}}
 
@@ -87,17 +85,23 @@
                 </table>
             </div>
             {{for image in images:}}
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class = "col-md-10">
-                    <img class="image img-rounded img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
-                    <br />
-                    <div class="col-sm-1"></div>
-                    <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
-                    <div class="col-sm-1"></div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class = "col-md-10">
+                        <img class="image img-rounded img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
+                        <br />
+                        <div class="col-sm-1"></div>
+                        {{if not auth.user.username in image.like_list:}}
+                                <i id="like" class="fa fa-heart-o" v-on:click="like_image({{=image.id}})"></i>
+
+                        {{else:}}
+                                <i id="unlike" class="fa fa-heart" v-on:click="unlike_image({{=image.id}})"></i>
+                        {{pass}}
+                        <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
+                        <div class="col-sm-1"></div>
+                    </div>
+                    <div class="col-md-1"></div>
                 </div>
-                <div class="col-md-1"></div>
-            </div>
             {{pass}}
 
         {{else:}}

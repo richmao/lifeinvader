@@ -6,7 +6,6 @@
     var add_post_url = "{{=URL('api', 'add_post', user_signature=True)}}";
     var del_post_url = "{{=URL('api', 'del_post', user_signature=True)}}";
     var edit_post_url = "{{=URL('api', 'edit_post')}}";
-
     var people_url = "{{=URL('api', 'get_people')}}";
     var do_search_url = "{{=URL('api', 'do_search')}}";
     var current_user = "{{=auth.user.email if auth.user_id else None}}";
