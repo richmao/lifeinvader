@@ -73,7 +73,6 @@
             <div class="row display:none" id="vue-div">
                 <div class="col-md-2"></div>
                 <div class="col-md-8 main">
-                    {{if auth.user_id:}}
                         <div class="row">
                             <div class="heading">
                                 <a href="{{=URL('default','index')}}">
@@ -145,15 +144,7 @@
                         {{block center}}
                         {{include}}
                         {{end}}
-                        {{else:}}
 
-                        <div style="text-align: center">
-                            <div><img width="470" height="160" src="{{=URL('static', 'images/logo.png')}}"/></div>
-                            <a href="{{=URL('default','user', args=['register'])}}" class="btn btn-danger btn-lg"><h2>Sign Up</h2></a>
-                            <br><br>
-                            <a href="{{=URL('default','user', args=['login'])}}" class="btn btn-warning btn-sm">Already have an account? Log in here</a>
-                        </div>
-                        {{pass}}
                         <div class="col-md-2"></div>
                 </div>
             </div>
