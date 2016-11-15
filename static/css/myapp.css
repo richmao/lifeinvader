@@ -43,31 +43,40 @@ body {
   width: 700px;
 }
 
-/* line 40, ../sass/_main.scss */
+/* line 39, ../sass/_main.scss */
+.profile_pic {
+  height: 100px;
+  margin-top: 50px;
+  width: 100px;
+  padding: 1px;
+  border: 1px solid #021a40;
+}
+
+/* line 48, ../sass/_main.scss */
 #search-div .form-horizontal {
   padding: 20px 40px 0 20px;
 }
-/* line 44, ../sass/_main.scss */
+/* line 52, ../sass/_main.scss */
 #search-div #submit_record__row {
   padding: 5px 0px 0px 25px;
 }
-/* line 47, ../sass/_main.scss */
+/* line 55, ../sass/_main.scss */
 #search-div #submit_record__row button {
   padding: 5px 0px 5px 0;
 }
 
-/* line 55, ../sass/_main.scss */
+/* line 63, ../sass/_main.scss */
 table .search_table {
   border-collapse: collapse;
   width: 100%;
 }
-/* line 59, ../sass/_main.scss */
+/* line 67, ../sass/_main.scss */
 table .search_table th {
   text-align: left;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.3);
 }
-/* line 65, ../sass/_main.scss */
+/* line 73, ../sass/_main.scss */
 table .search_table td {
   text-align: left;
   padding: 8px;

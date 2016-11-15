@@ -18,7 +18,8 @@
 </script>
 {{end}}
 
-<h1>{{=user}}'s Profile</h1>
+<h1><img class="profile_pic img-responsive img-circle" src="{{=URL('default', 'download', args=user_profile.pp)}}"> {{=user}}'s Profile</h1>
+
 <h2>Followers: {{=follower_count}}</h2>
 <div>
     {{=bio}}
@@ -50,6 +51,15 @@
             <img class="image img-rounded img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
             <br />
             <div class="col-sm-1"></div>
+            {{if not auth.user.username in image.like_list:}}
+                <i id="like" class="fa fa-heart-o" v-on:click="toggle_like({{=image.id}})"></i>
+            {{else:}}
+                <i id="like" class="fa fa-heart" v-on:click="toggle_like({{=image.id}})"></i>
+            {{pass}}
+            {{=len(image.like_list)}}
+            {{if len(image.like_list) != 1:}} likes
+            {{else:}} like{{pass}}
+            <br>
             <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
             <div class="col-sm-1"></div>
         </div>

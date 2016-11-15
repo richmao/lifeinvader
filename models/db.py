@@ -72,6 +72,7 @@ db.define_table(
     Field('first_name', length=128, default=''),
     Field('last_name', length=128, default=''),
     Field('username', length=128, default=''),
+    Field('pp', 'upload', label='Profile Picture'),
     Field('email', length=128, default='', unique=True), # required
     Field('password', 'password', length=512,            # required
           readable=False, label='Password'),
@@ -83,9 +84,9 @@ db.define_table(
           writable=False, readable=False, default=''),
     Field('bio', 'text', default="I have not made a bio yet!"),
     # We follow
-    Field('follow_list', 'list:string', readable=True),
+    Field('follow_list', 'list:string', readable=True, default = []),
     # They follow us
-    Field('audience_list', 'list:string'),
+    Field('audience_list', 'list:string', default = []),
 )
 
 
