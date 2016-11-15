@@ -8,13 +8,14 @@
     var edit_post_url = "{{=URL('api', 'edit_post')}}";
     var people_url = "{{=URL('api', 'get_people')}}";
     var do_search_url = "{{=URL('api', 'do_search')}}";
-    var current_user = "{{=auth.user.email if auth.user_id else None}}";
+    var current_user = "{{=auth.user.username if auth.user_id else None}}";
     var auth_username = "{{=auth.user.username if auth.user_id else None}}";
     var current_profile = "{{=user}}";
     console.log("Current user is " + auth_username);
     console.log("Currently on " + current_profile + "\'s profile");
     var edit_bio_url = "{{=URL('api', 'edit_bio')}}";
     var toggle_follow_url = "{{=URL('api', 'toggle_follow')}}";
+    var toggle_like_url = "{{=URL('api', 'toggle_like', user_signature=False)}}";
 </script>
 {{end}}
 
