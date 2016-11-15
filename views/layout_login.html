@@ -66,36 +66,10 @@
                         <div class="row">
                             <div class="heading">
                                 <a href="{{=URL('default','index')}}">
-                                    <img width="100" height="100" src="{{=URL('static', 'images/ico.png')}}"/>
+                                    <img width="75" height="75" src="{{=URL('static', 'images/ico.png')}}"/>
                                 </a>
                             </div>
 
-                            <div style="background-color: #e0dbe2">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <a href="{{=URL('default','profile')}}" class="btn btn-primary">
-                                                <i class="fa fa-user" aria-hidden="true"></i> Profile
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="{{=URL('default','upload')}}" class="btn btn-info">
-                                                <i class="fa fa-upload" aria-hidden="true"></i> Upload
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-warning" v-on:click="search_button()">
-                                                <i class="fa fa-search" aria-hidden="true"></i> Search
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <a href="{{=URL('default','user', args=['logout'])}}" class="btn btn-danger">
-                                                <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
                             <div v-if="is_searching" id="search-div">
                                 <!-- do_search() effectively does nothing rn -->
                                 <form action="#" v-on:submit.prevent="do_search(form_search_content); results_button();" class="form-horizontal" enctype="multipart/form-data" method="post">
