@@ -12,7 +12,7 @@ body {
 
 /* line 13, ../sass/_main.scss */
 .heading {
-  padding: 20px 0px 20px 20px;
+  padding: 10px 0px 10px 10px;
 }
 
 /* line 17, ../sass/_main.scss */
@@ -41,43 +41,171 @@ body {
   vertical-align: top;
   text-align: center;
   width: 700px;
+  border: 1px solid #021a40;
 }
 
-/* line 39, ../sass/_main.scss */
+/* line 41, ../sass/_main.scss */
 .profile_pic {
   height: 100px;
-  margin-top: 50px;
   width: 100px;
   padding: 1px;
   border: 1px solid #021a40;
 }
 
-/* line 48, ../sass/_main.scss */
+/* line 49, ../sass/_main.scss */
 #search-div .form-horizontal {
   padding: 20px 40px 0 20px;
 }
-/* line 52, ../sass/_main.scss */
+/* line 53, ../sass/_main.scss */
 #search-div #submit_record__row {
   padding: 5px 0px 0px 25px;
 }
-/* line 55, ../sass/_main.scss */
+/* line 56, ../sass/_main.scss */
 #search-div #submit_record__row button {
   padding: 5px 0px 5px 0;
 }
 
-/* line 63, ../sass/_main.scss */
+/* line 64, ../sass/_main.scss */
 table .search_table {
   border-collapse: collapse;
   width: 100%;
 }
-/* line 67, ../sass/_main.scss */
+/* line 68, ../sass/_main.scss */
 table .search_table th {
   text-align: left;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.3);
 }
-/* line 73, ../sass/_main.scss */
+/* line 74, ../sass/_main.scss */
 table .search_table td {
   text-align: left;
   padding: 8px;
+}
+
+/* line 82, ../sass/_main.scss */
+#profile > div {
+  display: inline-block;
+}
+
+/* line 86, ../sass/_main.scss */
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: 2px;
+}
+
+/* line 96, ../sass/_main.scss */
+#header1 {
+  font-family: 'Raleway',sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 72px;
+  margin: 0 0 24px;
+  vertical-align: bottom;
+}
+
+/* line 105, ../sass/_main.scss */
+#header3 {
+  padding-top: 10px;
+  padding-right: 30px;
+  font-family: 'Raleway',sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+/* line 116, ../sass/_main.scss */
+.image-wrapper {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  margin-top: 10px;
+  border-radius: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+/* line 126, ../sass/_main.scss */
+.image-wrapper img {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 131, ../sass/_main.scss */
+.image-wrapper .image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  display: none;
+}
+
+/* line 142, ../sass/_main.scss */
+.image-wrapper:hover .image-overlay {
+  display: block;
+  text-align: center;
+}
+
+/* line 147, ../sass/_main.scss */
+.image-wrapper .image-overlay .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 20px;
+  width: 150px;
+  margin-top: -10px;
+  margin-left: -75px;
+}
+
+/* line 157, ../sass/_main.scss */
+#follow {
+  padding-left: 50px;
+}
+
+/* line 160, ../sass/_main.scss */
+#follow > .button {
+  padding: 10px 70px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+/* line 172, ../sass/_main.scss */
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+/* line 178, ../sass/_main.scss */
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* line 183, ../sass/_main.scss */
+.button2 {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid white;
+}
+
+/* line 189, ../sass/_main.scss */
+.button2:hover {
+  background-color: #ca1721;
+  color: white;
 }

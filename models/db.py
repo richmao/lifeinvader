@@ -71,7 +71,7 @@ db.define_table(
     auth.settings.table_user_name,
     Field('first_name', length=128, default=''),
     Field('last_name', length=128, default=''),
-    Field('username', length=128, default=''),
+    Field('username', length=128, default='', unique=True),
     Field('pp', 'upload', label='Profile Picture'),
     Field('email', length=128, default='', unique=True), # required
     Field('password', 'password', length=512,            # required
@@ -101,6 +101,9 @@ custom_auth_table.email.requires = [
 
 auth.settings.table_user = custom_auth_table # tell auth to use custom_auth_table
 custom_auth_table.username.requires = IS_NOT_IN_DB(db, custom_auth_table.username)
+
+auth.settings.logged_url = URL('user', args='profile')
+auth.settings.profile_next = URL('profile')
 
 # create all tables needed by auth if not custom tables
 auth.define_tables(signature=False)

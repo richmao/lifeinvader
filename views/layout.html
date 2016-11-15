@@ -67,11 +67,11 @@
                         <div class="row">
                             <div class="heading">
                                 <a href="{{=URL('default','index')}}">
-                                    <img width="75" height="75" src="{{=URL('static', 'images/ico.png')}}"/>
+                                    <img width="50" height="50" src="{{=URL('static', 'images/ico.png')}}"/>
                                 </a>
                             </div>
 
-                            <div style="background-color: #e0dbe2">
+                            <nav style="background-color: #e0dbe2">
                                 <table>
                                     <tr>
                                         <td>
@@ -86,7 +86,7 @@
                                         </td>
                                         <td>
                                             <a href="{{=URL('default','upload')}}" class="btn btn-info">
-                                                <i class="fa fa-upload" aria-hidden="true"></i> Upload
+                                                <i class="fa fa-upload" aria-hidden="true"></i> Post
                                             </a>
                                         </td>
                                         <td>
@@ -101,7 +101,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                            </div>
+                            </nav>
                             <div v-if="is_searching" id="search-div">
                                 <!-- do_search() effectively does nothing rn -->
                                 <form action="#" v-on:submit.prevent="do_search(form_search_content); results_button();" class="form-horizontal" enctype="multipart/form-data" method="post">

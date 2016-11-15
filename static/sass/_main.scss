@@ -11,7 +11,7 @@ body {
 }
 
 .heading {
-  padding: 20px 0px 20px 20px;
+  padding: 10px 0px 10px 10px;
 }
 
 .main {
@@ -34,11 +34,12 @@ body {
 	vertical-align: top;
     text-align: center;
 	width: 700px;
+    border:1px solid #021a40;
+
 }
 
 .profile_pic{
     height: 100px;
-    margin-top: 50px;
 	width: 100px;
     padding:1px;
     border:1px solid #021a40;
@@ -76,4 +77,116 @@ table {
     }
 
   }
+}
+
+#profile > div {
+  display: inline-block;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#header1 {
+  font-family: 'Raleway',sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 72px;
+  margin: 0 0 24px;
+  vertical-align: bottom;
+}
+
+#header3 {
+  padding-top: 10px;
+  padding-right: 30px;
+  font-family: 'Raleway',sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+
+.image-wrapper {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  margin-top: 10px;
+  border-radius: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+.image-wrapper img {
+  height: 100%;
+  width: 100%;
+}
+
+.image-wrapper .image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0,.25);
+  color: #fff;
+  display: none;
+}
+
+.image-wrapper:hover .image-overlay {
+   display: block;
+  text-align: center;
+}
+
+.image-wrapper .image-overlay .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 20px;
+  width: 150px;
+  margin-top: -10px;
+  margin-left: -75px;
+}
+
+#follow {
+    padding-left: 50px;
+}
+#follow > .button {
+  padding: 10px 70px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button2 {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid white;
+}
+
+.button2:hover {
+    background-color: #ca1721;
+    color: white;
 }

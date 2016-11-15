@@ -13,13 +13,12 @@
 </script>
 {{end}}
 
-<h1>{{=auth.user.username}}'s Feed</h1>
+<span id="header1">{{=auth.user.username}}'s Feed</span>
 {{for image in images:}}
     <div class="row">
         <div class="col-md-1"></div>
         <div class = "col-md-10">
             <img class="image img-rounded img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
-            <br />
             <div class="col-sm-1"></div>
             {{if not auth.user.username in image.like_list:}}
                 <i id="like" class="fa fa-heart-o" v-on:click="toggle_like({{=image.id}})"></i>

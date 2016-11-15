@@ -30,7 +30,11 @@ def user():
     to decorate functions that need access control
     also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users
     """
+
     return dict(form=auth())
+
+def edit_profile():
+    return dict(form=auth.profile())
 
 def get_username_from_email(email):
     u = db(db.auth_user.email == email).select().first()
@@ -85,11 +89,12 @@ def profile():
     images = db(query).select(orderby=~db.image.posted_on, limitby=(0, 20))
     user_profile = db(db.auth_user.username == user).select().first()
 
-    follower_count = len(db(db.auth_user.username == user).select().first().audience_list)
+    audience_count = len(db(db.auth_user.username == user).select().first().audience_list)
+    follower_count = len(db(db.auth_user.username == user).select().first().follow_list)
 
     return dict(get_firstname_from_email=get_firstname_from_email,
                 images=images, user=user, bio=bio, user_profile = user_profile,
-                follower_count=follower_count)
+                audience_count=audience_count, follower_count = follower_count)
 
 @auth.requires_login()
 def upload():
