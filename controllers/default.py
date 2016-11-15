@@ -6,7 +6,9 @@ def index():
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
     """
-    images = db().select(db.image.ALL, orderby=~db.image.posted_on, limitby=(0, 20))
+
+    followers = db(db.auth_user.username == auth.user.username).select(db.auth_user.follow_list).first().follow_list
+    images = db(db.image.author.belongs(followers)).select(db.image.ALL, orderby=~db.image.posted_on, limitby=(0, 20))
     return dict(get_username_from_email = get_username_from_email, get_firstname_from_email = get_firstname_from_email,
                  images = images)
 
