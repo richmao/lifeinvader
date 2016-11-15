@@ -86,7 +86,6 @@ db.define_table(
     Field('follow_list', 'list:string', readable=True),
     # They follow us
     Field('audience_list', 'list:string'),
-    #Field('image_list', 'list:reference image'),
 )
 
 
@@ -106,9 +105,8 @@ custom_auth_table.username.requires = IS_NOT_IN_DB(db, custom_auth_table.usernam
 auth.define_tables(signature=False)
 
 # Hiding audience, follow and image list.
-#db.auth_user.follow_list.writable = False
-#db.auth_user.audience_list.writable = False
-#db.auth_user.image_list.writable = False
+db.auth_user.follow_list.writable = db.auth_user.follow_list.readable = False
+db.auth_user.audience_list.writable = db.auth_user.audience_list.readable = False
 
 # configure email
 mail = auth.settings.mailer
