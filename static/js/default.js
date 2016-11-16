@@ -127,13 +127,11 @@ var app = function() {
             is_searching: false,
             is_editing_bio: false,
             is_following: parseInt(p_is_following),
-            //is_following: 0,
             people: [],
             has_more: false,
             form_search_content: null,
             search_results: false,
             follower_count: f_count
-            //follower_count: -1
         },
         methods: {
             get_people: self.get_people,

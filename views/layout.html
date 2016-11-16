@@ -37,6 +37,7 @@
       <script src="{{=URL('static', 'js/vue.js')}}"></script>
       <script>
           var p_is_following = 0;
+          var f_count = 0;
       </script>
 
     <!-- Favicons -->
@@ -105,7 +106,7 @@
                                     </tr>
                                 </table>
                             </nav>
-                            <div v-if="is_searching" id="search-div">
+                            <div v-if="is_searching" id="search-div" class="display:none">
                                 <!-- do_search() effectively does nothing rn -->
                                 <form action="#" v-on:submit.prevent="results_button();" class="form-horizontal" enctype="multipart/form-data" method="post">
 
