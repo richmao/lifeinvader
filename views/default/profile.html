@@ -1,9 +1,6 @@
 {{extend 'layout.html'}}
 {{block head}}
-<script src="{{=URL('static', 'js/vue.js')}}" xmlns="http://www.w3.org/1999/html"></script>
 <script>
-    var people_url = "{{=URL('api', 'get_people')}}";
-
     var do_search_url = "{{=URL('api', 'do_search')}}";
     var current_user = "{{=auth.user.username if auth.user_id else None}}";
     var auth_username = "{{=auth.user.username if auth.user_id else None}}";

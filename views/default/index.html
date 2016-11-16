@@ -1,8 +1,6 @@
 {{extend 'layout.html'}}
 {{block head}}
-<script src="{{=URL('static', 'js/vue.js')}}"></script>
 <script>
-    var people_url = "{{=URL('api', 'get_people')}}";
     var like_image_url = "{{=URL('api', 'like_image', user_signature=False)}}";
     var unlike_image_url = "{{=URL('api', 'unlike_image', user_signature=False)}}";
     var toggle_like_url = "{{=URL('api', 'toggle_like', user_signature=False)}}";

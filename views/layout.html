@@ -38,6 +38,7 @@
       <script>
           var p_is_following = 0;
           var f_count = 0;
+          var people_url = "{{=URL('api', 'get_people')}}";
       </script>
 
     <!-- Favicons -->
@@ -64,7 +65,7 @@
     <!-- Begin page content -->
     <div class="container-fluid main-container">
         <div class="{{=middle_column}}">
-            <div class="row display:none" id="vue-div">
+            <div class="display:none" id="vue-div">
                 <div class="col-md-2"></div>
                 <div class="col-md-8 main">
                     {{if auth.user_id:}}
@@ -106,7 +107,7 @@
                                     </tr>
                                 </table>
                             </nav>
-                            <div v-if="is_searching" id="search-div" class="display:none">
+                            <div v-if="is_searching" id="search-div">
                                 <!-- do_search() effectively does nothing rn -->
                                 <form action="#" v-on:submit.prevent="results_button();" class="form-horizontal" enctype="multipart/form-data" method="post">
 

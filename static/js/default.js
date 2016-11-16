@@ -149,13 +149,11 @@ var app = function() {
     });
 
 
+
+
     self.get_people();
-    $("#search-div").show();
-
     //self.get_images();
-    $("#vue-div").show();
-
-
+    //$("#vue-div").show();
 
     return self;
 };
