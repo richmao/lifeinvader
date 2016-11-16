@@ -52,23 +52,6 @@ var app = function() {
         self.vue.search_results = true;
     };
 
-    self.edit_bio_button = function() {
-        self.vue.is_editing_bio = !self.vue.is_editing_bio;
-    };
-
-    // THIS IS SUPER BROKEN, clearly doesn't work.
-    // Look at the do_search in api.py
-    // Right now, the WHOLE user db is being dumped lmao.
-    self.do_search = function(form_search_content) {
-        $.post(do_search_url,
-            {
-                form_search_content: form_search_content
-            },
-            function () {
-                $.web2py.enableElement($("#search_submit"));
-            }
-        );
-    };
 
     self.goto_profile = function(person_username) {
       window.location.href = './profile/' + person_username;
@@ -78,19 +61,6 @@ var app = function() {
       return form_search_content.length > 0;
     };
 
-    self.add_post = function() {
-        $.post(add_post_url,
-            {
-                post_content: self.vue.form_post_content,
-                //author: current_user
-            },
-            function (data) {
-                $.web2py.enableElement($("#add_post_submit"));
-                self.vue.posts.unshift(data.post);
-            });
-        self.vue.form_post_content = "";
-        self.vue.is_adding_post = !self.vue.is_adding_post;
-    };
 
     self.my_profile = function() {
         return auth_username === current_profile;
@@ -115,28 +85,6 @@ var app = function() {
       self.vue.edit_id = post_id;
     };
 
-
-    self.delete_post = function (post_id) {
-        $.post(del_post_url,
-            {
-                post_id: post_id
-            },
-            function () {
-                var idx = null;
-                for (var i = 0; i < self.vue.posts.length; i++) {
-                    if (self.vue.posts[i].id === post_id) {
-                        // If I set this to i, it won't work, as the if below will
-                        // return false for items in first position.
-                        idx = i + 1;
-                        break;
-                    }
-                }
-                if (idx) {
-                    self.vue.posts.splice(idx - 1, 1);
-                }
-            }
-        )
-    };
 
     self.refresh_page = function () {
         location.reload();
@@ -169,16 +117,6 @@ var app = function() {
         );
     };
 
-    self.get_followers = function () {
-        $.getJSON(get_followers_url,
-            {
-                username: current_profile
-            }
-            ,function (data) {
-                self.vue.follower_count = data.f_count
-            });
-    };
-
 
     // Complete as needed.
     self.vue = new Vue({
@@ -193,13 +131,12 @@ var app = function() {
             has_more: false,
             form_search_content: null,
             search_results: false,
+            follower_count: parseInt(vfollower_count)
         },
         methods: {
             get_people: self.get_people,
             search_button: self.search_button,
             results_button: self.results_button,
-            edit_bio_button: self.edit_bio_button,
-            do_search: self.do_search,
             refresh_page: self.refresh_page,
             goto_profile: self.goto_profile,
             valid_q: self.valid_q,

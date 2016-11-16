@@ -16,31 +16,21 @@
     var f_count = "{{=follower_count}}";
     console.log("is_following: " + p_is_following);
 
-    var get_followers_url = "{{=URL('api', 'get_followers')}}";
+    var vfollower_count = "{{=follower_count}}";
 </script>
 {{end}}
 
 <h1>{{=user}}'s Profile</h1>
-<h2>Followers: {{=follower_count}}</h2>
+<h2>Followers: ${follower_count}</h2>
 <div>
     {{=bio}}
 </div>
 <br />
 <div v-if="!my_profile()">
-    <button class="btn btn-success" v-if="is_following" v-on:click="toggle_follow()">Following</button>
-    <button class="btn btn-success" v-if="!is_following" v-on:click="toggle_follow()">Follow</button>
+    <button class="btn btn-success" v-if="is_following" v-on:click="toggle_follow(); follower_count -= 1;">Following</button>
+    <button class="btn btn-success" v-if="!is_following" v-on:click="toggle_follow(); follower_count += 1;">Follow</button>
 </div>
 
-<!-- This is about to get weird, I'm transitioning from web2py to vue so I can do an inline bio edit -->
-<button v-if="my_profile()" v-on:click="edit_bio_button()">Edit Bio!</button>
-<div v-if="is_editing_bio">
-    <!--<form action="#" v-on:submit.prevent="edit_bio()" class="form-horizontal" enctype="multipart/form-data" method="post">
-        <textarea class="form-control string" name="bio_content" v-model="placeholder"></textarea>
-        <input class="btn btn-primary" id="edit_bio_submit" type="submit" value="Post" />
-    </form>
-    <button class="btn btn-warning" v-on:click="refresh_page()">Cancel</button>-->
-    Placeholder.
-</div>
 
 {{for image in images:}}
     <div class="row">
