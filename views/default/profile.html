@@ -2,11 +2,8 @@
 {{block head}}
 <script src="{{=URL('static', 'js/vue.js')}}" xmlns="http://www.w3.org/1999/html"></script>
 <script>
-    var posts_url = "{{=URL('api', 'get_posts')}}";
-    var add_post_url = "{{=URL('api', 'add_post', user_signature=True)}}";
-    var del_post_url = "{{=URL('api', 'del_post', user_signature=True)}}";
-    var edit_post_url = "{{=URL('api', 'edit_post')}}";
     var people_url = "{{=URL('api', 'get_people')}}";
+
     var do_search_url = "{{=URL('api', 'do_search')}}";
     var current_user = "{{=auth.user.username if auth.user_id else None}}";
     var auth_username = "{{=auth.user.username if auth.user_id else None}}";
@@ -16,6 +13,9 @@
     var edit_bio_url = "{{=URL('api', 'edit_bio')}}";
     var toggle_follow_url = "{{=URL('api', 'toggle_follow')}}";
     var toggle_like_url = "{{=URL('api', 'toggle_like', user_signature=False)}}";
+    var p_is_following = "{{=1 if auth.user.username in user_profile.audience_list else 0}}";
+    var f_count = "{{=audience_count}}";
+    console.log("is_following: " + p_is_following);
 </script>
 {{end}}
 <div id="profile">
@@ -33,21 +33,15 @@
         <span id="header1">{{=user}}'s Profile</span>
     </div>
 
-    {{if user != auth.user.username:}}
-        <div id="follow">
-            {{if auth.user.username not in user_profile.audience_list:}}
-                <button class="button button1" v-on:click="toggle_follow()">Follow</button>
-            {{else:}}
-                <button class="button button2" v-on:click="toggle_follow()">Following</button>
-            {{pass}}
-        </div>
-    {{pass}}
-
-    <div style="float: right">
-        <div><p id="header3">{{=audience_count}}<br>Followers</p></div>
-        <div><p id="header3">{{=follower_count}}<br>Following</p></div>
+    <div id="follow" v-if="!my_profile()">
+            <button class="button button2" v-if="is_following" v-on:click="toggle_follow(); follower_count -= 1;">Following</button>
+            <button class="button button1" v-if="!is_following" v-on:click="toggle_follow(); follower_count += 1;">Follow</button>
     </div>
 
+    <div style="float: right">
+        <div><p id="header3">${follower_count}<br>Followers</p></div>
+        <div><p id="header3">{{=follower_count}}<br>Following</p></div>
+    </div>
 
 
 </div>
@@ -57,17 +51,6 @@
 </div>
 
 <hr>
-
-<!-- This is about to get weird, I'm transitioning from web2py to vue so I can do an inline bio edit
-<button v-if="my_profile()" v-on:click="edit_bio_button()">Edit Bio!</button>
-<div v-if="is_editing_bio">
-    <form action="#" v-on:submit.prevent="edit_bio()" class="form-horizontal" enctype="multipart/form-data" method="post">
-        <textarea class="form-control string" name="bio_content" v-model="placeholder"></textarea>
-        <input class="btn btn-primary" id="edit_bio_submit" type="submit" value="Post" />
-    </form>
-    <button class="btn btn-warning" v-on:click="refresh_page()">Cancel</button>
-    Placeholder.
-</div>-->
 
 {{for image in images:}}
     <div class="row">

@@ -35,6 +35,9 @@
         <![endif]-->
 
       <script src="{{=URL('static', 'js/vue.js')}}"></script>
+      <script>
+          var p_is_following = 0;
+      </script>
 
     <!-- Favicons -->
     {{include 'web2py_ajax.html'}} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->
@@ -104,7 +107,7 @@
                             </nav>
                             <div v-if="is_searching" id="search-div">
                                 <!-- do_search() effectively does nothing rn -->
-                                <form action="#" v-on:submit.prevent="do_search(form_search_content); results_button();" class="form-horizontal" enctype="multipart/form-data" method="post">
+                                <form action="#" v-on:submit.prevent="results_button();" class="form-horizontal" enctype="multipart/form-data" method="post">
 
                                     <div class="form-group col-xs-10" id="table_post_content__row">
                                         <div>

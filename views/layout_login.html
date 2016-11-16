@@ -69,42 +69,7 @@
                                     <img width="50" height="50" src="{{=URL('static', 'images/ico.png')}}"/>
                                 </a>
                             </div>
-
-                            <div v-if="is_searching" id="search-div">
-                                <!-- do_search() effectively does nothing rn -->
-                                <form action="#" v-on:submit.prevent="do_search(form_search_content); results_button();" class="form-horizontal" enctype="multipart/form-data" method="post">
-
-                                    <div class="form-group col-xs-10" id="table_post_content__row">
-                                        <div>
-                                            <input class="form-control string" id="table_search_content" name="search_content" v-model="form_search_content" placeholder="ayyy lmao"/>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-xs-2" id="submit_record__row">
-                                        <input class="btn btn-success" id="search_submit" type="submit" value="Go!" />
-                                    </div>
-                                </form>
-                            </div>
-
                         </div><!-- end "row" -->
-
-                        <div v-if="search_results && valid_q(form_search_content)">
-                            <table class="table table-striped">
-                                <tr>
-                                    <th>Username</th>
-                                    <th>First Name</th>
-                                </tr>
-                                <tr v-for="person in people" v-if="person.username.indexOf(form_search_content)!=-1" class="post_list">
-                                    <td>
-                                        <a v-on:click="goto_profile(person.username)" href="#">${person.username}</a>
-                                    </td>
-                                    <td>
-                                        ${person.first_name}
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
                         {{block center}}
                         {{include}}
                         {{end}}
