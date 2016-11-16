@@ -3,7 +3,6 @@
 <script src="{{=URL('static', 'js/vue.js')}}" xmlns="http://www.w3.org/1999/html"></script>
 <script>
     var people_url = "{{=URL('api', 'get_people')}}";
-    var do_search_url = "{{=URL('api', 'do_search')}}";
     var current_user = "{{=auth.user.email if auth.user_id else None}}";
     var auth_username = "{{=auth.user.username if auth.user_id else None}}";
     var current_profile = "{{=user}}";
@@ -15,8 +14,6 @@
     var p_is_following = "{{=1 if auth.user.username in user_profile.audience_list else 0}}";
     var f_count = "{{=follower_count}}";
     console.log("is_following: " + p_is_following);
-
-    var vfollower_count = "{{=follower_count}}";
 </script>
 {{end}}
 

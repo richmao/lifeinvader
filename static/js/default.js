@@ -127,11 +127,13 @@ var app = function() {
             is_searching: false,
             is_editing_bio: false,
             is_following: parseInt(p_is_following),
+            //is_following: 0,
             people: [],
             has_more: false,
             form_search_content: null,
             search_results: false,
-            follower_count: parseInt(vfollower_count)
+            follower_count: parseInt(f_count)
+            //follower_count: -1
         },
         methods: {
             get_people: self.get_people,
@@ -143,7 +145,7 @@ var app = function() {
             my_profile: self.my_profile,
             edit_bio: self.edit_bio,
             toggle_like: self.toggle_like,
-            toggle_follow: self.toggle_follow,
+            toggle_follow: self.toggle_follow
         }
 
     });
