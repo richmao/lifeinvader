@@ -23,6 +23,7 @@ var app = function() {
         });
     };
 
+
     function get_images_url(start_idx, end_idx) {
         var pp = {
             start_idx: start_idx,
@@ -114,10 +115,6 @@ var app = function() {
       self.vue.edit_id = post_id;
     };
 
-    self.can_edit = function (poster_id) {
-      return self.vue.edit_id === poster_id;
-    };
-
 
     self.delete_post = function (post_id) {
         $.post(del_post_url,
@@ -154,7 +151,7 @@ var app = function() {
             function () {
             }
         );
-    }
+    };
 
     self.toggle_follow = function () {
         $.post(toggle_follow_url,
@@ -163,9 +160,25 @@ var app = function() {
                 username: current_profile
             },
             function () {
+                if(self.vue.is_following == 1){
+                    self.vue.is_following = 0;
+                } else {
+                    self.vue.is_following = 1;
+                }
             }
         );
-    }
+    };
+
+    self.get_followers = function () {
+        $.getJSON(get_followers_url,
+            {
+                username: current_profile
+            }
+            ,function (data) {
+                self.vue.follower_count = data.f_count
+            });
+    };
+
 
     // Complete as needed.
     self.vue = new Vue({
@@ -175,11 +188,11 @@ var app = function() {
         data: {
             is_searching: false,
             is_editing_bio: false,
-            posts: [],
+            is_following: parseInt(p_is_following),
             people: [],
             has_more: false,
             form_search_content: null,
-            search_results: false
+            search_results: false,
         },
         methods: {
             get_people: self.get_people,
@@ -193,12 +206,10 @@ var app = function() {
             my_profile: self.my_profile,
             edit_bio: self.edit_bio,
             toggle_like: self.toggle_like,
-            toggle_follow: self.toggle_follow
-
+            toggle_follow: self.toggle_follow,
         }
 
     });
-
 
 
     self.get_people();
@@ -206,6 +217,7 @@ var app = function() {
 
     //self.get_images();
     $("#vue-div").show();
+
 
 
     return self;

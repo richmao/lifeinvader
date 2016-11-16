@@ -2,10 +2,6 @@
 {{block head}}
 <script src="{{=URL('static', 'js/vue.js')}}" xmlns="http://www.w3.org/1999/html"></script>
 <script>
-    var posts_url = "{{=URL('api', 'get_posts')}}";
-    var add_post_url = "{{=URL('api', 'add_post', user_signature=True)}}";
-    var del_post_url = "{{=URL('api', 'del_post', user_signature=True)}}";
-    var edit_post_url = "{{=URL('api', 'edit_post')}}";
     var people_url = "{{=URL('api', 'get_people')}}";
     var do_search_url = "{{=URL('api', 'do_search')}}";
     var current_user = "{{=auth.user.email if auth.user_id else None}}";
@@ -15,6 +11,12 @@
     console.log("Currently on " + current_profile + "\'s profile");
     var edit_bio_url = "{{=URL('api', 'edit_bio')}}";
     var toggle_follow_url = "{{=URL('api', 'toggle_follow')}}";
+
+    var p_is_following = "{{=1 if auth.user.username in user_profile.audience_list else 0}}";
+    var f_count = "{{=follower_count}}";
+    console.log("is_following: " + p_is_following);
+
+    var get_followers_url = "{{=URL('api', 'get_followers')}}";
 </script>
 {{end}}
 
@@ -24,13 +26,10 @@
     {{=bio}}
 </div>
 <br />
-{{if user != auth.user.username:}}
-    {{if auth.user.username not in user_profile.audience_list:}}
-        <button class="btn btn-success" v-on:click="toggle_follow()">Follow</button>
-    {{else:}}
-        <button class="btn btn-success" v-on:click="toggle_follow()">Following</button>
-    {{pass}}
-{{pass}}
+<div v-if="!my_profile()">
+    <button class="btn btn-success" v-if="is_following" v-on:click="toggle_follow()">Following</button>
+    <button class="btn btn-success" v-if="!is_following" v-on:click="toggle_follow()">Follow</button>
+</div>
 
 <!-- This is about to get weird, I'm transitioning from web2py to vue so I can do an inline bio edit -->
 <button v-if="my_profile()" v-on:click="edit_bio_button()">Edit Bio!</button>
