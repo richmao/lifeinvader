@@ -63,22 +63,11 @@ var app = function() {
 
 
     self.my_profile = function() {
-        return auth_username === current_profile;
+        return current_user === current_profile;
     };
 
     self.editing_button = function() {
         self.vue.is_editing_post = !self.vue.is_editing_post;
-    };
-
-    self.edit_bio = function (auth_username) {
-        $.post(edit_post_url,
-            {
-                auth_username: auth_username
-            },
-            function () {
-                $.web2py.enableElement($("#edit_bio_submit"));
-            }
-        );
     };
 
     self.pass = function (post_id) {
@@ -104,7 +93,7 @@ var app = function() {
     self.toggle_follow = function () {
         $.post(toggle_follow_url,
             {
-                add_user: auth_username,
+                add_user: current_user,
                 username: current_profile
             },
             function () {
@@ -131,7 +120,7 @@ var app = function() {
             has_more: false,
             form_search_content: null,
             search_results: false,
-            follower_count: f_count
+            follower_count: parseInt(f_count)
         },
         methods: {
             get_people: self.get_people,
@@ -141,7 +130,6 @@ var app = function() {
             goto_profile: self.goto_profile,
             valid_q: self.valid_q,
             my_profile: self.my_profile,
-            edit_bio: self.edit_bio,
             toggle_like: self.toggle_like,
             toggle_follow: self.toggle_follow
         }

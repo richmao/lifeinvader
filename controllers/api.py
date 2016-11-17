@@ -20,10 +20,6 @@ def edit_post():
     p.post_content = request.vars.post_content
     p.update_record()
 
-# Just a placeholder for now.
-def edit_bio():
-    return 0
-
 @auth.requires_signature()
 def del_post():
     db(db.post.id == request.vars.post_id).delete()

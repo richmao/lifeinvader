@@ -39,6 +39,9 @@
           var p_is_following = 0;
           var f_count = 0;
           var people_url = "{{=URL('api', 'get_people')}}";
+          var current_user = "{{=auth.user.username if auth.user_id else None}}";
+          var toggle_like_url = "{{=URL('api', 'toggle_like', user_signature=False)}}";
+          console.log("Current user is " + current_user);
       </script>
 
     <!-- Favicons -->

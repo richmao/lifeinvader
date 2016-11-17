@@ -1,13 +1,4 @@
 {{extend 'layout.html'}}
-{{block head}}
-<script>
-    var like_image_url = "{{=URL('api', 'like_image', user_signature=False)}}";
-    var unlike_image_url = "{{=URL('api', 'unlike_image', user_signature=False)}}";
-    var toggle_like_url = "{{=URL('api', 'toggle_like', user_signature=False)}}";
-    var current_user = "{{=auth.user.username if auth.user_id else None}}";
-    console.log("Current user is " + current_user);
-</script>
-{{end}}
 
 <span id="header1">{{=auth.user.username}}'s Feed</span>
 {{for image in images:}}
