@@ -83,3 +83,40 @@ def toggle_follow():
     add.update_record(
         follow_list=fol_list,
     )
+
+def get_comments():
+    comments = []
+    rows = db().select(db.image_comment.ALL, orderby=db.image_comment.posted_on)
+    for i, r in enumerate(rows):
+        p = dict(
+            id=r.id,
+            comment_content=r.comment_content,
+            commenter=r.commenter,
+            image_id=r.image_id,
+            posted_on=r.posted_on
+        )
+        comments.append(p)
+    return response.json(dict(
+        comments=comments
+    ))
+
+@auth.requires_signature()
+def add_comment():
+    comment_id = db.image_comment.insert(
+        comment_content=request.vars.comment_content,
+        image_id = request.vars.image_id,
+        commenter = auth.user.username if auth.user_id else None
+    )
+
+    # i = db(db.image.id == request.vars.image_id).select().first()
+    # list = i.comment_list
+    #
+    # if request.vars.username not in list:
+    #     list = i.comment_list + [comment_id]
+    #
+    # i.update_record(
+    #     comment_list=list,
+    # )
+
+    c = db.image_comment(comment_id)
+    return response.json(dict(comment=c))

@@ -41,6 +41,8 @@
           var people_url = "{{=URL('api', 'get_people')}}";
           var current_user = "{{=auth.user.username if auth.user_id else None}}";
           var toggle_like_url = "{{=URL('api', 'toggle_like', user_signature=False)}}";
+          var add_comment_url = "{{=URL('api', 'add_comment', user_signature=True)}}";
+          var get_comments_url = "{{=URL('api', 'get_comments', user_signature=False)}}";
           console.log("Current user is " + current_user);
       </script>
 

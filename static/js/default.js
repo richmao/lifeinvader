@@ -5,6 +5,7 @@ var app = function() {
     var self = {};
 
     Vue.config.silent = false;
+    Vue.config.devtools = true;
     // show all warnings
 
 
@@ -54,7 +55,7 @@ var app = function() {
 
 
     self.goto_profile = function(person_username) {
-      window.location.href = './profile/' + person_username;
+      window.location.href = '/default/profile/' + person_username;
     };
 
     self.valid_q = function (form_search_content) {
@@ -106,6 +107,33 @@ var app = function() {
         );
     };
 
+    self.add_comment_button = function (image_id) {
+        // The button to edit a post has been pressed.
+        self.vue.is_adding_comment = !self.vue.is_adding_comment;
+        self.vue.adding_id = image_id;
+    };
+
+    self.add_comment = function (comment_content, image_id)  {
+        $.post(add_comment_url,
+            {
+                comment_content: comment_content,
+                image_id: image_id
+            },
+            function (data) {
+                $.web2py.enableElement($("#add_comment_submit"));
+                // push is the opposite of unshift, should post
+                // comment at end of array.
+                self.vue.comments.push(data.comment);
+            }
+        );
+    };
+
+    self.get_comments = function() {
+        $.getJSON(get_comments_url, function (data) {
+            self.vue.comments = data.comments;
+        });
+    };
+
 
     // Complete as needed.
     self.vue = new Vue({
@@ -116,11 +144,15 @@ var app = function() {
             is_searching: false,
             is_editing_bio: false,
             is_following: parseInt(p_is_following),
+            is_adding_comment: false,
             people: [],
+            comments: [],
             has_more: false,
             form_search_content: null,
             search_results: false,
-            follower_count: parseInt(f_count)
+            follower_count: parseInt(f_count),
+            adding_id: null,
+            form_comment_content: null
         },
         methods: {
             get_people: self.get_people,
@@ -131,7 +163,9 @@ var app = function() {
             valid_q: self.valid_q,
             my_profile: self.my_profile,
             toggle_like: self.toggle_like,
-            toggle_follow: self.toggle_follow
+            toggle_follow: self.toggle_follow,
+            add_comment: self.add_comment,
+            add_comment_button: self.add_comment_button
         }
 
     });
@@ -140,6 +174,7 @@ var app = function() {
 
 
     self.get_people();
+    self.get_comments();
     //self.get_images();
     //$("#vue-div").show();
 

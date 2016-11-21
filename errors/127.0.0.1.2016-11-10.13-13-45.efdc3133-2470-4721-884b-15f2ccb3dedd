@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.AttributeError'> 'DAL' object has no attribute 'post'"
+p3
+sS'layer'
+p4
+S'/home/cool/Documents/ucsc/web2py/applications/lifeinvader/controllers/api.py'
+p5
+sS'code'
+p6
+S'# These are the controllers for your ajax api.\ndef index():\n    pass\n\ndef get_posts():\n    start_index = int(request.vars.start_index) if request.vars.start_index is not None else 0\n    end_index = int(request.vars.end_index) if request.vars.end_index is not None else 0\n    posts = []\n    has_more = False\n    rows = db().select(db.post.ALL, limitby=(start_index, end_index + 1), orderby=~db.post.created_on)\n    for i, r in enumerate(rows):\n        if i < end_index - start_index:\n            p = dict(\n                id=r.id,\n                post_content = r.post_content,\n                created_on=r.created_on,\n                updated_on=r.updated_on,\n                author=r.author\n            )\n            posts.append(p)\n        else:\n            has_more = True\n    logged_in = auth.user_id is not None\n    return response.json(dict(\n        posts=posts,\n        logged_in=logged_in,\n        has_more=has_more\n    ))\n\n\n# Note that we need the URL to be signed, as this changes the db.\n@auth.requires_signature()\ndef add_post():\n    post_id = db.post.insert(\n        post_content = request.vars.post_content\n        # I should have put author here, but I\n        # handled it in tables.py\n    )\n    p = db.post(post_id)\n    return response.json(dict(post=p))\n\ndef edit_post():\n    #db(db.post.id == request.vars.post_id).update(post_content=vars.request.post_content)\n    p = db.post(request.vars.post_id)\n    p.post_content = request.vars.post_content\n    p.update_record()\n\n@auth.requires_signature()\ndef del_post():\n    db(db.post.id == request.vars.post_id).delete()\n\n\nresponse._vars=response._caller(get_posts)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/cool/Documents/ucsc/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/cool/Documents/ucsc/web2py/applications/lifeinvader/controllers/api.py", line 53, in <module>\n  File "/home/cool/Documents/ucsc/web2py/gluon/globals.py", line 417, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/cool/Documents/ucsc/web2py/applications/lifeinvader/controllers/api.py", line 10, in get_posts\n    rows = db().select(db.post.ALL, limitby=(start_index, end_index + 1), orderby=~db.post.created_on)\n  File "/home/cool/Documents/ucsc/web2py/gluon/packages/dal/pydal/base.py", line 921, in __getattr__\n    return BasicStorage.__getattribute__(self, key)\nAttributeError: \'DAL\' object has no attribute \'post\'\n'
+p11
+s.
