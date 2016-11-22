@@ -81,7 +81,6 @@ var app = function() {
     };
 
     self.toggle_like = function (image_id) {
-        self.vue.liking_id = image_id;
         $.post(toggle_like_url,
             {
                 image_id: image_id,
@@ -90,7 +89,6 @@ var app = function() {
             function () {
             }
         );
-        self.vue.like_clicked = !self.vue.like_clicked;
     };
 
     self.toggle_follow = function () {
@@ -156,8 +154,6 @@ var app = function() {
             search_results: false,
             follower_count: parseInt(f_count),
             adding_id: null,
-            liking_id: null,
-            like_clicked: false,
             form_comment_content: null
         },
         methods: {
@@ -186,6 +182,16 @@ var app = function() {
 
     return self;
 };
+
+function change_icon(div) {
+  var className = div.getAttribute("class");
+  if(className=="fa fa-heart-o") {
+    div.className = "fa fa-heart";
+  }
+  else{
+    div.className = "fa fa-heart-o";
+  }
+}
 
 var APP = null;
 

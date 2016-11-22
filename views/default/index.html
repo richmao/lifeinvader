@@ -7,11 +7,8 @@
         <div class = "col-md-10">
             <img class="image img-rounded img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
             <div class="col-sm-1"></div>
-            {{if not auth.user.username in image.like_list:}}
-                <i id="like" v-bind:class="{'fa fa-heart-o': (!like_clicked) && (liking_id == {{=image.id}} || liking_id == null), 'fa fa-heart': (like_clicked) && (liking_id == {{=image.id}} || liking_id == null)}" v-on:click="toggle_like({{=image.id}})" style="color:red"></i>
-            {{else:}}
-                <i id="like" v-bind:class="{'fa fa-heart': (!like_clicked) && (liking_id == {{=image.id}} || liking_id == null), 'fa fa-heart-o': (like_clicked) && (liking_id == {{=image.id}} || liking_id == null)}" v-on:click="toggle_like({{=image.id}})" style="color:red"></i>
-            {{pass}}
+            <i id="like" class="fa{{=' fa-heart-o' if not auth.user.username in image.like_list else ' fa-heart'}}" onclick="change_icon(this)" v-on:click="toggle_like({{=image.id}})" style="color:red"></i>
+
             {{=len(image.like_list)}}
             {{if len(image.like_list) != 1:}} likes
             {{else:}} like{{pass}}
