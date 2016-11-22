@@ -62,7 +62,7 @@
             <br/>
             <a v-on:click="add_comment_button({{=image.id}})" href="#"><i class="fa fa-comment-o"></i> Add Comment</a>
             <br />
-            <div v-if="is_adding_comment">
+            <div v-if="is_adding_comment && adding_id == {{=image.id}}">
                 <form action="#" v-on:submit.prevent="add_comment(form_comment_content, {{=image.id}})" class="form-horizontal" enctype="multipart/form-data" method="post">
                 <div class="form-group" id="table_comment_content__row">
                     <div>

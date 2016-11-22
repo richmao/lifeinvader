@@ -124,8 +124,10 @@ var app = function() {
                 // push is the opposite of unshift, should post
                 // comment at end of array.
                 self.vue.comments.push(data.comment);
+
             }
         );
+        self.vue.form_comment_content = "";
     };
 
     self.get_comments = function() {
