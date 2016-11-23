@@ -88,5 +88,9 @@
 {{pass}}
 
 {{if len(images) == 0:}}
-        <h2>You have no posts. <span v-on:click="toggle()" style="color:blue; cursor:pointer">Make</span> your first!</h2>
+        {{if user == auth.user.username:}}
+            <h2>You have no posts. <span v-on:click="toggle()" style="color:blue; cursor:pointer">Make</span> your first!</h2>
+        {{else:}}
+            <h2>Nothing here.</h2>
+        {{pass}}
 {{pass}}
