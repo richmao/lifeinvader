@@ -108,3 +108,12 @@ def upload():
         session.flash = T('Image Posted.')
         redirect(URL('default','index'))
     return dict(form=form)
+
+
+def upload_image():
+    p_id = db.image.insert(
+        image_content = request.vars.image,
+        caption = request.vars.caption
+    )
+    print p_id
+    return "ok"

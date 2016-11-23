@@ -46,6 +46,7 @@
           console.log("Current user is " + current_user);
       </script>
 
+
     <!-- Favicons -->
     {{include 'web2py_ajax.html'}} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->
     {{block head}}{{end}}
@@ -95,9 +96,8 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{=URL('default','upload')}}" class="btn btn-info">
-                                                <i class="fa fa-upload" aria-hidden="true"></i> Post
-                                            </a>
+                                            <button class="btn btn-info" v-on:click="toggle()">Post
+                                            </button>
                                         </td>
                                         <td>
                                             <button class="btn btn-warning" v-on:click="search_button()">
@@ -146,6 +146,21 @@
                                 </tr>
                             </table>
                         </div>
+
+                <!--This displays the dropzone area -->
+                    <div id="uploader_div" style="" v-bind:class="{'hidden': upload}">
+                        <form action="">
+                            <div class="dropzone dz-clickable" id="file-uploader">
+                              <div class="dz-message">
+                              Drop files here to upload them, or click to select them.
+                              </div>
+                            </div>
+                            <label>Caption</label>
+                            <input type="text" name="caption" id="caption" placeholder="caption" />
+
+                        </form>
+                        <button class="btn primary" id="submit-item">Upload</button>
+                    </div>
 
                         {{block center}}
                         {{include}}

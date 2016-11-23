@@ -136,6 +136,10 @@ var app = function() {
         });
     };
 
+    self.toggle = function() {
+        self.vue.upload = !self.vue.upload;
+    };
+
 
     // Complete as needed.
     self.vue = new Vue({
@@ -154,7 +158,8 @@ var app = function() {
             search_results: false,
             follower_count: parseInt(f_count),
             adding_id: null,
-            form_comment_content: null
+            form_comment_content: null,
+            upload: true
         },
         methods: {
             get_people: self.get_people,
@@ -167,7 +172,8 @@ var app = function() {
             toggle_like: self.toggle_like,
             toggle_follow: self.toggle_follow,
             add_comment: self.add_comment,
-            add_comment_button: self.add_comment_button
+            add_comment_button: self.add_comment_button,
+            toggle: self.toggle
         }
 
     });
