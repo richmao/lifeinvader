@@ -37,7 +37,7 @@ body {
 /* line 31, ../sass/_main.scss */
 .image {
   height: 500px;
-  margin-top: 50px;
+  margin-top: 5px;
   vertical-align: top;
   text-align: center;
   width: 700px;
@@ -52,42 +52,50 @@ body {
   border: 1px solid #021a40;
 }
 
-/* line 49, ../sass/_main.scss */
+/* line 48, ../sass/_main.scss */
+.profile_pic-sm {
+  height: 30px;
+  width: 30px;
+  padding: 1px;
+  border: 1px groove #021a40;
+}
+
+/* line 56, ../sass/_main.scss */
 #search-div .form-horizontal {
   padding: 20px 40px 0 20px;
 }
-/* line 53, ../sass/_main.scss */
+/* line 60, ../sass/_main.scss */
 #search-div #submit_record__row {
   padding: 5px 0px 0px 25px;
 }
-/* line 56, ../sass/_main.scss */
+/* line 63, ../sass/_main.scss */
 #search-div #submit_record__row button {
   padding: 5px 0px 5px 0;
 }
 
-/* line 64, ../sass/_main.scss */
+/* line 71, ../sass/_main.scss */
 table .search_table {
   border-collapse: collapse;
   width: 100%;
 }
-/* line 68, ../sass/_main.scss */
+/* line 75, ../sass/_main.scss */
 table .search_table th {
   text-align: left;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.3);
 }
-/* line 74, ../sass/_main.scss */
+/* line 81, ../sass/_main.scss */
 table .search_table td {
   text-align: left;
   padding: 8px;
 }
 
-/* line 82, ../sass/_main.scss */
+/* line 89, ../sass/_main.scss */
 #profile > div {
   display: inline-block;
 }
 
-/* line 86, ../sass/_main.scss */
+/* line 93, ../sass/_main.scss */
 hr {
   display: block;
   margin-top: 0.5em;
@@ -98,7 +106,7 @@ hr {
   border-width: 2px;
 }
 
-/* line 96, ../sass/_main.scss */
+/* line 103, ../sass/_main.scss */
 #header1 {
   font-family: 'Raleway',sans-serif;
   font-size: 38px;
@@ -108,7 +116,7 @@ hr {
   vertical-align: bottom;
 }
 
-/* line 105, ../sass/_main.scss */
+/* line 112, ../sass/_main.scss */
 #header3 {
   padding-top: 10px;
   padding-right: 30px;
@@ -119,7 +127,36 @@ hr {
   text-align: center;
 }
 
-/* line 116, ../sass/_main.scss */
+/* line 122, ../sass/_main.scss */
+#header4 {
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-right: 30px;
+  font-family: 'Raleway',sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+/* line 133, ../sass/_main.scss */
+.image-wrapper-sm {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin-top: 1px;
+  border-radius: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+/* line 143, ../sass/_main.scss */
+.image-wrapper-sm img {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 149, ../sass/_main.scss */
 .image-wrapper {
   position: relative;
   height: 100px;
@@ -130,13 +167,13 @@ hr {
   float: left;
 }
 
-/* line 126, ../sass/_main.scss */
+/* line 159, ../sass/_main.scss */
 .image-wrapper img {
   height: 100%;
   width: 100%;
 }
 
-/* line 131, ../sass/_main.scss */
+/* line 164, ../sass/_main.scss */
 .image-wrapper .image-overlay {
   position: absolute;
   top: 0;
@@ -148,13 +185,13 @@ hr {
   display: none;
 }
 
-/* line 142, ../sass/_main.scss */
+/* line 175, ../sass/_main.scss */
 .image-wrapper:hover .image-overlay {
   display: block;
   text-align: center;
 }
 
-/* line 147, ../sass/_main.scss */
+/* line 180, ../sass/_main.scss */
 .image-wrapper .image-overlay .content {
   position: absolute;
   top: 50%;
@@ -165,12 +202,12 @@ hr {
   margin-left: -75px;
 }
 
-/* line 157, ../sass/_main.scss */
+/* line 190, ../sass/_main.scss */
 #follow {
   padding-left: 20px;
 }
 
-/* line 160, ../sass/_main.scss */
+/* line 193, ../sass/_main.scss */
 #follow > .button {
   padding: 7px 60px;
   text-align: center;
@@ -184,402 +221,51 @@ hr {
   cursor: pointer;
 }
 
-/* line 172, ../sass/_main.scss */
+/* line 205, ../sass/_main.scss */
 .button1 {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
 }
 
-/* line 178, ../sass/_main.scss */
+/* line 211, ../sass/_main.scss */
 .button1:hover {
   background-color: #4CAF50;
   color: white;
 }
 
-/* line 183, ../sass/_main.scss */
+/* line 216, ../sass/_main.scss */
 .button2 {
   background-color: #4CAF50;
   color: white;
   border: 2px solid white;
 }
 
-/* line 189, ../sass/_main.scss */
+/* line 222, ../sass/_main.scss */
 .button2:hover {
   background-color: #ca1721;
   color: white;
 }
 
-/* line 81, ../sass/_dropzone.scss */
-.dropzone, .dropzone * {
-  box-sizing: border-box;
-}
-
-/* line 84, ../sass/_dropzone.scss */
-.dropzone {
-  min-height: 150px;
-  border: 2px solid rgba(0, 0, 0, 0.3);
-  background: white;
-  padding: 20px 20px;
-}
-/* line 90, ../sass/_dropzone.scss */
-.dropzone.dz-clickable {
-  cursor: pointer;
-}
-/* line 93, ../sass/_dropzone.scss */
-.dropzone.dz-clickable * {
-  cursor: default;
-}
-/* line 97, ../sass/_dropzone.scss */
-.dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
-  cursor: pointer;
-}
-/* line 109, ../sass/_dropzone.scss */
-.dropzone.dz-started .dz-message {
-  display: none;
-}
-/* line 114, ../sass/_dropzone.scss */
-.dropzone.dz-drag-hover {
-  border-style: solid;
-}
-/* line 116, ../sass/_dropzone.scss */
-.dropzone.dz-drag-hover .dz-message {
-  opacity: 0.5;
-}
-/* line 120, ../sass/_dropzone.scss */
-.dropzone .dz-message {
-  text-align: center;
-  margin: 1.5em 0;
-}
-/* line 125, ../sass/_dropzone.scss */
-.dropzone .dz-preview {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  margin: 16px;
-  min-height: 100px;
-}
-/* line 134, ../sass/_dropzone.scss */
-.dropzone .dz-preview:hover {
-  z-index: 1000;
-}
-/* line 137, ../sass/_dropzone.scss */
-.dropzone .dz-preview:hover .dz-details {
-  opacity: 1;
-}
-/* line 144, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-file-preview .dz-image {
-  border-radius: 20px;
-  background: #999;
-  border: 1px solid #9bbdff;
-  background: linear-gradient(to bottom, #d3e2ff, #b4ceff);
-}
-/* line 151, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-file-preview .dz-details {
-  opacity: 1;
-}
-/* line 156, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-image-preview {
-  background: white;
-}
-/* line 158, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-image-preview .dz-details {
-  -webkit-transition: opacity 0.2s linear;
-  -moz-transition: opacity 0.2s linear;
-  -ms-transition: opacity 0.2s linear;
-  -o-transition: opacity 0.2s linear;
-  transition: opacity 0.2s linear;
-}
-/* line 163, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-remove {
-  font-size: 14px;
-  text-align: center;
-  display: block;
-  cursor: pointer;
-  border: none;
-}
-/* line 169, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-remove:hover {
-  text-decoration: underline;
-}
-/* line 174, ../sass/_dropzone.scss */
-.dropzone .dz-preview:hover .dz-details {
-  opacity: 1;
-}
-/* line 177, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-details {
-  z-index: 20;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  font-size: 13px;
-  min-width: 100%;
-  max-width: 100%;
-  padding: 1em 1em;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.9);
-  line-height: 150%;
-}
-/* line 199, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-details .dz-size {
-  margin-bottom: 0.2em;
-}
-/* line 204, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-details .dz-filename {
-  white-space: nowrap;
-}
-/* line 209, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-details .dz-filename:hover span {
-  border: 1px solid rgba(200, 200, 200, 0.8);
-  background-color: rgba(255, 255, 255, 0.8);
-}
-/* line 214, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-details .dz-filename:not(:hover) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-/* line 215, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-details .dz-filename:not(:hover) span {
-  border: 1px solid transparent;
-}
-/* line 225, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-details .dz-filename span, .dropzone .dz-preview .dz-details .dz-size span {
-  background-color: rgba(255, 255, 255, 0.4);
-  padding: 0 0.4em;
-  border-radius: 3px;
-}
-/* line 237, ../sass/_dropzone.scss */
-.dropzone .dz-preview:hover .dz-image img {
-  -webkit-transform: scale(1.05, 1.05);
-  -moz-transform: scale(1.05, 1.05);
-  -ms-transform: scale(1.05, 1.05);
-  -o-transform: scale(1.05, 1.05);
-  transform: scale(1.05, 1.05);
-  -webkit-filter: blur(8px);
-  filter: blur(8px);
-}
-/* line 243, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-image {
-  border-radius: 20px;
-  overflow: hidden;
-  width: 200px;
-  height: 80px;
-  position: relative;
-  display: block;
-  z-index: 10;
-}
-/* line 252, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-image img {
-  display: block;
-}
-/* line 259, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-success .dz-success-mark {
-  -webkit-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
-  -moz-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
-  -ms-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
-  -o-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
-  animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
-}
-/* line 264, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-error .dz-error-mark {
-  opacity: 1;
-  -webkit-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
-  -moz-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
-  -ms-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
-  -o-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
-  animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
-}
-/* line 271, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-success-mark, .dropzone .dz-preview .dz-error-mark {
-  pointer-events: none;
-  opacity: 0;
-  z-index: 500;
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 50%;
-  margin-left: -27px;
-  margin-top: -27px;
-}
-/* line 288, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-success-mark svg, .dropzone .dz-preview .dz-error-mark svg {
-  display: block;
-  width: 54px;
-  height: 54px;
-}
-/* line 296, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-processing .dz-progress {
-  opacity: 1;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-/* line 300, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-complete .dz-progress {
-  opacity: 0;
-  -webkit-transition: opacity 0.4s ease-in;
-  -moz-transition: opacity 0.4s ease-in;
-  -ms-transition: opacity 0.4s ease-in;
-  -o-transition: opacity 0.4s ease-in;
-  transition: opacity 0.4s ease-in;
-}
-/* line 306, ../sass/_dropzone.scss */
-.dropzone .dz-preview:not(.dz-processing) .dz-progress {
-  -webkit-animation: pulse 6s ease infinite;
-  -moz-animation: pulse 6s ease infinite;
-  -ms-animation: pulse 6s ease infinite;
-  -o-animation: pulse 6s ease infinite;
-  animation: pulse 6s ease infinite;
-}
-/* line 310, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-progress {
-  opacity: 1;
-  z-index: 1000;
-  pointer-events: none;
-  position: absolute;
-  height: 16px;
-  left: 50%;
-  top: 58%;
-  margin-top: 0px;
-  width: 120px;
-  margin-left: -60px;
-  background: rgba(255, 255, 255, 0.9);
-  -webkit-transform: scale(1);
-  border-radius: 8px;
-  overflow: hidden;
-}
-/* line 335, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-progress .dz-upload {
-  background: #333;
-  background: linear-gradient(to bottom, #666666, #444444);
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  -webkit-transition: width 300ms ease-in-out;
-  -moz-transition: width 300ms ease-in-out;
-  -ms-transition: width 300ms ease-in-out;
-  -o-transition: width 300ms ease-in-out;
-  transition: width 300ms ease-in-out;
-}
-/* line 349, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-error .dz-error-message {
-  display: block;
-}
-/* line 352, ../sass/_dropzone.scss */
-.dropzone .dz-preview.dz-error:hover .dz-error-message {
-  opacity: 1;
-  pointer-events: auto;
-}
-/* line 358, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-error-message {
-  pointer-events: none;
-  z-index: 1000;
-  position: absolute;
-  display: block;
-  display: none;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s ease;
-  -moz-transition: opacity 0.3s ease;
-  -ms-transition: opacity 0.3s ease;
-  -o-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease;
-  border-radius: 8px;
-  font-size: 13px;
-  top: 64px;
-  left: -10px;
-  width: 74px;
-  background: #be2626;
-  background: linear-gradient(to bottom, #be2626, #a92222);
-  padding: 0.5em 1.2em;
-  color: white;
-}
-/* line 380, ../sass/_dropzone.scss */
-.dropzone .dz-preview .dz-error-message:after {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 31px;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 6px solid #be2626;
-}
-/* line 394, ../sass/_dropzone.scss */
-.dropzone .dz-size strong {
-  font-weight: normal;
-}
-
-/* line 399, ../sass/_dropzone.scss */
-.dropzone {
-  border: 2px dashed #4f80d2;
-  border-radius: 5px;
-  background: white;
-  width: 90%;
-  margin: 10px auto 20px auto;
-}
-/* line 405, ../sass/_dropzone.scss */
-.dropzone .dz-message {
-  font-weight: 400;
-  font-size: 1.4em;
-  color: #aaa;
-}
-/* line 409, ../sass/_dropzone.scss */
-.dropzone .dz-message .note {
-  font-size: 0.8em;
-  font-weight: 200;
-  display: inline-block;
-  width: 80%;
-  margin-top: 1.4rem;
-}
-/* line 415, ../sass/_dropzone.scss */
-.dropzone .dz-message .note .feature_list {
-  margin-top: 10px;
-  font-weight: normal;
-  text-align: left;
-  background: none;
-  border: none;
-  font-size: 0.9em;
-}
-/* line 422, ../sass/_dropzone.scss */
-.dropzone .dz-message .note .feature_list .feature {
-  width: 80%;
-  float: left;
-}
-/* line 425, ../sass/_dropzone.scss */
-.dropzone .dz-message .note .feature_list .feature .feature_text {
-  float: left;
-  color: #aaa;
-}
-/* line 433, ../sass/_dropzone.scss */
-.dropzone .fa {
-  color: #999;
-}
-
-/* line 194, ../sass/_main.scss */
+/* line 227, ../sass/_main.scss */
 .likes_comments {
   margin-left: 7%;
   margin-right: 7%;
 }
-/* line 198, ../sass/_main.scss */
+/* line 231, ../sass/_main.scss */
 .likes_comments form {
   margin-left: 4%;
   margin-right: 4%;
   padding-top: 10px;
 }
-/* line 203, ../sass/_main.scss */
+/* line 236, ../sass/_main.scss */
 .likes_comments form .form-group #add_comment_submit {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   background-color: #117e47;
 }
-/* line 209, ../sass/_main.scss */
+/* line 242, ../sass/_main.scss */
 .likes_comments form .form-group #add_comment_submit:hover {
   background-color: #0b512e;
   -webkit-transform: scale(1.05);
@@ -587,39 +273,39 @@ hr {
   transform: scale(1.05);
 }
 
-/* line 263, ../sass/_main.scss */
+/* line 296, ../sass/_main.scss */
 [id='toggle-heart'] {
   position: absolute;
   left: -100vw;
 }
-/* line 267, ../sass/_main.scss */
+/* line 300, ../sass/_main.scss */
 [id='toggle-heart']:checked + label {
   color: #e2264d;
   filter: none;
   will-change: font-size;
   animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
 }
-/* line 273, ../sass/_main.scss */
+/* line 306, ../sass/_main.scss */
 [id='toggle-heart']:checked + label:before, [id='toggle-heart']:checked + label:after {
   animation: inherit;
   animation-timing-function: ease-out;
 }
-/* line 278, ../sass/_main.scss */
+/* line 311, ../sass/_main.scss */
 [id='toggle-heart']:checked + label:before {
   will-change: transform, border-width, border-color;
   animation-name: bubble;
 }
-/* line 283, ../sass/_main.scss */
+/* line 316, ../sass/_main.scss */
 [id='toggle-heart']:checked + label:after {
   will-change: opacity, box-shadow;
   animation-name: sparkles;
 }
-/* line 289, ../sass/_main.scss */
+/* line 322, ../sass/_main.scss */
 [id='toggle-heart']:focus + label {
   text-shadow: 0 0 3px white, 0 1px 1px white, 0 -1px 1px white, 1px 0 1px white, -1px 0 1px white;
 }
 
-/* line 296, ../sass/_main.scss */
+/* line 329, ../sass/_main.scss */
 [for='toggle-heart'] {
   align-self: center;
   position: relative;
@@ -629,7 +315,7 @@ hr {
   user-select: none;
   cursor: pointer;
 }
-/* line 305, ../sass/_main.scss */
+/* line 338, ../sass/_main.scss */
 [for='toggle-heart']:before, [for='toggle-heart']:after {
   position: absolute;
   z-index: -1;
@@ -638,7 +324,7 @@ hr {
   border-radius: 50%;
   content: '';
 }
-/* line 313, ../sass/_main.scss */
+/* line 346, ../sass/_main.scss */
 [for='toggle-heart']:before {
   box-sizing: border-box;
   margin: -2.25rem;
@@ -647,7 +333,7 @@ hr {
   height: 4.5rem;
   transform: scale(0);
 }
-/* line 321, ../sass/_main.scss */
+/* line 354, ../sass/_main.scss */
 [for='toggle-heart']:after {
   margin: -0.1875rem;
   width: 0.375rem;

@@ -30,7 +30,7 @@ body {
 
 .image{
     height: 500px;
-    margin-top: 50px;
+    margin-top: 5px;
 	vertical-align: top;
     text-align: center;
 	width: 700px;
@@ -43,6 +43,13 @@ body {
 	width: 100px;
     padding:1px;
     border:1px solid #021a40;
+}
+
+.profile_pic-sm{
+    height: 30px;
+	width: 30px;
+    padding:1px;
+    border:1px groove #021a40;
 }
 
 #search-div {
@@ -110,6 +117,32 @@ hr {
   font-weight: 500;
   line-height: 20px;
   text-align: center;
+}
+
+#header4 {
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-right: 30px;
+  font-family: 'Raleway',sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+.image-wrapper-sm {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin-top: 1px;
+  border-radius: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+.image-wrapper-sm img {
+  height: 100%;
+  width: 100%;
 }
 
 
