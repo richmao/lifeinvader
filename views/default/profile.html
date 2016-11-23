@@ -66,7 +66,7 @@
                     <form action="#" v-on:submit.prevent="add_comment(form_comment_content, {{=image.id}})" class="form-horizontal" enctype="multipart/form-data" method="post">
                     <div class="form-group" id="table_comment_content__row">
                         <div>
-                            <textarea class="form-control string" id="table_comment_content" name="comment_content" v-model="form_comment_content" placeholder="ayyy lmao" rows="3"></textarea>
+                            <textarea class="form-control string" id="table_comment_content" name="comment_content" v-model="form_comment_content" placeholder="Type comment here" rows="3"></textarea>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -85,4 +85,8 @@
         </div>
         <div class="col-md-1 col-lg-2"></div>
     </div>
+{{pass}}
+
+{{if len(images) == 0:}}
+        <h2>You have no posts. <span v-on:click="toggle()" style="color:blue; cursor:pointer">Make</span> your first!</h2>
 {{pass}}
