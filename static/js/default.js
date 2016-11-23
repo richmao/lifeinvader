@@ -189,6 +189,16 @@ var app = function() {
     return self;
 };
 
+function change_icon(div) {
+  var className = div.getAttribute("class");
+  if(className=="fa fa-heart-o") {
+    div.className = "fa fa-heart";
+  }
+  else{
+    div.className = "fa fa-heart-o";
+  }
+}
+
 var APP = null;
 
 // This will make everything accessible from the js console;
