@@ -3,39 +3,42 @@
 <span id="header1">{{=auth.user.username}}'s Feed</span>
 {{for image in images:}}
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class = "col-md-10">
+        <div class="col-md-1 col-lg-2"></div>
+        <div class = "col-md-10 col-lg-8">
             <img class="image img-rounded img-responsive center-block" src="{{=URL('default', 'download', args=image.image_content)}}" />
-            <div class="col-sm-1"></div>
-            <i id="like" class="fa{{=' fa-heart-o' if not auth.user.username in image.like_list else ' fa-heart'}}" onclick="change_icon(this)" v-on:click="toggle_like({{=image.id}})" style="color:red"></i>
+            <div class="likes_comments">
+                <i id="like" class="fa{{=' fa-heart-o' if not auth.user.username in image.like_list else ' fa-heart'}}" onclick="change_icon(this)" v-on:click="toggle_like({{=image.id}})" style="color:red"></i>
 
-            {{=len(image.like_list)}}
-            {{if len(image.like_list) != 1:}} likes
-            {{else:}} like{{pass}}
-            <br />
-            <a v-on:click="add_comment_button({{=image.id}})" href="#"><i class="fa fa-comment-o"></i> Add Comment</a>
-            <br />
-            <div v-if="(is_adding_comment) && (adding_id == {{=image.id}})">
-                <form action="#" v-on:submit.prevent="add_comment(form_comment_content, {{=image.id}})" class="form-horizontal" enctype="multipart/form-data" method="post">
-                <div class="form-group" id="table_comment_content__row">
-                    <div>
-                        <textarea class="form-control string" id="table_comment_content" name="comment_content" v-model="form_comment_content" placeholder="ayyy lmao" rows="3"></textarea>
-                        <span class="help-block"></span>
+                <!--<input id="toggle-heart" type="checkbox" />
+                <label for="toggle-heart" aria-label="like"  v-on:click="toggle_like({{=image.id}})" style="{{='color: #e2264d' if auth.user.username in image.like_list else ''}}">❤</label>-->
+
+                {{=len(image.like_list)}}
+                {{if len(image.like_list) != 1:}} likes
+                {{else:}} like{{pass}}
+                <br />
+                <a v-on:click="add_comment_button({{=image.id}})" href="#/"><i class="fa fa-comment-o"></i> Add Comment</a>
+                <br />
+                <div v-if="(is_adding_comment) && (adding_id == {{=image.id}})">
+                    <form action="#" v-on:submit.prevent="add_comment(form_comment_content, {{=image.id}})" class="form-horizontal" enctype="multipart/form-data" method="post">
+                    <div class="form-group" id="table_comment_content__row">
+                        <div>
+                            <textarea class="form-control string" id="table_comment_content" name="comment_content" v-model="form_comment_content" placeholder="ayyy lmao" rows="3"></textarea>
+                            <span class="help-block"></span>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group" id="submit_record__row">
-                    <div>
-                        <input class="btn btn-primary" id="add_comment_submit" v-on:click="add_comment_button({{=image.id}})" type="submit" value="Submit" />
+                    <div class="form-group" id="submit_record__row">
+                        <div>
+                            <input class="btn btn-primary" id="add_comment_submit" v-on:click="add_comment_button({{=image.id}})" type="submit" value="Submit" />
+                        </div>
                     </div>
+                    </form>
                 </div>
-                </form>
+                <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
+                <div v-for="comment in comments" v-if="comment.image_id == {{=image.id}}">
+                    <b><a  href="#" v-on:click="goto_profile(comment.commenter)">${comment.commenter}</a></b>: ${comment.comment_content}
+                </div>
             </div>
-            <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
-            <div v-for="comment in comments" v-if="comment.image_id == {{=image.id}}">
-                <b><a  href="#" v-on:click="goto_profile(comment.commenter)">${comment.commenter}</a></b>: ${comment.comment_content}
-            </div>
-            <div class="col-sm-1"></div>
         </div>
-        <div class="col-md-1"></div>
+        <div class="col-md-1 col-lg-2"></div>
     </div>
 {{pass}}
