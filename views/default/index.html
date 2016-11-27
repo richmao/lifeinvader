@@ -28,6 +28,8 @@ $(function() {
       });
       this.on("complete", function(file) {
           this.removeFile(file);
+          $("#uploader_div").hide(); 
+          location.reload();
       });
     }
   }
