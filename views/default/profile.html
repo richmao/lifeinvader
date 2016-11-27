@@ -9,6 +9,43 @@
     var f_count = "{{=audience_count}}";
     console.log("is_following: " + p_is_following);
 </script>
+      <script src="{{=URL('static', 'js/dropzone.js')}}"></script>
+      <script>
+           var upload_url = "{{=URL('default', 'upload_image')}}";
+      </script>
+
+<script>
+$(function() {
+  Dropzone.options.fileUploader = {
+    maxFilesize: 10, // MB
+    url: upload_url,
+    paramName: 'image',
+    addRemoveLinks: true,
+    autoProcessQueue: false,
+    parallelUploads: 1,
+    acceptedFiles: 'image/*',
+    createImageThumbnails: false,
+    sending: function(file, xhr, formData) {
+        formData.append("caption", $("#caption").val());
+    },
+    init: function() {
+      var submitButton = document.querySelector("#submit-item");
+      var wrapperThis = this;
+
+      submitButton.addEventListener("click", function () {
+        wrapperThis.processQueue();
+      });
+      this.on("complete", function(file) {
+          this.removeFile(file);
+          $("#uploader_div").hide(); 
+          location.reload();
+      });
+    }
+  }
+});
+</script>
+
+
 {{end}}
 
 <div id="profile">
