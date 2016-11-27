@@ -41,6 +41,31 @@ var app = function() {
         })
     };
 
+    self.del_image = function (image_id) {
+        $.post(del_image_url,
+            {
+                image_id: image_id
+            },
+            function () {
+                // var idx = null;
+                // for (var i = 0; i < self.vue.images.length; i++) {
+                //     if (self.vue.images[i].id == image_id) {
+                //         idx = i + 1;
+                //         break;
+                //     }
+                // }
+                // if (idx){
+                //     self.vue.images.splice(idx - 1, 1);
+                // }
+                location.reload();
+            }
+        )
+    };
+
+    self.own_comment = function (comment_commenter) {
+        return current_user == comment_commenter;
+    };
+
     self.search_button = function() {
         self.vue.is_searching = !self.vue.is_searching;
         // Removing search_results div if we close the seach window
@@ -136,6 +161,31 @@ var app = function() {
         });
     };
 
+    self.del_comment = function (comment_image_id) {
+        $.post(del_comment_url,
+            {
+                comment_image_id: comment_image_id
+            },
+            function () {
+                var idx = null;
+                for (var i = 0; i < self.vue.comments.length; i++) {
+                    if (self.vue.comments[i].id == comment_image_id) {
+                        idx = i + 1;
+                        break;
+                    }
+                }
+                if (idx){
+                    self.vue.comments.splice(idx - 1, 1);
+                }
+            }
+        )
+    };
+
+    // register modal component
+    Vue.component('modal', {
+      template: '#modal-template'
+    });
+
 
     // Complete as needed.
     self.vue = new Vue({
@@ -154,7 +204,8 @@ var app = function() {
             search_results: false,
             follower_count: parseInt(f_count),
             adding_id: null,
-            form_comment_content: null
+            form_comment_content: null,
+            showModal: false
         },
         methods: {
             get_people: self.get_people,
@@ -168,6 +219,9 @@ var app = function() {
             toggle_follow: self.toggle_follow,
             add_comment: self.add_comment,
             add_comment_button: self.add_comment_button,
+            del_image: self.del_image,
+            own_comment: self.own_comment,
+            del_comment: self.del_comment
         }
 
     });

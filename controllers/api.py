@@ -21,8 +21,11 @@ def edit_post():
     p.update_record()
 
 @auth.requires_signature()
-def del_post():
-    db(db.post.id == request.vars.post_id).delete()
+def del_image():
+    db(db.image.id == request.vars.image_id).delete()
+
+def del_comment():
+    db(db.image_comment.id == request.vars.comment_image_id).delete()
 
 def do_search():
     users = request.vars.form_search_content

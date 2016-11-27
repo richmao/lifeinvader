@@ -222,53 +222,132 @@ hr {
   padding-top: 10px;
 }
 /* line 203, ../sass/_main.scss */
-.likes_comments form .form-group #add_comment_submit {
+.likes_comments form .form-group #add_comment_submit, .likes_comments form #disabled_submit {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   background-color: #117e47;
 }
 /* line 209, ../sass/_main.scss */
-.likes_comments form .form-group #add_comment_submit:hover {
+.likes_comments form .form-group #add_comment_submit:hover, .likes_comments form #disabled_submit:hover {
   background-color: #0b512e;
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);
 }
 
-/* line 263, ../sass/_main.scss */
+/* line 222, ../sass/_main.scss */
+.modal-mask button {
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+}
+
+/* line 228, ../sass/_main.scss */
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+/* line 240, ../sass/_main.scss */
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 245, ../sass/_main.scss */
+.modal-container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* line 256, ../sass/_main.scss */
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+/* line 261, ../sass/_main.scss */
+.modal-body {
+  margin: 20px 0;
+}
+
+/* line 265, ../sass/_main.scss */
+.modal-default-button {
+  float: right;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+/* line 278, ../sass/_main.scss */
+.modal-enter {
+  opacity: 0;
+}
+
+/* line 282, ../sass/_main.scss */
+.modal-leave-active {
+  opacity: 0;
+}
+
+/* line 286, ../sass/_main.scss */
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* line 336, ../sass/_main.scss */
 [id='toggle-heart'] {
   position: absolute;
   left: -100vw;
 }
-/* line 267, ../sass/_main.scss */
+/* line 340, ../sass/_main.scss */
 [id='toggle-heart']:checked + label {
   color: #e2264d;
   filter: none;
   will-change: font-size;
   animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
 }
-/* line 273, ../sass/_main.scss */
+/* line 346, ../sass/_main.scss */
 [id='toggle-heart']:checked + label:before, [id='toggle-heart']:checked + label:after {
   animation: inherit;
   animation-timing-function: ease-out;
 }
-/* line 278, ../sass/_main.scss */
+/* line 351, ../sass/_main.scss */
 [id='toggle-heart']:checked + label:before {
   will-change: transform, border-width, border-color;
   animation-name: bubble;
 }
-/* line 283, ../sass/_main.scss */
+/* line 356, ../sass/_main.scss */
 [id='toggle-heart']:checked + label:after {
   will-change: opacity, box-shadow;
   animation-name: sparkles;
 }
-/* line 289, ../sass/_main.scss */
+/* line 362, ../sass/_main.scss */
 [id='toggle-heart']:focus + label {
   text-shadow: 0 0 3px white, 0 1px 1px white, 0 -1px 1px white, 1px 0 1px white, -1px 0 1px white;
 }
 
-/* line 296, ../sass/_main.scss */
+/* line 369, ../sass/_main.scss */
 [for='toggle-heart'] {
   align-self: center;
   position: relative;
@@ -278,7 +357,7 @@ hr {
   user-select: none;
   cursor: pointer;
 }
-/* line 305, ../sass/_main.scss */
+/* line 378, ../sass/_main.scss */
 [for='toggle-heart']:before, [for='toggle-heart']:after {
   position: absolute;
   z-index: -1;
@@ -287,7 +366,7 @@ hr {
   border-radius: 50%;
   content: '';
 }
-/* line 313, ../sass/_main.scss */
+/* line 386, ../sass/_main.scss */
 [for='toggle-heart']:before {
   box-sizing: border-box;
   margin: -2.25rem;
@@ -296,7 +375,7 @@ hr {
   height: 4.5rem;
   transform: scale(0);
 }
-/* line 321, ../sass/_main.scss */
+/* line 394, ../sass/_main.scss */
 [for='toggle-heart']:after {
   margin: -0.1875rem;
   width: 0.375rem;
