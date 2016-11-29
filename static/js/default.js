@@ -205,7 +205,8 @@ var app = function() {
             follower_count: parseInt(f_count),
             adding_id: null,
             form_comment_content: null,
-            showModal: false
+            show_followers: false,
+            show_following: false
         },
         methods: {
             get_people: self.get_people,

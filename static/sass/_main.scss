@@ -8,6 +8,10 @@ body {
     background-repeat:no-repeat;
     background-attachment: fixed;
 	font-family: Verdana, Geneva, sans-serif;
+
+    // Removing the extra space at top/bottom of page.
+    padding-top: 0;
+    margin-bottom: 0;
 }
 
 .heading {
@@ -205,6 +209,8 @@ hr {
       -moz-border-radius: 10px;
       border-radius: 10px;
       background-color: $post_comment;
+      // This removes the dotted line after you click.
+      outline: 0;
 
       &:hover {
         background-color: darken($post_comment, 10%);
@@ -219,11 +225,18 @@ hr {
 
 }
 
+// For some reason I have to hardcode this :/
+#disabled_submit {
+  width: 73px;
+}
+
+
+// Modal CSS
+
 .modal-mask button {
   @include border-radius(12px);
 }
 
-// Deleting images modal
 
 .modal-mask {
   position: fixed;
@@ -290,7 +303,7 @@ hr {
 }
 
 
-// End deleting images modal
+// End Modal CSS
 
 // Stuff for Twitter like
 $bubble-d: 4.5rem; // bubble diameter

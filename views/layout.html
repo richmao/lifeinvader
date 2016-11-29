@@ -63,7 +63,8 @@
 
                   <div class="modal-body">
                     <slot name="body">
-                      default body
+                      <p>There's nothing here :(</p>
+                      <p>Go make some friends.</p>
                     </slot>
                   </div>
 
@@ -71,7 +72,7 @@
                     <slot name="footer">
                       <!--default footer-->
                       <button class="modal-default-button btn btn-danger" @click="$emit('close')">
-                        Cancel
+                        Close
                       </button>
                     </slot>
                   </div>

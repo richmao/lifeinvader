@@ -8,14 +8,16 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-family: Verdana, Geneva, sans-serif;
+  padding-top: 0;
+  margin-bottom: 0;
 }
 
-/* line 13, ../sass/_main.scss */
+/* line 17, ../sass/_main.scss */
 .heading {
   padding: 10px 0px 10px 10px;
 }
 
-/* line 17, ../sass/_main.scss */
+/* line 21, ../sass/_main.scss */
 .main {
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
@@ -24,17 +26,17 @@ body {
   padding-bottom: 20px;
 }
 
-/* line 23, ../sass/_main.scss */
+/* line 27, ../sass/_main.scss */
 .colorful {
   color: #bb8833;
 }
 
-/* line 27, ../sass/_main.scss */
+/* line 31, ../sass/_main.scss */
 #logout {
   padding-top: 20px;
 }
 
-/* line 31, ../sass/_main.scss */
+/* line 35, ../sass/_main.scss */
 .image {
   height: 500px;
   margin-top: 50px;
@@ -44,7 +46,7 @@ body {
   border: 1px solid #021a40;
 }
 
-/* line 41, ../sass/_main.scss */
+/* line 45, ../sass/_main.scss */
 .profile_pic {
   height: 100px;
   width: 100px;
@@ -52,42 +54,42 @@ body {
   border: 1px solid #021a40;
 }
 
-/* line 49, ../sass/_main.scss */
+/* line 53, ../sass/_main.scss */
 #search-div .form-horizontal {
   padding: 20px 40px 0 20px;
 }
-/* line 53, ../sass/_main.scss */
+/* line 57, ../sass/_main.scss */
 #search-div #submit_record__row {
   padding: 5px 0px 0px 25px;
 }
-/* line 56, ../sass/_main.scss */
+/* line 60, ../sass/_main.scss */
 #search-div #submit_record__row button {
   padding: 5px 0px 5px 0;
 }
 
-/* line 64, ../sass/_main.scss */
+/* line 68, ../sass/_main.scss */
 table .search_table {
   border-collapse: collapse;
   width: 100%;
 }
-/* line 68, ../sass/_main.scss */
+/* line 72, ../sass/_main.scss */
 table .search_table th {
   text-align: left;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.3);
 }
-/* line 74, ../sass/_main.scss */
+/* line 78, ../sass/_main.scss */
 table .search_table td {
   text-align: left;
   padding: 8px;
 }
 
-/* line 82, ../sass/_main.scss */
+/* line 86, ../sass/_main.scss */
 #profile > div {
   display: inline-block;
 }
 
-/* line 86, ../sass/_main.scss */
+/* line 90, ../sass/_main.scss */
 hr {
   display: block;
   margin-top: 0.5em;
@@ -98,7 +100,7 @@ hr {
   border-width: 2px;
 }
 
-/* line 96, ../sass/_main.scss */
+/* line 100, ../sass/_main.scss */
 #header1 {
   font-family: 'Raleway',sans-serif;
   font-size: 38px;
@@ -108,7 +110,7 @@ hr {
   vertical-align: bottom;
 }
 
-/* line 105, ../sass/_main.scss */
+/* line 109, ../sass/_main.scss */
 #header3 {
   padding-top: 10px;
   padding-right: 30px;
@@ -119,7 +121,7 @@ hr {
   text-align: center;
 }
 
-/* line 116, ../sass/_main.scss */
+/* line 120, ../sass/_main.scss */
 .image-wrapper {
   position: relative;
   height: 100px;
@@ -130,13 +132,13 @@ hr {
   float: left;
 }
 
-/* line 126, ../sass/_main.scss */
+/* line 130, ../sass/_main.scss */
 .image-wrapper img {
   height: 100%;
   width: 100%;
 }
 
-/* line 131, ../sass/_main.scss */
+/* line 135, ../sass/_main.scss */
 .image-wrapper .image-overlay {
   position: absolute;
   top: 0;
@@ -148,13 +150,13 @@ hr {
   display: none;
 }
 
-/* line 142, ../sass/_main.scss */
+/* line 146, ../sass/_main.scss */
 .image-wrapper:hover .image-overlay {
   display: block;
   text-align: center;
 }
 
-/* line 147, ../sass/_main.scss */
+/* line 151, ../sass/_main.scss */
 .image-wrapper .image-overlay .content {
   position: absolute;
   top: 50%;
@@ -165,12 +167,12 @@ hr {
   margin-left: -75px;
 }
 
-/* line 157, ../sass/_main.scss */
+/* line 161, ../sass/_main.scss */
 #follow {
   padding-left: 20px;
 }
 
-/* line 160, ../sass/_main.scss */
+/* line 164, ../sass/_main.scss */
 #follow > .button {
   padding: 7px 60px;
   text-align: center;
@@ -184,51 +186,52 @@ hr {
   cursor: pointer;
 }
 
-/* line 172, ../sass/_main.scss */
+/* line 176, ../sass/_main.scss */
 .button1 {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
 }
 
-/* line 178, ../sass/_main.scss */
+/* line 182, ../sass/_main.scss */
 .button1:hover {
   background-color: #4CAF50;
   color: white;
 }
 
-/* line 183, ../sass/_main.scss */
+/* line 187, ../sass/_main.scss */
 .button2 {
   background-color: #4CAF50;
   color: white;
   border: 2px solid white;
 }
 
-/* line 189, ../sass/_main.scss */
+/* line 193, ../sass/_main.scss */
 .button2:hover {
   background-color: #ca1721;
   color: white;
 }
 
-/* line 194, ../sass/_main.scss */
+/* line 198, ../sass/_main.scss */
 .likes_comments {
   margin-left: 7%;
   margin-right: 7%;
 }
-/* line 198, ../sass/_main.scss */
+/* line 202, ../sass/_main.scss */
 .likes_comments form {
   margin-left: 4%;
   margin-right: 4%;
   padding-top: 10px;
 }
-/* line 203, ../sass/_main.scss */
+/* line 207, ../sass/_main.scss */
 .likes_comments form .form-group #add_comment_submit, .likes_comments form #disabled_submit {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   background-color: #117e47;
+  outline: 0;
 }
-/* line 209, ../sass/_main.scss */
+/* line 215, ../sass/_main.scss */
 .likes_comments form .form-group #add_comment_submit:hover, .likes_comments form #disabled_submit:hover {
   background-color: #0b512e;
   -webkit-transform: scale(1.05);
@@ -236,14 +239,19 @@ hr {
   transform: scale(1.05);
 }
 
-/* line 222, ../sass/_main.scss */
+/* line 229, ../sass/_main.scss */
+#disabled_submit {
+  width: 73px;
+}
+
+/* line 236, ../sass/_main.scss */
 .modal-mask button {
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
   border-radius: 12px;
 }
 
-/* line 228, ../sass/_main.scss */
+/* line 241, ../sass/_main.scss */
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -256,13 +264,13 @@ hr {
   transition: opacity .3s ease;
 }
 
-/* line 240, ../sass/_main.scss */
+/* line 253, ../sass/_main.scss */
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 245, ../sass/_main.scss */
+/* line 258, ../sass/_main.scss */
 .modal-container {
   width: 300px;
   margin: 0px auto;
@@ -274,18 +282,18 @@ hr {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-/* line 256, ../sass/_main.scss */
+/* line 269, ../sass/_main.scss */
 .modal-header h3 {
   margin-top: 0;
   color: #42b983;
 }
 
-/* line 261, ../sass/_main.scss */
+/* line 274, ../sass/_main.scss */
 .modal-body {
   margin: 20px 0;
 }
 
-/* line 265, ../sass/_main.scss */
+/* line 278, ../sass/_main.scss */
 .modal-default-button {
   float: right;
 }
@@ -298,56 +306,56 @@ hr {
  * You can easily play with the modal transition by editing
  * these styles.
  */
-/* line 278, ../sass/_main.scss */
+/* line 291, ../sass/_main.scss */
 .modal-enter {
   opacity: 0;
 }
 
-/* line 282, ../sass/_main.scss */
+/* line 295, ../sass/_main.scss */
 .modal-leave-active {
   opacity: 0;
 }
 
-/* line 286, ../sass/_main.scss */
+/* line 299, ../sass/_main.scss */
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-/* line 336, ../sass/_main.scss */
+/* line 349, ../sass/_main.scss */
 [id='toggle-heart'] {
   position: absolute;
   left: -100vw;
 }
-/* line 340, ../sass/_main.scss */
+/* line 353, ../sass/_main.scss */
 [id='toggle-heart']:checked + label {
   color: #e2264d;
   filter: none;
   will-change: font-size;
   animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
 }
-/* line 346, ../sass/_main.scss */
+/* line 359, ../sass/_main.scss */
 [id='toggle-heart']:checked + label:before, [id='toggle-heart']:checked + label:after {
   animation: inherit;
   animation-timing-function: ease-out;
 }
-/* line 351, ../sass/_main.scss */
+/* line 364, ../sass/_main.scss */
 [id='toggle-heart']:checked + label:before {
   will-change: transform, border-width, border-color;
   animation-name: bubble;
 }
-/* line 356, ../sass/_main.scss */
+/* line 369, ../sass/_main.scss */
 [id='toggle-heart']:checked + label:after {
   will-change: opacity, box-shadow;
   animation-name: sparkles;
 }
-/* line 362, ../sass/_main.scss */
+/* line 375, ../sass/_main.scss */
 [id='toggle-heart']:focus + label {
   text-shadow: 0 0 3px white, 0 1px 1px white, 0 -1px 1px white, 1px 0 1px white, -1px 0 1px white;
 }
 
-/* line 369, ../sass/_main.scss */
+/* line 382, ../sass/_main.scss */
 [for='toggle-heart'] {
   align-self: center;
   position: relative;
@@ -357,7 +365,7 @@ hr {
   user-select: none;
   cursor: pointer;
 }
-/* line 378, ../sass/_main.scss */
+/* line 391, ../sass/_main.scss */
 [for='toggle-heart']:before, [for='toggle-heart']:after {
   position: absolute;
   z-index: -1;
@@ -366,7 +374,7 @@ hr {
   border-radius: 50%;
   content: '';
 }
-/* line 386, ../sass/_main.scss */
+/* line 399, ../sass/_main.scss */
 [for='toggle-heart']:before {
   box-sizing: border-box;
   margin: -2.25rem;
@@ -375,7 +383,7 @@ hr {
   height: 4.5rem;
   transform: scale(0);
 }
-/* line 394, ../sass/_main.scss */
+/* line 407, ../sass/_main.scss */
 [for='toggle-heart']:after {
   margin: -0.1875rem;
   width: 0.375rem;
