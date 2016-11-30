@@ -689,3 +689,30 @@ hr {
 .dropzone .fa {
   color: #999;
 }
+
+#uploader_div {
+  input {
+    width: 35%;
+  }
+
+  .dz_cap {
+    padding-left: 5%;
+  }
+
+  button {
+    @include border-radius(12px);
+    background-color:  $post_comment;
+    color: white;
+
+    &:hover {
+        background-color: darken($post_comment, 10%);
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+      }
+  }
+
+}
+
+
+// End DropzoneJS stuff

@@ -807,3 +807,27 @@ hr {
 .dropzone .fa {
   color: #999;
 }
+
+/* line 694, ../sass/_main.scss */
+#uploader_div input {
+  width: 35%;
+}
+/* line 698, ../sass/_main.scss */
+#uploader_div .dz_cap {
+  padding-left: 5%;
+}
+/* line 702, ../sass/_main.scss */
+#uploader_div button {
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  background-color: #117e47;
+  color: white;
+}
+/* line 707, ../sass/_main.scss */
+#uploader_div button:hover {
+  background-color: #0b512e;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}

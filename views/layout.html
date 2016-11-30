@@ -223,33 +223,38 @@ $(function() {
                         </div>
 
                 <!--This displays the dropzone area -->
-                    <div id="uploader_div" style="" v-bind:class="{'hidden': upload}">
-                        <form action="">
-                            <div class="dropzone dz-clickable" id="file-uploader">
-                              <div class="dz-message">
-                              Drop files here to upload them, or click to select them.
-                              </div>
-                            </div>
+                <br />
+                <div id="uploader_div" style="" v-bind:class="{'hidden': upload}">
+                    <form action="">
+                        <div class="dropzone dz-clickable" id="file-uploader">
+                          <div class="dz-message">
+                          Drop files here to upload them, or click to select them.
+                          </div>
+                        </div>
+                        <div class="dz_cap">
                             <label>Caption</label>
                             <input type="text" name="caption" id="caption" placeholder="Caption" />
-
-                        </form>
+                        </div>
+                    </form>
+                    <br />
+                    <div class="dz_cap">
                         <button class="btn primary" id="submit-item">Upload</button>
                     </div>
+                </div>
 
-                        {{block center}}
-                        {{include}}
-                        {{end}}
-                        {{else:}}
+                    {{block center}}
+                    {{include}}
+                    {{end}}
+                    {{else:}}
 
-                        <div style="text-align: center">
-                            <div><img width="470" height="160" src="{{=URL('static', 'images/logo.png')}}"/></div>
-                            <a href="{{=URL('default','user', args=['register'])}}" class="btn btn-danger btn-lg"><h2>Sign Up</h2></a>
-                            <br><br>
-                            <a href="{{=URL('default','user', args=['login'])}}" class="btn btn-warning btn-sm">Already have an account? Log in here</a>
-                        </div>
-                        {{pass}}
-                        <div class="col-md-2"></div>
+                    <div style="text-align: center">
+                        <div><img width="470" height="160" src="{{=URL('static', 'images/logo.png')}}"/></div>
+                        <a href="{{=URL('default','user', args=['register'])}}" class="btn btn-danger btn-lg"><h2>Sign Up</h2></a>
+                        <br><br>
+                        <a href="{{=URL('default','user', args=['login'])}}" class="btn btn-warning btn-sm">Already have an account? Log in here</a>
+                    </div>
+                    {{pass}}
+                    <div class="col-md-2"></div>
                 </div>
             </div>
         </div>
