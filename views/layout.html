@@ -60,8 +60,48 @@
     middle_column = {0: mc0, 1: mc1, 2: mc2}[
     (left_sidebar_enabled and 1 or 0)+(right_sidebar_enabled and 1 or 0)]
     }}
+
+
+<script src="{{=URL('static', 'js/dropzone.js')}}"></script>
+<script>
+   var upload_url = "{{=URL('default', 'upload_image')}}";
+</script>
+
+<script>
+$(function() {
+  Dropzone.options.fileUploader = {
+    maxFilesize: 10, // MB
+    url: upload_url,
+    paramName: 'image',
+    addRemoveLinks: true,
+    autoProcessQueue: false,
+    parallelUploads: 1,
+    acceptedFiles: 'image/*',
+    createImageThumbnails: false,
+    sending: function(file, xhr, formData) {
+        formData.append("caption", $("#caption").val());
+    },
+    init: function() {
+      var submitButton = document.querySelector("#submit-item");
+      var wrapperThis = this;
+
+      submitButton.addEventListener("click", function () {
+        wrapperThis.processQueue();
+      });
+      this.on("complete", function(file) {
+          this.removeFile(file);
+          $("#uploader_div").hide(); 
+          location.reload();
+      });
+    }
+  }
+});
+</script>
+
+
   </head>
   <body>
+
     <!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
     <div class="w2p_flash alert alert-dismissable">{{=response.flash or ''}}</div>
     <!-- Masthead ===================================== -->
