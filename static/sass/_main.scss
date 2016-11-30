@@ -34,7 +34,7 @@ body {
 
 .image{
     height: 500px;
-    margin-top: 50px;
+    margin-top: 5px;
 	vertical-align: top;
     text-align: center;
 	width: 700px;
@@ -47,6 +47,13 @@ body {
 	width: 100px;
     padding:1px;
     border:1px solid #021a40;
+}
+
+.profile_pic-sm{
+    height: 30px;
+	width: 30px;
+    padding:1px;
+    border:1px groove #021a40;
 }
 
 #search-div {
@@ -114,6 +121,32 @@ hr {
   font-weight: 500;
   line-height: 20px;
   text-align: center;
+}
+
+#header4 {
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-right: 30px;
+  font-family: 'Raleway',sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+.image-wrapper-sm {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin-top: 1px;
+  border-radius: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+.image-wrapper-sm img {
+  height: 100%;
+  width: 100%;
 }
 
 
@@ -305,127 +338,354 @@ hr {
 
 // End Modal CSS
 
-// Stuff for Twitter like
-$bubble-d: 4.5rem; // bubble diameter
-$bubble-r: .5*$bubble-d; // bubble-radius
-$sparkle-d: .375rem;
-$sparkle-r: .5*$sparkle-d;
 
-@mixin sparkles($k) {
-	$shadow-list: ();
-	$n-groups: 7;
-	$group-base-angle: 360deg/$n-groups;
-	$group-distr-r: (1 + $k*.25)*$bubble-r;
-	$n-sparkles: 2;
-	$sparkle-base-angle: 360deg/$n-sparkles;
-	$sparkle-off-angle: 60deg; // offset angle from radius
-	$spread-r: -$k*$sparkle-r;
-
-	@for $i from 0 to $n-groups {
-		$group-curr-angle: $i*$group-base-angle - 90deg;
-		$xg: $group-distr-r*cos($group-curr-angle);
-		$yg: $group-distr-r*sin($group-curr-angle);
-
-		@for $j from 0 to $n-sparkles {
-			$sparkle-curr-angle: $group-curr-angle +
-				$sparkle-off-angle + $j*$sparkle-base-angle;
-			$xs: $xg + $sparkle-d*cos($sparkle-curr-angle);
-			$ys: $yg + $sparkle-d*sin($sparkle-curr-angle);
-
-			$shadow-list: $shadow-list, $xs $ys 0 $spread-r
-				hsl(($i + $j)*$group-base-angle, 100%, 75%);
-		}
-	}
-
-	box-shadow: $shadow-list;
+/* line 81, ../sass/_dropzone.scss */
+.dropzone, .dropzone * {
+  box-sizing: border-box;
 }
 
-@mixin bubble($ext) {
-	transform: scale(1);
-	border-color: #cc8ef5;
-	border-width: $ext;
+/* line 84, ../sass/_dropzone.scss */
+.dropzone {
+  min-height: 150px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  background: white;
+  padding: 20px 20px;
 }
-
-[id='toggle-heart'] {
+/* line 90, ../sass/_dropzone.scss */
+.dropzone.dz-clickable {
+  cursor: pointer;
+}
+/* line 93, ../sass/_dropzone.scss */
+.dropzone.dz-clickable * {
+  cursor: default;
+}
+/* line 97, ../sass/_dropzone.scss */
+.dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
+  cursor: pointer;
+}
+/* line 109, ../sass/_dropzone.scss */
+.dropzone.dz-started .dz-message {
+  display: none;
+}
+/* line 114, ../sass/_dropzone.scss */
+.dropzone.dz-drag-hover {
+  border-style: solid;
+}
+/* line 116, ../sass/_dropzone.scss */
+.dropzone.dz-drag-hover .dz-message {
+  opacity: 0.5;
+}
+/* line 120, ../sass/_dropzone.scss */
+.dropzone .dz-message {
+  text-align: center;
+  margin: 1.5em 0;
+}
+/* line 125, ../sass/_dropzone.scss */
+.dropzone .dz-preview {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 16px;
+  min-height: 100px;
+}
+/* line 134, ../sass/_dropzone.scss */
+.dropzone .dz-preview:hover {
+  z-index: 1000;
+}
+/* line 137, ../sass/_dropzone.scss */
+.dropzone .dz-preview:hover .dz-details {
+  opacity: 1;
+}
+/* line 144, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-file-preview .dz-image {
+  border-radius: 20px;
+  background: #999;
+  border: 1px solid #9bbdff;
+  background: linear-gradient(to bottom, #d3e2ff, #b4ceff);
+}
+/* line 151, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-file-preview .dz-details {
+  opacity: 1;
+}
+/* line 156, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-image-preview {
+  background: white;
+}
+/* line 158, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-image-preview .dz-details {
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -ms-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+/* line 163, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-remove {
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  border: none;
+}
+/* line 169, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-remove:hover {
+  text-decoration: underline;
+}
+/* line 174, ../sass/_dropzone.scss */
+.dropzone .dz-preview:hover .dz-details {
+  opacity: 1;
+}
+/* line 177, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-details {
+  z-index: 20;
   position: absolute;
-  left: -100vw;
-
-	&:checked + label {
-		color: #e2264d;
-		filter: none;
-		will-change: font-size;
-		animation: heart 1s cubic-bezier(.17, .89, .32, 1.49);
-
-		&:before, &:after {
-			animation: inherit;
-			animation-timing-function: ease-out;
-		}
-
-		&:before {
-			will-change: transform, border-width, border-color;
-			animation-name: bubble;
-		}
-
-		&:after {
-			will-change: opacity, box-shadow;
-			animation-name: sparkles;
-		}
-	}
-
-	&:focus + label {
-		text-shadow: 0 0 3px white,
-			0 1px 1px white, 0 -1px 1px white,
-			1px 0 1px white, -1px 0 1px white;
-	}
+  top: 0;
+  left: 0;
+  opacity: 0;
+  font-size: 13px;
+  min-width: 100%;
+  max-width: 100%;
+  padding: 1em 1em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 150%;
+}
+/* line 199, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-details .dz-size {
+  margin-bottom: 0.2em;
+}
+/* line 204, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-details .dz-filename {
+  white-space: nowrap;
+}
+/* line 209, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-details .dz-filename:hover span {
+  border: 1px solid rgba(200, 200, 200, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+/* line 214, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-details .dz-filename:not(:hover) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 215, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-details .dz-filename:not(:hover) span {
+  border: 1px solid transparent;
+}
+/* line 225, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-details .dz-filename span, .dropzone .dz-preview .dz-details .dz-size span {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0 0.4em;
+  border-radius: 3px;
+}
+/* line 237, ../sass/_dropzone.scss */
+.dropzone .dz-preview:hover .dz-image img {
+  -webkit-transform: scale(1.05, 1.05);
+  -moz-transform: scale(1.05, 1.05);
+  -ms-transform: scale(1.05, 1.05);
+  -o-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+}
+/* line 243, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-image {
+  border-radius: 20px;
+  overflow: hidden;
+  width: 200px;
+  height: 80px;
+  position: relative;
+  display: block;
+  z-index: 10;
+}
+/* line 252, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-image img {
+  display: block;
+}
+/* line 259, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-success .dz-success-mark {
+  -webkit-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+  -ms-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+  -o-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+  animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+/* line 264, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-error .dz-error-mark {
+  opacity: 1;
+  -webkit-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+  -ms-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+  -o-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+  animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+/* line 271, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-success-mark, .dropzone .dz-preview .dz-error-mark {
+  pointer-events: none;
+  opacity: 0;
+  z-index: 500;
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  margin-left: -27px;
+  margin-top: -27px;
+}
+/* line 288, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-success-mark svg, .dropzone .dz-preview .dz-error-mark svg {
+  display: block;
+  width: 54px;
+  height: 54px;
+}
+/* line 296, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-processing .dz-progress {
+  opacity: 1;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+/* line 300, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-complete .dz-progress {
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease-in;
+  -moz-transition: opacity 0.4s ease-in;
+  -ms-transition: opacity 0.4s ease-in;
+  -o-transition: opacity 0.4s ease-in;
+  transition: opacity 0.4s ease-in;
+}
+/* line 306, ../sass/_dropzone.scss */
+.dropzone .dz-preview:not(.dz-processing) .dz-progress {
+  -webkit-animation: pulse 6s ease infinite;
+  -moz-animation: pulse 6s ease infinite;
+  -ms-animation: pulse 6s ease infinite;
+  -o-animation: pulse 6s ease infinite;
+  animation: pulse 6s ease infinite;
+}
+/* line 310, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-progress {
+  opacity: 1;
+  z-index: 1000;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  left: 50%;
+  top: 58%;
+  margin-top: 0px;
+  width: 120px;
+  margin-left: -60px;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-transform: scale(1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+/* line 335, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-progress .dz-upload {
+  background: #333;
+  background: linear-gradient(to bottom, #666666, #444444);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  -webkit-transition: width 300ms ease-in-out;
+  -moz-transition: width 300ms ease-in-out;
+  -ms-transition: width 300ms ease-in-out;
+  -o-transition: width 300ms ease-in-out;
+  transition: width 300ms ease-in-out;
+}
+/* line 349, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-error .dz-error-message {
+  display: block;
+}
+/* line 352, ../sass/_dropzone.scss */
+.dropzone .dz-preview.dz-error:hover .dz-error-message {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* line 358, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-error-message {
+  pointer-events: none;
+  z-index: 1000;
+  position: absolute;
+  display: block;
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+  font-size: 13px;
+  top: 64px;
+  left: -10px;
+  width: 74px;
+  background: #be2626;
+  background: linear-gradient(to bottom, #be2626, #a92222);
+  padding: 0.5em 1.2em;
+  color: white;
+}
+/* line 380, ../sass/_dropzone.scss */
+.dropzone .dz-preview .dz-error-message:after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 31px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #be2626;
+}
+/* line 394, ../sass/_dropzone.scss */
+.dropzone .dz-size strong {
+  font-weight: normal;
 }
 
-[for='toggle-heart'] {
-	align-self: center;
-	position: relative;
-	color: #888;
-	font-size: 2em;
-	filter: grayscale(1);
-	user-select: none;
-	cursor: pointer;
-
-	&:before, &:after {
-		position: absolute;
-		z-index: -1;
-		top: 50%; left: 50%;
-		border-radius: 50%;
-		content: '';
-	}
-
-	&:before {
-		box-sizing: border-box;
-		margin: -$bubble-r;
-		border: solid $bubble-r #e2264d;
-		width: $bubble-d; height: $bubble-d;
-		transform: scale(0);
-	}
-
-	&:after {
-		margin: -$sparkle-r;
-		width: $sparkle-d; height: $sparkle-d;
-		@include sparkles(1);
-	}
+/* line 399, ../sass/_dropzone.scss */
+.dropzone {
+  border: 2px dashed #4f80d2;
+  border-radius: 5px;
+  background: white;
+  width: 90%;
+  margin: 10px auto 20px auto;
 }
-
-@keyframes heart {
-	0%, 17.5% { font-size: 0; }
+/* line 405, ../sass/_dropzone.scss */
+.dropzone .dz-message {
+  font-weight: 400;
+  font-size: 1.4em;
+  color: #aaa;
 }
-
-@keyframes bubble {
-	15% { @include bubble($bubble-r); }
-	30%, 100% { @include bubble(0); }
+/* line 409, ../sass/_dropzone.scss */
+.dropzone .dz-message .note {
+  font-size: 0.8em;
+  font-weight: 200;
+  display: inline-block;
+  width: 80%;
+  margin-top: 1.4rem;
 }
-
-@keyframes sparkles {
-	0%, 20% { opacity: 0; }
-	25% {
-		opacity: 1;
-		@include sparkles(0);
-	}
+/* line 415, ../sass/_dropzone.scss */
+.dropzone .dz-message .note .feature_list {
+  margin-top: 10px;
+  font-weight: normal;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 0.9em;
 }
-
-// End Twitter liking stuff.
+/* line 422, ../sass/_dropzone.scss */
+.dropzone .dz-message .note .feature_list .feature {
+  width: 80%;
+  float: left;
+}
+/* line 425, ../sass/_dropzone.scss */
+.dropzone .dz-message .note .feature_list .feature .feature_text {
+  float: left;
+  color: #aaa;
+}
+/* line 433, ../sass/_dropzone.scss */
+.dropzone .fa {
+  color: #999;
+}

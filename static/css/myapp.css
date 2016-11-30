@@ -39,7 +39,7 @@ body {
 /* line 35, ../sass/_main.scss */
 .image {
   height: 500px;
-  margin-top: 50px;
+  margin-top: 5px;
   vertical-align: top;
   text-align: center;
   width: 700px;
@@ -54,42 +54,50 @@ body {
   border: 1px solid #021a40;
 }
 
-/* line 53, ../sass/_main.scss */
+/* line 52, ../sass/_main.scss */
+.profile_pic-sm {
+  height: 30px;
+  width: 30px;
+  padding: 1px;
+  border: 1px groove #021a40;
+}
+
+/* line 60, ../sass/_main.scss */
 #search-div .form-horizontal {
   padding: 20px 40px 0 20px;
 }
-/* line 57, ../sass/_main.scss */
+/* line 64, ../sass/_main.scss */
 #search-div #submit_record__row {
   padding: 5px 0px 0px 25px;
 }
-/* line 60, ../sass/_main.scss */
+/* line 67, ../sass/_main.scss */
 #search-div #submit_record__row button {
   padding: 5px 0px 5px 0;
 }
 
-/* line 68, ../sass/_main.scss */
+/* line 75, ../sass/_main.scss */
 table .search_table {
   border-collapse: collapse;
   width: 100%;
 }
-/* line 72, ../sass/_main.scss */
+/* line 79, ../sass/_main.scss */
 table .search_table th {
   text-align: left;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.3);
 }
-/* line 78, ../sass/_main.scss */
+/* line 85, ../sass/_main.scss */
 table .search_table td {
   text-align: left;
   padding: 8px;
 }
 
-/* line 86, ../sass/_main.scss */
+/* line 93, ../sass/_main.scss */
 #profile > div {
   display: inline-block;
 }
 
-/* line 90, ../sass/_main.scss */
+/* line 97, ../sass/_main.scss */
 hr {
   display: block;
   margin-top: 0.5em;
@@ -100,7 +108,7 @@ hr {
   border-width: 2px;
 }
 
-/* line 100, ../sass/_main.scss */
+/* line 107, ../sass/_main.scss */
 #header1 {
   font-family: 'Raleway',sans-serif;
   font-size: 38px;
@@ -110,7 +118,7 @@ hr {
   vertical-align: bottom;
 }
 
-/* line 109, ../sass/_main.scss */
+/* line 116, ../sass/_main.scss */
 #header3 {
   padding-top: 10px;
   padding-right: 30px;
@@ -121,7 +129,36 @@ hr {
   text-align: center;
 }
 
-/* line 120, ../sass/_main.scss */
+/* line 126, ../sass/_main.scss */
+#header4 {
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-right: 30px;
+  font-family: 'Raleway',sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+/* line 137, ../sass/_main.scss */
+.image-wrapper-sm {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin-top: 1px;
+  border-radius: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+/* line 147, ../sass/_main.scss */
+.image-wrapper-sm img {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 153, ../sass/_main.scss */
 .image-wrapper {
   position: relative;
   height: 100px;
@@ -132,13 +169,13 @@ hr {
   float: left;
 }
 
-/* line 130, ../sass/_main.scss */
+/* line 163, ../sass/_main.scss */
 .image-wrapper img {
   height: 100%;
   width: 100%;
 }
 
-/* line 135, ../sass/_main.scss */
+/* line 168, ../sass/_main.scss */
 .image-wrapper .image-overlay {
   position: absolute;
   top: 0;
@@ -150,13 +187,13 @@ hr {
   display: none;
 }
 
-/* line 146, ../sass/_main.scss */
+/* line 179, ../sass/_main.scss */
 .image-wrapper:hover .image-overlay {
   display: block;
   text-align: center;
 }
 
-/* line 151, ../sass/_main.scss */
+/* line 184, ../sass/_main.scss */
 .image-wrapper .image-overlay .content {
   position: absolute;
   top: 50%;
@@ -167,12 +204,12 @@ hr {
   margin-left: -75px;
 }
 
-/* line 161, ../sass/_main.scss */
+/* line 194, ../sass/_main.scss */
 #follow {
   padding-left: 20px;
 }
 
-/* line 164, ../sass/_main.scss */
+/* line 197, ../sass/_main.scss */
 #follow > .button {
   padding: 7px 60px;
   text-align: center;
@@ -186,74 +223,203 @@ hr {
   cursor: pointer;
 }
 
-/* line 176, ../sass/_main.scss */
+/* line 209, ../sass/_main.scss */
 .button1 {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
 }
 
-/* line 182, ../sass/_main.scss */
+/* line 215, ../sass/_main.scss */
 .button1:hover {
   background-color: #4CAF50;
   color: white;
 }
 
-/* line 187, ../sass/_main.scss */
+/* line 220, ../sass/_main.scss */
 .button2 {
   background-color: #4CAF50;
   color: white;
   border: 2px solid white;
 }
 
-/* line 193, ../sass/_main.scss */
+/* line 226, ../sass/_main.scss */
 .button2:hover {
   background-color: #ca1721;
   color: white;
 }
 
+/* line 231, ../sass/_main.scss */
+.likes_comments {
+  margin-left: 7%;
+  margin-right: 7%;
+}
+/* line 235, ../sass/_main.scss */
+.likes_comments form {
+  margin-left: 4%;
+  margin-right: 4%;
+  padding-top: 10px;
+}
+/* line 240, ../sass/_main.scss */
+.likes_comments form .form-group #add_comment_submit, .likes_comments form #disabled_submit {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #117e47;
+  outline: 0;
+}
+/* line 248, ../sass/_main.scss */
+.likes_comments form .form-group #add_comment_submit:hover, .likes_comments form #disabled_submit:hover {
+  background-color: #0b512e;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+/* line 262, ../sass/_main.scss */
+#disabled_submit {
+  width: 73px;
+}
+
+/* line 269, ../sass/_main.scss */
+.modal-mask button {
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+}
+
+/* line 274, ../sass/_main.scss */
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+/* line 286, ../sass/_main.scss */
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 291, ../sass/_main.scss */
+.modal-container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* line 302, ../sass/_main.scss */
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+/* line 307, ../sass/_main.scss */
+.modal-body {
+  margin: 20px 0;
+}
+
+/* line 311, ../sass/_main.scss */
+.modal-default-button {
+  float: right;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+/* line 324, ../sass/_main.scss */
+.modal-enter {
+  opacity: 0;
+}
+
+/* line 328, ../sass/_main.scss */
+.modal-leave-active {
+  opacity: 0;
+}
+
+/* line 332, ../sass/_main.scss */
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 /* line 81, ../sass/_dropzone.scss */
+/* line 343, ../sass/_main.scss */
 .dropzone, .dropzone * {
   box-sizing: border-box;
 }
 
 /* line 84, ../sass/_dropzone.scss */
+/* line 348, ../sass/_main.scss */
 .dropzone {
   min-height: 150px;
   border: 2px solid rgba(0, 0, 0, 0.3);
   background: white;
   padding: 20px 20px;
 }
+
 /* line 90, ../sass/_dropzone.scss */
+/* line 355, ../sass/_main.scss */
 .dropzone.dz-clickable {
   cursor: pointer;
 }
+
 /* line 93, ../sass/_dropzone.scss */
+/* line 359, ../sass/_main.scss */
 .dropzone.dz-clickable * {
   cursor: default;
 }
+
 /* line 97, ../sass/_dropzone.scss */
+/* line 363, ../sass/_main.scss */
 .dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
   cursor: pointer;
 }
+
 /* line 109, ../sass/_dropzone.scss */
+/* line 367, ../sass/_main.scss */
 .dropzone.dz-started .dz-message {
   display: none;
 }
+
 /* line 114, ../sass/_dropzone.scss */
+/* line 371, ../sass/_main.scss */
 .dropzone.dz-drag-hover {
   border-style: solid;
 }
+
 /* line 116, ../sass/_dropzone.scss */
+/* line 375, ../sass/_main.scss */
 .dropzone.dz-drag-hover .dz-message {
   opacity: 0.5;
 }
+
 /* line 120, ../sass/_dropzone.scss */
+/* line 379, ../sass/_main.scss */
 .dropzone .dz-message {
   text-align: center;
   margin: 1.5em 0;
 }
+
 /* line 125, ../sass/_dropzone.scss */
+/* line 384, ../sass/_main.scss */
 .dropzone .dz-preview {
   position: relative;
   display: inline-block;
@@ -261,30 +427,42 @@ hr {
   margin: 16px;
   min-height: 100px;
 }
+
 /* line 134, ../sass/_dropzone.scss */
+/* line 392, ../sass/_main.scss */
 .dropzone .dz-preview:hover {
   z-index: 1000;
 }
+
 /* line 137, ../sass/_dropzone.scss */
+/* line 396, ../sass/_main.scss */
 .dropzone .dz-preview:hover .dz-details {
   opacity: 1;
 }
+
 /* line 144, ../sass/_dropzone.scss */
+/* line 400, ../sass/_main.scss */
 .dropzone .dz-preview.dz-file-preview .dz-image {
   border-radius: 20px;
   background: #999;
   border: 1px solid #9bbdff;
   background: linear-gradient(to bottom, #d3e2ff, #b4ceff);
 }
+
 /* line 151, ../sass/_dropzone.scss */
+/* line 407, ../sass/_main.scss */
 .dropzone .dz-preview.dz-file-preview .dz-details {
   opacity: 1;
 }
+
 /* line 156, ../sass/_dropzone.scss */
+/* line 411, ../sass/_main.scss */
 .dropzone .dz-preview.dz-image-preview {
   background: white;
 }
+
 /* line 158, ../sass/_dropzone.scss */
+/* line 415, ../sass/_main.scss */
 .dropzone .dz-preview.dz-image-preview .dz-details {
   -webkit-transition: opacity 0.2s linear;
   -moz-transition: opacity 0.2s linear;
@@ -292,7 +470,9 @@ hr {
   -o-transition: opacity 0.2s linear;
   transition: opacity 0.2s linear;
 }
+
 /* line 163, ../sass/_dropzone.scss */
+/* line 423, ../sass/_main.scss */
 .dropzone .dz-preview .dz-remove {
   font-size: 14px;
   text-align: center;
@@ -300,15 +480,21 @@ hr {
   cursor: pointer;
   border: none;
 }
+
 /* line 169, ../sass/_dropzone.scss */
+/* line 431, ../sass/_main.scss */
 .dropzone .dz-preview .dz-remove:hover {
   text-decoration: underline;
 }
+
 /* line 174, ../sass/_dropzone.scss */
+/* line 435, ../sass/_main.scss */
 .dropzone .dz-preview:hover .dz-details {
   opacity: 1;
 }
+
 /* line 177, ../sass/_dropzone.scss */
+/* line 439, ../sass/_main.scss */
 .dropzone .dz-preview .dz-details {
   z-index: 20;
   position: absolute;
@@ -323,35 +509,49 @@ hr {
   color: rgba(0, 0, 0, 0.9);
   line-height: 150%;
 }
+
 /* line 199, ../sass/_dropzone.scss */
+/* line 454, ../sass/_main.scss */
 .dropzone .dz-preview .dz-details .dz-size {
   margin-bottom: 0.2em;
 }
+
 /* line 204, ../sass/_dropzone.scss */
+/* line 458, ../sass/_main.scss */
 .dropzone .dz-preview .dz-details .dz-filename {
   white-space: nowrap;
 }
+
 /* line 209, ../sass/_dropzone.scss */
+/* line 462, ../sass/_main.scss */
 .dropzone .dz-preview .dz-details .dz-filename:hover span {
   border: 1px solid rgba(200, 200, 200, 0.8);
   background-color: rgba(255, 255, 255, 0.8);
 }
+
 /* line 214, ../sass/_dropzone.scss */
+/* line 467, ../sass/_main.scss */
 .dropzone .dz-preview .dz-details .dz-filename:not(:hover) {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 /* line 215, ../sass/_dropzone.scss */
+/* line 472, ../sass/_main.scss */
 .dropzone .dz-preview .dz-details .dz-filename:not(:hover) span {
   border: 1px solid transparent;
 }
+
 /* line 225, ../sass/_dropzone.scss */
+/* line 476, ../sass/_main.scss */
 .dropzone .dz-preview .dz-details .dz-filename span, .dropzone .dz-preview .dz-details .dz-size span {
   background-color: rgba(255, 255, 255, 0.4);
   padding: 0 0.4em;
   border-radius: 3px;
 }
+
 /* line 237, ../sass/_dropzone.scss */
+/* line 482, ../sass/_main.scss */
 .dropzone .dz-preview:hover .dz-image img {
   -webkit-transform: scale(1.05, 1.05);
   -moz-transform: scale(1.05, 1.05);
@@ -361,7 +561,9 @@ hr {
   -webkit-filter: blur(8px);
   filter: blur(8px);
 }
+
 /* line 243, ../sass/_dropzone.scss */
+/* line 492, ../sass/_main.scss */
 .dropzone .dz-preview .dz-image {
   border-radius: 20px;
   overflow: hidden;
@@ -371,11 +573,15 @@ hr {
   display: block;
   z-index: 10;
 }
+
 /* line 252, ../sass/_dropzone.scss */
+/* line 502, ../sass/_main.scss */
 .dropzone .dz-preview .dz-image img {
   display: block;
 }
+
 /* line 259, ../sass/_dropzone.scss */
+/* line 506, ../sass/_main.scss */
 .dropzone .dz-preview.dz-success .dz-success-mark {
   -webkit-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
   -moz-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
@@ -383,7 +589,9 @@ hr {
   -o-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
   animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
 }
+
 /* line 264, ../sass/_dropzone.scss */
+/* line 514, ../sass/_main.scss */
 .dropzone .dz-preview.dz-error .dz-error-mark {
   opacity: 1;
   -webkit-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
@@ -392,7 +600,9 @@ hr {
   -o-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
   animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
 }
+
 /* line 271, ../sass/_dropzone.scss */
+/* line 523, ../sass/_main.scss */
 .dropzone .dz-preview .dz-success-mark, .dropzone .dz-preview .dz-error-mark {
   pointer-events: none;
   opacity: 0;
@@ -404,13 +614,17 @@ hr {
   margin-left: -27px;
   margin-top: -27px;
 }
+
 /* line 288, ../sass/_dropzone.scss */
+/* line 535, ../sass/_main.scss */
 .dropzone .dz-preview .dz-success-mark svg, .dropzone .dz-preview .dz-error-mark svg {
   display: block;
   width: 54px;
   height: 54px;
 }
+
 /* line 296, ../sass/_dropzone.scss */
+/* line 541, ../sass/_main.scss */
 .dropzone .dz-preview.dz-processing .dz-progress {
   opacity: 1;
   -webkit-transition: all 0.2s linear;
@@ -419,7 +633,9 @@ hr {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
+
 /* line 300, ../sass/_dropzone.scss */
+/* line 550, ../sass/_main.scss */
 .dropzone .dz-preview.dz-complete .dz-progress {
   opacity: 0;
   -webkit-transition: opacity 0.4s ease-in;
@@ -428,7 +644,9 @@ hr {
   -o-transition: opacity 0.4s ease-in;
   transition: opacity 0.4s ease-in;
 }
+
 /* line 306, ../sass/_dropzone.scss */
+/* line 559, ../sass/_main.scss */
 .dropzone .dz-preview:not(.dz-processing) .dz-progress {
   -webkit-animation: pulse 6s ease infinite;
   -moz-animation: pulse 6s ease infinite;
@@ -436,7 +654,9 @@ hr {
   -o-animation: pulse 6s ease infinite;
   animation: pulse 6s ease infinite;
 }
+
 /* line 310, ../sass/_dropzone.scss */
+/* line 567, ../sass/_main.scss */
 .dropzone .dz-preview .dz-progress {
   opacity: 1;
   z-index: 1000;
@@ -453,7 +673,9 @@ hr {
   border-radius: 8px;
   overflow: hidden;
 }
+
 /* line 335, ../sass/_dropzone.scss */
+/* line 584, ../sass/_main.scss */
 .dropzone .dz-preview .dz-progress .dz-upload {
   background: #333;
   background: linear-gradient(to bottom, #666666, #444444);
@@ -468,16 +690,22 @@ hr {
   -o-transition: width 300ms ease-in-out;
   transition: width 300ms ease-in-out;
 }
+
 /* line 349, ../sass/_dropzone.scss */
+/* line 599, ../sass/_main.scss */
 .dropzone .dz-preview.dz-error .dz-error-message {
   display: block;
 }
+
 /* line 352, ../sass/_dropzone.scss */
+/* line 603, ../sass/_main.scss */
 .dropzone .dz-preview.dz-error:hover .dz-error-message {
   opacity: 1;
   pointer-events: auto;
 }
+
 /* line 358, ../sass/_dropzone.scss */
+/* line 608, ../sass/_main.scss */
 .dropzone .dz-preview .dz-error-message {
   pointer-events: none;
   z-index: 1000;
@@ -500,7 +728,9 @@ hr {
   padding: 0.5em 1.2em;
   color: white;
 }
+
 /* line 380, ../sass/_dropzone.scss */
+/* line 631, ../sass/_main.scss */
 .dropzone .dz-preview .dz-error-message:after {
   content: '';
   position: absolute;
@@ -512,12 +742,15 @@ hr {
   border-right: 6px solid transparent;
   border-bottom: 6px solid #be2626;
 }
+
 /* line 394, ../sass/_dropzone.scss */
+/* line 643, ../sass/_main.scss */
 .dropzone .dz-size strong {
   font-weight: normal;
 }
 
 /* line 399, ../sass/_dropzone.scss */
+/* line 648, ../sass/_main.scss */
 .dropzone {
   border: 2px dashed #4f80d2;
   border-radius: 5px;
@@ -525,13 +758,17 @@ hr {
   width: 90%;
   margin: 10px auto 20px auto;
 }
+
 /* line 405, ../sass/_dropzone.scss */
+/* line 656, ../sass/_main.scss */
 .dropzone .dz-message {
   font-weight: 400;
   font-size: 1.4em;
   color: #aaa;
 }
+
 /* line 409, ../sass/_dropzone.scss */
+/* line 662, ../sass/_main.scss */
 .dropzone .dz-message .note {
   font-size: 0.8em;
   font-weight: 200;
@@ -539,7 +776,9 @@ hr {
   width: 80%;
   margin-top: 1.4rem;
 }
+
 /* line 415, ../sass/_dropzone.scss */
+/* line 670, ../sass/_main.scss */
 .dropzone .dz-message .note .feature_list {
   margin-top: 10px;
   font-weight: normal;
@@ -548,222 +787,23 @@ hr {
   border: none;
   font-size: 0.9em;
 }
+
 /* line 422, ../sass/_dropzone.scss */
+/* line 679, ../sass/_main.scss */
 .dropzone .dz-message .note .feature_list .feature {
   width: 80%;
   float: left;
 }
+
 /* line 425, ../sass/_dropzone.scss */
+/* line 684, ../sass/_main.scss */
 .dropzone .dz-message .note .feature_list .feature .feature_text {
   float: left;
   color: #aaa;
 }
+
 /* line 433, ../sass/_dropzone.scss */
+/* line 689, ../sass/_main.scss */
 .dropzone .fa {
   color: #999;
-}
-
-.likes_comments {
-  margin-left: 7%;
-  margin-right: 7%;
-}
-/* line 202, ../sass/_main.scss */
-.likes_comments form {
-  margin-left: 4%;
-  margin-right: 4%;
-  padding-top: 10px;
-}
-/* line 207, ../sass/_main.scss */
-.likes_comments form .form-group #add_comment_submit, .likes_comments form #disabled_submit {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #117e47;
-  outline: 0;
-}
-/* line 215, ../sass/_main.scss */
-.likes_comments form .form-group #add_comment_submit:hover, .likes_comments form #disabled_submit:hover {
-  background-color: #0b512e;
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
-}
-
-/* line 229, ../sass/_main.scss */
-#disabled_submit {
-  width: 73px;
-}
-
-/* line 236, ../sass/_main.scss */
-.modal-mask button {
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
-  border-radius: 12px;
-}
-
-/* line 241, ../sass/_main.scss */
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity .3s ease;
-}
-
-/* line 253, ../sass/_main.scss */
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-/* line 258, ../sass/_main.scss */
-.modal-container {
-  width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all .3s ease;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-/* line 269, ../sass/_main.scss */
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
-}
-
-/* line 274, ../sass/_main.scss */
-.modal-body {
-  margin: 20px 0;
-}
-
-/* line 278, ../sass/_main.scss */
-.modal-default-button {
-  float: right;
-}
-
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
-/* line 291, ../sass/_main.scss */
-.modal-enter {
-  opacity: 0;
-}
-
-/* line 295, ../sass/_main.scss */
-.modal-leave-active {
-  opacity: 0;
-}
-
-/* line 299, ../sass/_main.scss */
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-/* line 349, ../sass/_main.scss */
-[id='toggle-heart'] {
-  position: absolute;
-  left: -100vw;
-}
-/* line 353, ../sass/_main.scss */
-[id='toggle-heart']:checked + label {
-  color: #e2264d;
-  filter: none;
-  will-change: font-size;
-  animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
-}
-/* line 359, ../sass/_main.scss */
-[id='toggle-heart']:checked + label:before, [id='toggle-heart']:checked + label:after {
-  animation: inherit;
-  animation-timing-function: ease-out;
-}
-/* line 364, ../sass/_main.scss */
-[id='toggle-heart']:checked + label:before {
-  will-change: transform, border-width, border-color;
-  animation-name: bubble;
-}
-/* line 369, ../sass/_main.scss */
-[id='toggle-heart']:checked + label:after {
-  will-change: opacity, box-shadow;
-  animation-name: sparkles;
-}
-/* line 375, ../sass/_main.scss */
-[id='toggle-heart']:focus + label {
-  text-shadow: 0 0 3px white, 0 1px 1px white, 0 -1px 1px white, 1px 0 1px white, -1px 0 1px white;
-}
-
-/* line 382, ../sass/_main.scss */
-[for='toggle-heart'] {
-  align-self: center;
-  position: relative;
-  color: #888;
-  font-size: 2em;
-  filter: grayscale(1);
-  user-select: none;
-  cursor: pointer;
-}
-/* line 391, ../sass/_main.scss */
-[for='toggle-heart']:before, [for='toggle-heart']:after {
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  content: '';
-}
-/* line 399, ../sass/_main.scss */
-[for='toggle-heart']:before {
-  box-sizing: border-box;
-  margin: -2.25rem;
-  border: solid 2.25rem #e2264d;
-  width: 4.5rem;
-  height: 4.5rem;
-  transform: scale(0);
-}
-/* line 407, ../sass/_main.scss */
-[for='toggle-heart']:after {
-  margin: -0.1875rem;
-  width: 0.375rem;
-  height: 0.375rem;
-  box-shadow: 0.32476rem -3rem 0 -0.1875rem #ff8080, -0.32476rem -2.625rem 0 -0.1875rem #ffed80, 2.54798rem -1.61656rem 0 -0.1875rem #ffed80, 1.84982rem -1.89057rem 0 -0.1875rem #a4ff80, 2.85252rem 0.98418rem 0 -0.1875rem #a4ff80, 2.63145rem 0.2675rem 0 -0.1875rem #80ffc8, 1.00905rem 2.84381rem 0 -0.1875rem #80ffc8, 1.43154rem 2.22414rem 0 -0.1875rem #80c8ff, -1.59425rem 2.562rem 0 -0.1875rem #80c8ff, -0.84635rem 2.50595rem 0 -0.1875rem #a480ff, -2.99705rem 0.35095rem 0 -0.1875rem #a480ff, -2.48692rem 0.90073rem 0 -0.1875rem #ff80ed, -2.14301rem -2.12438rem 0 -0.1875rem #ff80ed, -2.25479rem -1.38275rem 0 -0.1875rem #ff8080;
-}
-
-@keyframes heart {
-  0%, 17.5% {
-    font-size: 0;
-  }
-}
-@keyframes bubble {
-  15% {
-    transform: scale(1);
-    border-color: #cc8ef5;
-    border-width: 2.25rem;
-  }
-  30%, 100% {
-    transform: scale(1);
-    border-color: #cc8ef5;
-    border-width: 0;
-  }
-}
-@keyframes sparkles {
-  0%, 20% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-    box-shadow: 0.32476rem -2.4375rem 0 0rem #ff8080, -0.32476rem -2.0625rem 0 0rem #ffed80, 2.1082rem -1.26585rem 0 0rem #ffed80, 1.41004rem -1.53985rem 0 0rem #a4ff80, 2.30412rem 0.85901rem 0 0rem #a4ff80, 2.08305rem 0.14233rem 0 0rem #80ffc8, 0.76499rem 2.33702rem 0 0rem #80ffc8, 1.18748rem 1.71734rem 0 0rem #80c8ff, -1.35019rem 2.0552rem 0 0rem #80c8ff, -0.60229rem 1.99916rem 0 0rem #a480ff, -2.44865rem 0.22578rem 0 0rem #a480ff, -1.93852rem 0.77557rem 0 0rem #ff80ed, -1.70323rem -1.77366rem 0 0rem #ff80ed, -1.81501rem -1.03204rem 0 0rem #ff8080;
-  }
 }
