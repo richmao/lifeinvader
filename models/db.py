@@ -84,9 +84,9 @@ db.define_table(
           writable=False, readable=False, default=''),
     Field('bio', 'text', default="I have not made a bio yet!"),
     # We follow
-    Field('follow_list', 'list:string', readable=True, default = []),
+    Field('follow_list', 'list:string', readable=True, default = ['0']),
     # They follow us
-    Field('audience_list', 'list:string', default = []),
+    Field('audience_list', 'list:string', default = ['0']),
 )
 
 

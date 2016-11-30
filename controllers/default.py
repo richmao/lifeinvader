@@ -8,8 +8,10 @@ def index():
     """
     images = []
     comments = []
+    followers = []
     if auth.user_id:
-        followers = db(db.auth_user.username == auth.user.username).select(db.auth_user.follow_list).first().follow_list
+        if hasattr(db(db.auth_user.username == auth.user.username).select(db.auth_user.follow_list).first(), 'follow_list'):
+            followers = db(db.auth_user.username == auth.user.username).select(db.auth_user.follow_list).first().follow_list
         images = db((db.image.author.belongs(followers)) | (db.image.author == auth.user.username)).select(db.image.ALL, orderby=~db.image.posted_on,limitby=(0, 20))
 
         comments = db().select(db.image_comment.ALL)
