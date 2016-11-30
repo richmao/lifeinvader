@@ -43,9 +43,44 @@
           var toggle_like_url = "{{=URL('api', 'toggle_like', user_signature=False)}}";
           var add_comment_url = "{{=URL('api', 'add_comment', user_signature=True)}}";
           var get_comments_url = "{{=URL('api', 'get_comments', user_signature=False)}}";
+          var del_image_url = "{{=URL('api', 'del_image', user_signature=True)}}";
+          var del_comment_url = "{{=URL('api', 'del_comment', user_signature=True)}}";
           console.log("Current user is " + current_user);
       </script>
 
+      <!-- template for the modal component -->
+        <script type="text/x-template" id="modal-template">
+          <transition name="modal">
+            <div class="modal-mask">
+              <div class="modal-wrapper">
+                <div class="modal-container">
+
+                  <div class="modal-header">
+                    <slot name="header">
+                      default header
+                    </slot>
+                  </div>
+
+                  <div class="modal-body">
+                    <slot name="body">
+                      <p>There's nothing here :(</p>
+                      <p>Go make some friends.</p>
+                    </slot>
+                  </div>
+
+                  <div class="modal-footer">
+                    <slot name="footer">
+                      <!--default footer-->
+                      <button class="modal-default-button btn btn-danger" @click="$emit('close')">
+                        Close
+                      </button>
+                    </slot>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </script>
 
     <!-- Favicons -->
     {{include 'web2py_ajax.html'}} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->

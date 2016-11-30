@@ -11,9 +11,8 @@ def index():
     if auth.user_id:
         followers = db(db.auth_user.username == auth.user.username).select(db.auth_user.follow_list).first().follow_list
         images = db((db.image.author.belongs(followers)) | (db.image.author == auth.user.username)).select(db.image.ALL,
-                                                                                                           orderby=~db.image.posted_on,
-                                                                                                           limitby=(
-                                                                                                           0, 20))
+                 orderby=~db.image.posted_on,limitby=(0, 20))
+
         comments = db().select(db.image_comment.ALL)
     return dict(get_username_from_email=get_username_from_email, get_firstname_from_email=get_firstname_from_email,
                 images=images, comments=comments)
@@ -94,12 +93,15 @@ def profile():
     images = db(query).select(orderby=~db.image.posted_on, limitby=(0, 20))
     user_profile = db(db.auth_user.username == user).select().first()
 
+    audience_list = db(db.auth_user.username == user).select().first().audience_list
+    follow_list = db(db.auth_user.username == user).select().first().follow_list
     audience_count = len(db(db.auth_user.username == user).select().first().audience_list)
     follower_count = len(db(db.auth_user.username == user).select().first().follow_list)
 
     return dict(get_firstname_from_email=get_firstname_from_email,
                 images=images, user=user, bio=bio, user_profile = user_profile,
-                audience_count=audience_count, follower_count = follower_count)
+                audience_count=audience_count, follower_count = follower_count,
+                audience_list = audience_list, follow_list = follow_list)
 
 @auth.requires_login()
 def upload():

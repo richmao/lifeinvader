@@ -20,7 +20,7 @@
                 <a href="{{=URL('default','edit_profile')}}"><span class="content"><b>Edit Profile</b></span></a>
               </span>
         {{pass}}
-                <img class="profile_pic img-responsive img-thumbnail img-circle" src="{{=URL('default', 'download', args=user_profile.pp)}}">
+        <img class="profile_pic img-responsive img-thumbnail img-circle" src="{{=URL('default', 'download', args=user_profile.pp)}}">
         </section>
     </div>
     <div>
@@ -28,13 +28,14 @@
     </div>
 
     <div id="follow" v-if="!my_profile()">
-            <button class="button button2" v-if="is_following" v-on:click="toggle_follow(); follower_count -= 1;">Following</button>
-            <button class="button button1" v-if="!is_following" v-on:click="toggle_follow(); follower_count += 1;">Follow</button>
+        <button class="button button2" v-if="is_following" v-on:click="toggle_follow(); follower_count -= 1;">Following</button>
+        <button class="button button1" v-if="!is_following" v-on:click="toggle_follow(); follower_count += 1;">Follow</button>
     </div>
 
     <div style="float: right">
-        <div><p id="header3">${follower_count}<br>Followers</p></div>
-        <div><p id="header3">{{=follower_count}}<br>Following</p></div>
+        <a v-if="follower_count == 1" href="#/" @click="show_followers = true"><p id="header3">${follower_count}<br>Follower</p></a>
+        <a v-if="follower_count != 1" href="#/" @click="show_followers = true"><p id="header3">${follower_count}<br>Followers</p></a>
+        <a href="#/" @click="show_following = true"><p id="header3">{{=follower_count}}<br>Following</p></a>
     </div>
 
 
@@ -45,6 +46,22 @@
 </div>
 
 <hr>
+
+<!-- Had to put the follower/following modal stuff here to break out of the css -->
+<modal v-if="show_followers" @close="show_followers = false">
+    <h2 slot="header">Followers: </h2>
+    {{for follower in audience_list:}}
+        <p slot="body"><a href="{{=URL('default', 'profile', args=follower)}}">{{=follower}}</a></p>
+    {{pass}}
+</modal>
+<modal v-if="show_following" @close="show_following = false">
+    <h2 slot="header">Following: </h2>
+    {{for follower in follow_list:}}
+    <p slot="body"><a href="{{=URL('default', 'profile', args=follower)}}">{{=follower}}</a></p>
+{{pass}}
+</modal>
+
+
 
 {{for image in images:}}
     <div class="row">
@@ -60,6 +77,9 @@
                 {{=len(image.like_list)}}
                 {{if len(image.like_list) != 1:}} likes
                 {{else:}} like{{pass}}
+                {{if auth.user.username == image.author:}}
+                    <a v-on:click="del_image({{=image.id}})" href="#/" class="pull-right"><i class="fa fa-trash-o"></i> Delete</a>
+                {{pass}}
                 <br/>
                 <a v-on:click="add_comment_button({{=image.id}})" href="#/"><i class="fa fa-comment-o"></i> Add Comment</a>
                 <br />
@@ -73,14 +93,16 @@
                     </div>
                     <div class="form-group" id="submit_record__row">
                         <div>
-                            <input class="btn btn-primary" id="add_comment_submit" type="submit" value="Submit" />
+                            <input v-if="form_comment_content" class="btn btn-primary" id="add_comment_submit" v-on:click="add_comment_button({{=image.id}})" type="submit" value="Submit" />
+                            <input v-if="!form_comment_content" class="btn btn-primary disabled" id="disabled_submit"  value="Submit" />
                         </div>
                     </div>
                     </form>
                 </div>
                 <b><a href="{{=URL('profile',args=(image.author))}}">{{=image.author}}</a></b>: {{=image.caption}}
                 <div v-for="comment in comments" v-if="comment.image_id == {{=image.id}}">
-                    <b><a href="#" v-on:click="goto_profile(comment.commenter)">${comment.commenter}</a></b>: ${comment.comment_content}
+                    <b><a  href="#" v-on:click="goto_profile(comment.commenter)">${comment.commenter}</a></b>: ${comment.comment_content}
+                    <a v-on:click="del_comment(comment.id)" href="#/" v-if="own_comment(comment.commenter)" class="pull-right"><i class="fa fa-trash-o"></i></a>
                 </div>
             </div>
         </div>
